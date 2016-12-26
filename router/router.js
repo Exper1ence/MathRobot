@@ -28,7 +28,9 @@ module.exports = {
         });
     },
     start(port){
-        app.use(router);
+        app.use((req,res)=>{
+            res.send({asd:1})
+        });
         app.listen(port, () => {
             console.log(`server is listening at ${port}.`);
         });
