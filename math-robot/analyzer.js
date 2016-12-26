@@ -1,7 +1,7 @@
 /**
  * Created by Exper1ence on 2016/12/26.
  */
-const algorithm = require('./algorithm');
+const algorithm = require('./algorithms/index');
 
 module.exports = (topic, res, next) => {
     const answers = {};

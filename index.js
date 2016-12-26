@@ -4,6 +4,6 @@
 
 const router = require('./router');
 
-require('./bin/math-robot')(router);
+require('./math-robot')(router);
 
 router.start(process.env.PORT || 3000);
