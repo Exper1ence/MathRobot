@@ -4,7 +4,7 @@
 const fs = require('fs');
 
 process.on('uncaughtException', (err) => {
-    fs.writeSync(1, `Caught exception: ${err}`);
+    fs.writeSync(1, `Caught : ${err}`);
 });
 const router = require('./router');
 
