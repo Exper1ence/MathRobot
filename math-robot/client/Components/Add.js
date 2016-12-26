@@ -2,6 +2,8 @@
  * Created by Exper1ence on 2016/12/26.
  */
 import React, {Component} from 'react';
+import Button from './Button';
+
 
 export default class Add extends Component {
     constructor(props) {
@@ -13,9 +15,9 @@ export default class Add extends Component {
     
     render() {
         return (
-            <div>
-                  
-            </div>
+            <Button secondary>
+                添加
+            </Button>
         );
     }
 }

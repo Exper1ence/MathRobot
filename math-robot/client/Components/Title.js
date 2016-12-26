@@ -3,6 +3,7 @@
  */
 import React, {Component} from 'react';
 import Line from './Line';
+import Container from './Container';
 
 
 export default class Title extends Component {
@@ -13,13 +14,13 @@ export default class Title extends Component {
     
     render() {
         return (
-            <div style={{
+            <Container style={{
                 fontSize: '50px',
-                color: 'deepskyblue',
+                color: '#373a3c',
             }}>
                 {this.props.name}
                 <Line/>
-            </div>
+            </Container>
         );
     }
 }
