@@ -11,22 +11,26 @@ import {removeCondition} from './actions';
 import {connect} from 'react-redux';
 import Requirement from './Requirement';
 import InputRealNumber from './InputRealNumber';
+import Button from './Button';
+import Div from './Div';
+import Caption from './Caption';
+import Fill from './Fill';
 
-const InverseNumber = ({name, dispatch, datas}) => {
+const InverseNumber = ({name, datas}) => {
     const data = datas[datas.findIndex(data => data.name == name)];
     return (
-        <Condition style={{position: 'relative'}}>
-            <Close onClick={() => dispatch(removeCondition({target: name}))}/>
-            <Item>
-                {name}
-            </Item>
-            <Item>
-                排列：{data.requirement.length ? <Requirement name={data.requirement[0]} target={name}/> :
-                <ShowConnectConditionModal ignoreName={name} allowType={['Arrangement']}/>}
-            </Item>
-            <Item>
-                值：<InputRealNumber/>
-            </Item>
+        <Condition name={name}>
+            <Div>
+                <Caption>排列：</Caption>
+                {data.requirement.length ? <Requirement name={data.requirement[0]} target={name}/> :
+                    <ShowConnectConditionModal ignoreName={name} allowType={['Arrangement']}/>}
+            </Div>
+            <Div>
+                <Caption>值：</Caption>
+                <Button warning>
+                    未知
+                </Button>
+            </Div>
         </Condition>
     );
 };

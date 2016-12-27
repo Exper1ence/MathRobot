@@ -17,7 +17,6 @@ const Question = ({name, dispatch}) => (
         border: '1px solid #ccc',
         alignItems: 'center',
         position: 'relative',
-        marginRight: '5px',
     }}>
         <Close onClick={() => dispatch(removeQuestion({name,}))}/>
         {name}

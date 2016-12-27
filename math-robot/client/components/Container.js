@@ -2,15 +2,15 @@
  * Created by Exper1ence on 2016/12/27.
  */
 import React, {PropTypes} from 'react'
-//sdfasdad
+import Vid from './Vid';
+
 const Container = ({style, children}) => (
-    <div
+    <Vid
         style={Object.assign({
-            width: '100%', margin: '5px',
-            alignItems:'center',
+            width: '100%',
         }, style)}>
         {children}
-    </div>
+    </Vid>
 );
 
 Container.propTypes = {};

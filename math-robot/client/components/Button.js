@@ -29,7 +29,6 @@ const Button = ({style, children, onClick, primary, secondary, success, info, wa
                 return '#fff';
             })(),
             fontSize: '1rem',
-            marginRight:'5px',
         }, style)}
         onClick={onClick}>
         {children}

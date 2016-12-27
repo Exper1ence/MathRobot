@@ -11,26 +11,23 @@ import AddQuestionModal from './AddQuestionModal';
 import Question from './Question';
 import Submit from './Submit';
 import AnswerModal from './AnswerModal';
-
+import Vid from './Vid';
+import Div from './Div';
+import Fill from './Fill';
 
 const Questions = ({questions}) => {
     const qElems = questions.map((q, i) => (
-        <Question name={q} key={i}/>
+        <Div key={i}><Question name={q}/></Div>
     ));
     return (
         <Container style={{marginTop: '3rem'}}>
             <Title name="求解"/>
-            <Container>
-                <Container>
-                    {qElems}
-                </Container>
-                <Container>
-                    <ShowAddQuestionModal/>
-                    <Submit/>
-                </Container>
-                <AddQuestionModal/>
-                <AnswerModal/>
-            </Container>
+            <Div/>
+            <Fill width>{qElems}</Fill>
+            <Div><ShowAddQuestionModal/></Div>
+            <Div><Submit/></Div>
+            <AddQuestionModal/>
+            <AnswerModal/>
         </Container>
     )
 };

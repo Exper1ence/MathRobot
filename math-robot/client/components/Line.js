@@ -5,12 +5,13 @@ import Container from './Container';
 import React, {PropTypes} from 'react'
 
 const Line = ({}) => (
-    <Container
+    <div
         style={{
+            width: '100%',
             border: '1px solid #ccc'
         }}>
     
-    </Container>
+    </div>
 );
 
 Line.propTypes = {};

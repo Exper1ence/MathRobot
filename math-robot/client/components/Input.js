@@ -11,6 +11,7 @@ const Input = ({onChange}) => (
             padding: '0 .5rem',
             backgroundColor: '#fff',
             border: '1px solid #ccc',
+            marginTop: '10px',
         }} onChange={onChange}>
     
     </input>

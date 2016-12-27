@@ -3,11 +3,10 @@
  */
 import React, {PropTypes} from 'react'
 
-const Item = ({children}) => (
-    <div style={{
+const Item = ({children, style}) => (
+    <div style={Object.assign({
         alignItems: 'center',
-        flexGrow: 1,
-    }}>
+    }, style)}>
         {children}
     </div>
 );

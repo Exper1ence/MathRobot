@@ -9,6 +9,7 @@ import {
 import InverseNumber from '../InverseNumber';
 import Arrangement from '../Arrangement';
 import _ from 'lodash';
+import Div from '../Div';
 
 function getCondition(condition, key) {
     let element, data;
@@ -16,11 +17,11 @@ function getCondition(condition, key) {
     switch (condition) {
         case 'InverseNumber':
             data = {name: '逆序数 ' + alpha, type: 'InverseNumber'};
-            element = <InverseNumber key={key} name={data.name}/>;
+            element = <Div key={key}><InverseNumber name={data.name}/></Div>;
             break;
         case 'Arrangement':
             data = {name: '排列 ' + alpha, type: 'Arrangement'};
-            element = <Arrangement key={key} name={data.name}/>;
+            element = <Div key={key}><Arrangement name={data.name}/></Div>;
             break;
         default:
             break;

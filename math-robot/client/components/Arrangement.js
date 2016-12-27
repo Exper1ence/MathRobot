@@ -8,17 +8,16 @@ import Add from './Add';
 import InputString from './InputString';
 import {setValue} from './actions';
 import {connect} from 'react-redux';
+import Div from './Div';
+import Caption from './Caption';
+import Button from './Button';
 
 const Arrangement = ({name, dispatch}) => (
-    <Condition>
-        <Item>
-            {name}
-        </Item>
-        <Item>
-            值：<InputString onInput={(value) => {
-            dispatch(setValue({target: name, value,}));
-        }}/>
-        </Item>
+    <Condition name={name}>
+        <Div>
+            <Caption>值：</Caption>
+            <InputString/>
+        </Div>
     </Condition>
 );
 
