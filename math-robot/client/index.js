@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Add,Condition,Container} from './Components';
+import {Add,Conditions} from './components';
 
 class MathRobot extends Component {
     render() {
@@ -12,7 +12,7 @@ class MathRobot extends Component {
                 width:'1024px',
                 margin:'auto',
             }}>
-                <Condition></Condition>
+                <Conditions></Conditions>
             </div>
         )
     }
