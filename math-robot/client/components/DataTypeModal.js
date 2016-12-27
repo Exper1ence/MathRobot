@@ -2,15 +2,12 @@
  * Created by Exper1ence on 2016/12/26.
  */
 import Modal from './Modal';
-import React, {PropTypes} from 'react'
+import React, {PropTypes} from 'react';
+import {connect} from 'react-redux';
+function mapStateToProps(state) {
+    return {
+        display: state.modal == 'DataType' ? 'flex' : 'none',
+    }
+}
 
-const DataTypeModal = ({}) => (
-    <Board
-        style={{}}>
-        {"datatype modal"}
-    </Board>
-);
-
-DataTypeModal.propTypes = {};
-
-export default DataTypeModal;
+export default connect(mapStateToProps)(Modal);
