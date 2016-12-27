@@ -6,5 +6,6 @@ import modal from './modal';
 import curtain from './curtain';
 import conditions from './conditions';
 import questions from './questions';
+import answers from './answers';
 
-export default createStore(combineReducers({modal, curtain, conditions,questions,}));
+export default createStore(combineReducers({answers, modal, curtain, conditions, questions,}));

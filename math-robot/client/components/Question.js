@@ -3,7 +3,7 @@
  */
 import React, {PropTypes} from 'react'
 import Button from './Button';
-import {addCondition, hideModal, hideCurtain} from './actions';
+import {removeQuestion} from './actions';
 import {connect} from 'react-redux';
 import Close from './Close';
 import {removeRequirement} from './actions';
@@ -17,9 +17,9 @@ const Question = ({name, dispatch}) => (
         border: '1px solid #ccc',
         alignItems: 'center',
         position: 'relative',
-        marginRight:'5px',
+        marginRight: '5px',
     }}>
-        <Close onClick={() => {}}/>
+        <Close onClick={() => dispatch(removeQuestion({name,}))}/>
         {name}
     </div>
 );

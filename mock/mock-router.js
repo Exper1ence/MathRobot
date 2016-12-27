@@ -5,7 +5,19 @@
 const cbs = [];
 let res = {
     send(msg){
-        console.log(msg);
+        console.log({
+            conditions: {
+                a: {
+                    type: 'inverse-number',
+                    arrangement: 'b',
+                },
+                b: {
+                    type: 'arrangement',
+                    value: '41532'
+                }
+            },
+            questions: ['a']
+        });
     }
 };
 

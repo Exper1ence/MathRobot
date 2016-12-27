@@ -9,13 +9,16 @@ import _ from 'lodash';
 import ShowAddQuestionModal from './ShowAddQuestionModal';
 import AddQuestionModal from './AddQuestionModal';
 import Question from './Question';
+import Submit from './Submit';
+import AnswerModal from './AnswerModal';
+
 
 const Questions = ({questions}) => {
-    const qElems = questions.map((q,i) => (
+    const qElems = questions.map((q, i) => (
         <Question name={q} key={i}/>
     ));
     return (
-        <Container style={{marginTop: '4rem'}}>
+        <Container style={{marginTop: '3rem'}}>
             <Title name="求解"/>
             <Container>
                 <Container>
@@ -23,8 +26,10 @@ const Questions = ({questions}) => {
                 </Container>
                 <Container>
                     <ShowAddQuestionModal/>
+                    <Submit/>
                 </Container>
                 <AddQuestionModal/>
+                <AnswerModal/>
             </Container>
         </Container>
     )

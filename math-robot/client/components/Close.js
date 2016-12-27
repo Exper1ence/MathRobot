@@ -10,6 +10,7 @@ const Close = ({dispatch, onClick}) => (
             top: '0px',
             right: '5px',
             cursor: 'pointer',
+            color:'#d9534f'
         }}
         onClick={onClick}>
         x

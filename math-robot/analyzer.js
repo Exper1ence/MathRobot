@@ -4,19 +4,11 @@
 const algorithm = require('./algorithms/index');
 
 module.exports = (topic, res, next) => {
-    const answers = {};
+    const answers = [];
     for (let i = 0; i < topic.questions.length; i++) {
         const q = topic.questions[i];
         const resolver = algorithm[topic.conditions[q].type];
-        if (resolver) {
-            const answer = resolver.resolve(topic, q);
-            if (answer.done) {
-                answers[q] = answer;
-            }
-        }
-        else {
-            return next();
-        }
+        answers.push(resolver.resolve(topic, q));
     }
-    res.send({done: true, answers});
+    res.send(answers);
 };

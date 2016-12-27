@@ -60,11 +60,11 @@
 
 	var _reactRedux = __webpack_require__(188);
 
-	var _store = __webpack_require__(238);
+	var _store = __webpack_require__(244);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _Questions = __webpack_require__(255);
+	var _Questions = __webpack_require__(258);
 
 	var _Questions2 = _interopRequireDefault(_Questions);
 
@@ -21553,7 +21553,7 @@
 
 	var _Container2 = _interopRequireDefault(_Container);
 
-	var _Curtain = __webpack_require__(237);
+	var _Curtain = __webpack_require__(243);
 
 	var _Curtain2 = _interopRequireDefault(_Curtain);
 
@@ -21656,7 +21656,8 @@
 	                    if (secondary) return '#373a3c';
 	                    return '#fff';
 	                }(),
-	                fontSize: '1rem'
+	                fontSize: '1rem',
+	                marginRight: '5px'
 	            }, style),
 	            onClick: onClick },
 	        children
@@ -21696,17 +21697,17 @@
 
 	var _AddConditionModal2 = _interopRequireDefault(_AddConditionModal);
 
-	var _ShowAddConditionModal = __webpack_require__(235);
+	var _ShowAddConditionModal = __webpack_require__(240);
 
 	var _ShowAddConditionModal2 = _interopRequireDefault(_ShowAddConditionModal);
 
 	var _reactRedux = __webpack_require__(188);
 
-	var _ConnectConditionModal = __webpack_require__(236);
+	var _ConnectConditionModal = __webpack_require__(241);
 
 	var _ConnectConditionModal2 = _interopRequireDefault(_ConnectConditionModal);
 
-	var _lodash = __webpack_require__(247);
+	var _lodash = __webpack_require__(242);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -21886,11 +21887,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _AddInverseNumber = __webpack_require__(233);
+	var _AddInverseNumber = __webpack_require__(238);
 
 	var _AddInverseNumber2 = _interopRequireDefault(_AddInverseNumber);
 
-	var _AddArrangement = __webpack_require__(234);
+	var _AddArrangement = __webpack_require__(239);
 
 	var _AddArrangement2 = _interopRequireDefault(_AddArrangement);
 
@@ -22056,7 +22057,8 @@
 	                position: 'absolute',
 	                top: '0px',
 	                right: '5px',
-	                cursor: 'pointer'
+	                cursor: 'pointer',
+	                color: '#d9534f'
 	            },
 	            onClick: onClick },
 	        'x'
@@ -24302,7 +24304,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.ADD_QUESTION = exports.addQuestion = exports.SET_VALUE = exports.setValue = exports.REMOVE_REQUIREMENT = exports.removeRequirement = exports.ADD_REQUIREMENT = exports.addRequirement = exports.REMOVE_CONDITION = exports.removeCondition = exports.ADD_CONDITION = exports.addCondition = exports.HIDE_CURTAIN = exports.SHOW_CURTAIN = exports.SHOW_MODAL = exports.HIDE_MODAL = exports.hideCurtain = exports.showCurtain = exports.hideModal = exports.showModal = undefined;
+	exports.UPDATE_ANSWERS = exports.updateAnswers = exports.REMOVE_QUESTION = exports.removeQuestion = exports.ADD_QUESTION = exports.addQuestion = exports.SET_VALUE = exports.setValue = exports.REMOVE_REQUIREMENT = exports.removeRequirement = exports.ADD_REQUIREMENT = exports.addRequirement = exports.REMOVE_CONDITION = exports.removeCondition = exports.ADD_CONDITION = exports.addCondition = exports.HIDE_CURTAIN = exports.SHOW_CURTAIN = exports.SHOW_MODAL = exports.HIDE_MODAL = exports.hideCurtain = exports.showCurtain = exports.hideModal = exports.showModal = undefined;
 
 	var _showModal = __webpack_require__(227);
 
@@ -24326,13 +24328,17 @@
 
 	var _removeCondition = __webpack_require__(232);
 
-	var _addRequirement = __webpack_require__(248);
+	var _addRequirement = __webpack_require__(233);
 
-	var _removeRequirement = __webpack_require__(250);
+	var _removeRequirement = __webpack_require__(234);
 
-	var _setValue = __webpack_require__(254);
+	var _setValue = __webpack_require__(235);
 
-	var _addQuestion = __webpack_require__(256);
+	var _addQuestion = __webpack_require__(236);
+
+	var _removeQuestion = __webpack_require__(237);
+
+	var _updateAnswers = __webpack_require__(266);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24359,6 +24365,10 @@
 	exports.SET_VALUE = _setValue.SET_VALUE;
 	exports.addQuestion = _addQuestion.addQuestion;
 	exports.ADD_QUESTION = _addQuestion.ADD_QUESTION;
+	exports.removeQuestion = _removeQuestion.removeQuestion;
+	exports.REMOVE_QUESTION = _removeQuestion.REMOVE_QUESTION;
+	exports.updateAnswers = _updateAnswers.updateAnswers;
+	exports.UPDATE_ANSWERS = _updateAnswers.UPDATE_ANSWERS;
 
 /***/ },
 /* 227 */
@@ -24502,6 +24512,131 @@
 
 /***/ },
 /* 233 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.addRequirement = addRequirement;
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	var ADD_REQUIREMENT = exports.ADD_REQUIREMENT = 'ADD_REQUIREMENT';
+
+	function addRequirement(_ref) {
+	    var target = _ref.target,
+	        requirement = _ref.requirement;
+
+	    return {
+	        type: ADD_REQUIREMENT,
+	        target: target,
+	        requirement: requirement
+	    };
+	}
+
+/***/ },
+/* 234 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.removeRequirement = removeRequirement;
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	var REMOVE_REQUIREMENT = exports.REMOVE_REQUIREMENT = 'REMOVE_REQUIREMENT';
+
+	function removeRequirement(_ref) {
+	    var target = _ref.target,
+	        requirement = _ref.requirement;
+
+	    return {
+	        type: REMOVE_REQUIREMENT,
+	        target: target, requirement: requirement
+	    };
+	}
+
+/***/ },
+/* 235 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.setValue = setValue;
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	var SET_VALUE = exports.SET_VALUE = 'SET_VALUE';
+
+	function setValue(_ref) {
+	    var value = _ref.value,
+	        target = _ref.target;
+
+	    return {
+	        type: SET_VALUE,
+	        value: value,
+	        target: target
+	    };
+	}
+
+/***/ },
+/* 236 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.addQuestion = addQuestion;
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	var ADD_QUESTION = exports.ADD_QUESTION = 'ADD_QUESTION';
+
+	function addQuestion(_ref) {
+	    var name = _ref.name;
+
+	    return {
+	        type: ADD_QUESTION,
+	        name: name
+	    };
+	}
+
+/***/ },
+/* 237 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.removeQuestion = removeQuestion;
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	var REMOVE_QUESTION = exports.REMOVE_QUESTION = 'REMOVE_QUESTION';
+
+	function removeQuestion(_ref) {
+	    var name = _ref.name;
+
+	    return {
+	        type: REMOVE_QUESTION,
+	        name: name
+	    };
+	}
+
+/***/ },
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24545,7 +24680,7 @@
 	exports.default = (0, _reactRedux.connect)()(AddInverseNumber);
 
 /***/ },
-/* 234 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24589,7 +24724,7 @@
 	exports.default = (0, _reactRedux.connect)()(AddArrangement);
 
 /***/ },
-/* 235 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24635,7 +24770,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Add2.default);
 
 /***/ },
-/* 236 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24710,576 +24845,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ConnectConditionModal);
 
 /***/ },
-/* 237 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(188);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * Created by Exper1ence on 2016/12/27.
-	 */
-	var Curtain = function Curtain(_ref) {
-	    var display = _ref.display;
-	    return _react2.default.createElement('div', {
-	        style: {
-	            width: '100%',
-	            height: '100%',
-	            position: 'absolute',
-	            display: display,
-	            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-	            zIndex: 99
-	        } });
-	};
-
-	Curtain.propTypes = {};
-	function mapStateToProps(state) {
-	    return {
-	        display: state.curtain
-	    };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Curtain);
-
-/***/ },
-/* 238 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _redux = __webpack_require__(199);
-
-	var _modal = __webpack_require__(239);
-
-	var _modal2 = _interopRequireDefault(_modal);
-
-	var _curtain = __webpack_require__(240);
-
-	var _curtain2 = _interopRequireDefault(_curtain);
-
-	var _conditions = __webpack_require__(241);
-
-	var _conditions2 = _interopRequireDefault(_conditions);
-
-	var _questions = __webpack_require__(260);
-
-	var _questions2 = _interopRequireDefault(_questions);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = (0, _redux.createStore)((0, _redux.combineReducers)({ modal: _modal2.default, curtain: _curtain2.default, conditions: _conditions2.default, questions: _questions2.default })); /**
-	                                                                                                                                                                                                   * Created by Exper1ence on 2016/12/27.
-	                                                                                                                                                                                                   */
-
-/***/ },
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = modal;
-
-	var _actions = __webpack_require__(226);
-
-	function modal() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { selected: 'None', allowType: [], ignoreName: '' };
-	    var _ref = arguments[1];
-	    var type = _ref.type,
-	        selected = _ref.selected,
-	        allowType = _ref.allowType,
-	        ignoreName = _ref.ignoreName;
-
-	    switch (type) {
-	        case _actions.SHOW_MODAL:
-	            return { selected: selected, allowType: allowType, ignoreName: ignoreName };
-	        case _actions.HIDE_MODAL:
-	            return { selected: 'None' };
-	        default:
-	            return state;
-	    }
-	} /**
-	   * Created by Exper1ence on 2016/12/27.
-	   */
-
-/***/ },
-/* 240 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = modal;
-
-	var _actions = __webpack_require__(226);
-
-	function modal() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'None';
-	    var action = arguments[1];
-
-	    switch (action.type) {
-	        case _actions.SHOW_CURTAIN:
-	            return 'flex';
-	        case _actions.HIDE_CURTAIN:
-	            return 'None';
-	        default:
-	            return state;
-	    }
-	} /**
-	   * Created by Exper1ence on 2016/12/27.
-	   */
-
-/***/ },
-/* 241 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = conditions;
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _actions = __webpack_require__(226);
-
-	var _InverseNumber = __webpack_require__(242);
-
-	var _InverseNumber2 = _interopRequireDefault(_InverseNumber);
-
-	var _Arrangement = __webpack_require__(246);
-
-	var _Arrangement2 = _interopRequireDefault(_Arrangement);
-
-	var _lodash = __webpack_require__(247);
-
-	var _lodash2 = _interopRequireDefault(_lodash);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } /**
-	                                                                                                                                                                                                     * Created by Exper1ence on 2016/12/27.
-	                                                                                                                                                                                                     */
-
-
-	function getCondition(condition, key) {
-	    var element = void 0,
-	        data = void 0;
-	    var alpha = String.fromCharCode('A'.charCodeAt(0) + key);
-	    switch (condition) {
-	        case 'InverseNumber':
-	            data = { name: '逆序数 ' + alpha, type: 'InverseNumber' };
-	            element = _react2.default.createElement(_InverseNumber2.default, { key: key, name: data.name });
-	            break;
-	        case 'Arrangement':
-	            data = { name: '排列 ' + alpha, type: 'Arrangement' };
-	            element = _react2.default.createElement(_Arrangement2.default, { key: key, name: data.name });
-	            break;
-	        default:
-	            break;
-	    }
-	    data.requirement = [];
-	    return { element: element, data: data };
-	}
-
-	function conditions() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
-	        elements: [],
-	        datas: [],
-	        count: 0
-	    };
-	    var _ref = arguments[1];
-	    var condition = _ref.condition,
-	        type = _ref.type,
-	        requirement = _ref.requirement,
-	        target = _ref.target,
-	        value = _ref.value;
-
-	    switch (type) {
-	        case _actions.ADD_CONDITION:
-	            {
-	                if (state.count > 26) return state;
-
-	                var _getCondition = getCondition(condition, state.count++),
-	                    element = _getCondition.element,
-	                    data = _getCondition.data;
-
-	                return {
-	                    elements: [].concat(_toConsumableArray(state.elements), [element]),
-	                    datas: [].concat(_toConsumableArray(state.datas), [data]),
-	                    count: state.count
-	                };
-	            }
-	            break;
-	        case _actions.REMOVE_CONDITION:
-	            {
-	                var i = state.datas.findIndex(function (data) {
-	                    return target == data.name;
-	                });
-	                return {
-	                    elements: _lodash2.default.concat(state.elements.slice(0, i), state.elements.slice(i + 1)),
-	                    datas: _lodash2.default.concat(state.datas.slice(0, i), state.datas.slice(i + 1)),
-	                    count: state.count
-	                };
-	            }
-	        case _actions.ADD_REQUIREMENT:
-	            {
-	                var _i = state.datas.findIndex(function (data) {
-	                    return target == data.name;
-	                });
-	                var datas = [].concat(_toConsumableArray(state.datas));
-	                datas[_i].requirement.push(requirement);
-	                return {
-	                    elements: [].concat(_toConsumableArray(state.elements)),
-	                    datas: datas,
-	                    count: state.count
-	                };
-	            }
-	        case _actions.REMOVE_REQUIREMENT:
-	            {
-	                var _i2 = state.datas.findIndex(function (data) {
-	                    return target == data.name;
-	                });
-	                var _datas = [].concat(_toConsumableArray(state.datas));
-	                _datas[_i2].requirement = _lodash2.default.concat(_datas[_i2].requirement.slice(0, _i2), _datas[_i2].requirement.slice(_i2 + 1));
-	                return {
-	                    elements: [].concat(_toConsumableArray(state.elements)),
-	                    datas: _datas,
-	                    count: state.count
-	                };
-	            }
-	        case _actions.SET_VALUE:
-	            {
-	                var _i3 = state.datas.findIndex(function (data) {
-	                    return target == data.name;
-	                });
-	                var _datas2 = [].concat(_toConsumableArray(state.datas));
-	                _datas2[_i3].value = value;
-	                return {
-	                    elements: [].concat(_toConsumableArray(state.elements)),
-	                    datas: _datas2,
-	                    count: state.count
-	                };
-	            }
-	        default:
-	            return state;
-	            break;
-	    }
-	}
-
-/***/ },
 /* 242 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Item = __webpack_require__(243);
-
-	var _Item2 = _interopRequireDefault(_Item);
-
-	var _Add = __webpack_require__(179);
-
-	var _Add2 = _interopRequireDefault(_Add);
-
-	var _Condition = __webpack_require__(244);
-
-	var _Condition2 = _interopRequireDefault(_Condition);
-
-	var _ShowConnectConditionModal = __webpack_require__(245);
-
-	var _ShowConnectConditionModal2 = _interopRequireDefault(_ShowConnectConditionModal);
-
-	var _Close = __webpack_require__(187);
-
-	var _Close2 = _interopRequireDefault(_Close);
-
-	var _actions = __webpack_require__(226);
-
-	var _reactRedux = __webpack_require__(188);
-
-	var _Requirement = __webpack_require__(249);
-
-	var _Requirement2 = _interopRequireDefault(_Requirement);
-
-	var _InputRealNumber = __webpack_require__(251);
-
-	var _InputRealNumber2 = _interopRequireDefault(_InputRealNumber);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * Created by Exper1ence on 2016/12/27.
-	 */
-	var InverseNumber = function InverseNumber(_ref) {
-	    var name = _ref.name,
-	        dispatch = _ref.dispatch,
-	        datas = _ref.datas;
-
-	    var data = datas[datas.findIndex(function (data) {
-	        return data.name == name;
-	    })];
-	    return _react2.default.createElement(
-	        _Condition2.default,
-	        { style: { position: 'relative' } },
-	        _react2.default.createElement(_Close2.default, { onClick: function onClick() {
-	                return dispatch((0, _actions.removeCondition)({ target: name }));
-	            } }),
-	        _react2.default.createElement(
-	            _Item2.default,
-	            null,
-	            name
-	        ),
-	        _react2.default.createElement(
-	            _Item2.default,
-	            null,
-	            '\u6392\u5217\uFF1A',
-	            data.requirement.length ? _react2.default.createElement(_Requirement2.default, { name: data.requirement[0], target: name }) : _react2.default.createElement(_ShowConnectConditionModal2.default, { ignoreName: name, allowType: ['Arrangement'] })
-	        ),
-	        _react2.default.createElement(
-	            _Item2.default,
-	            null,
-	            '\u503C\uFF1A',
-	            _react2.default.createElement(_InputRealNumber2.default, null)
-	        )
-	    );
-	};
-
-	InverseNumber.propTypes = {};
-
-	function mapProps(state) {
-	    return {
-	        datas: state.conditions.datas
-	    };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapProps)(InverseNumber);
-
-/***/ },
-/* 243 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Item = function Item(_ref) {
-	    var children = _ref.children;
-	    return _react2.default.createElement(
-	        'div',
-	        { style: {
-	                alignItems: 'center',
-	                flexGrow: 1
-	            } },
-	        children
-	    );
-	}; /**
-	    * Created by Exper1ence on 2016/12/27.
-	    */
-
-
-	Item.propTypes = {};
-
-	exports.default = Item;
-
-/***/ },
-/* 244 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Container = __webpack_require__(184);
-
-	var _Container2 = _interopRequireDefault(_Container);
-
-	var _Item = __webpack_require__(243);
-
-	var _Item2 = _interopRequireDefault(_Item);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Condition = function Condition(_ref) {
-	    var children = _ref.children,
-	        style = _ref.style;
-	    return _react2.default.createElement(
-	        _Container2.default,
-	        {
-	            style: Object.assign({
-	                border: '1px solid #ccc',
-	                borderRadius: '.25rem',
-	                padding: '.5rem 1rem'
-	            }, style) },
-	        children
-	    );
-	}; /**
-	    * Created by Exper1ence on 2016/12/26.
-	    */
-
-
-	Condition.propTypes = {};
-
-	exports.default = Condition;
-
-/***/ },
-/* 245 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(188);
-
-	var _actions = __webpack_require__(226);
-
-	var _Add = __webpack_require__(179);
-
-	var _Add2 = _interopRequireDefault(_Add);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * Created by Exper1ence on 2016/12/27.
-	 */
-	function mapStateToProps(state) {
-	    return {
-	        state: state
-	    };
-	}
-
-	function mapDispatchToProps(dispatch, onwProps) {
-	    return {
-	        onClick: function onClick() {
-	            dispatch((0, _actions.showModal)({
-	                selected: 'ConnectCondition',
-	                allowType: onwProps.allowType || [],
-	                ignoreName: onwProps.ignoreName
-	            }));
-	            dispatch((0, _actions.showCurtain)());
-	        }
-	    };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Add2.default);
-
-/***/ },
-/* 246 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Condition = __webpack_require__(244);
-
-	var _Condition2 = _interopRequireDefault(_Condition);
-
-	var _Item = __webpack_require__(243);
-
-	var _Item2 = _interopRequireDefault(_Item);
-
-	var _Add = __webpack_require__(179);
-
-	var _Add2 = _interopRequireDefault(_Add);
-
-	var _InputString = __webpack_require__(253);
-
-	var _InputString2 = _interopRequireDefault(_InputString);
-
-	var _actions = __webpack_require__(226);
-
-	var _reactRedux = __webpack_require__(188);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Arrangement = function Arrangement(_ref) {
-	    var name = _ref.name,
-	        dispatch = _ref.dispatch;
-	    return _react2.default.createElement(
-	        _Condition2.default,
-	        null,
-	        _react2.default.createElement(
-	            _Item2.default,
-	            null,
-	            name
-	        ),
-	        _react2.default.createElement(
-	            _Item2.default,
-	            null,
-	            '\u503C\uFF1A',
-	            _react2.default.createElement(_InputString2.default, { onInput: function onInput(value) {
-	                    dispatch((0, _actions.setValue)({ target: name, value: value }));
-	                } })
-	        )
-	    );
-	}; /**
-	    * Created by Exper1ence on 2016/12/27.
-	    */
-
-
-	Arrangement.propTypes = {};
-
-	exports.default = (0, _reactRedux.connect)()(Arrangement);
-
-/***/ },
-/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -42370,33 +41936,516 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(213)(module)))
 
 /***/ },
-/* 248 */
-/***/ function(module, exports) {
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.addRequirement = addRequirement;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(188);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	/**
 	 * Created by Exper1ence on 2016/12/27.
 	 */
-	var ADD_REQUIREMENT = exports.ADD_REQUIREMENT = 'ADD_REQUIREMENT';
+	var Curtain = function Curtain(_ref) {
+	    var display = _ref.display;
+	    return _react2.default.createElement('div', {
+	        style: {
+	            width: '100%',
+	            height: '100%',
+	            position: 'absolute',
+	            display: display,
+	            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+	            zIndex: 99
+	        } });
+	};
 
-	function addRequirement(_ref) {
-	    var target = _ref.target,
-	        requirement = _ref.requirement;
-
+	Curtain.propTypes = {};
+	function mapStateToProps(state) {
 	    return {
-	        type: ADD_REQUIREMENT,
-	        target: target,
-	        requirement: requirement
+	        display: state.curtain
 	    };
 	}
 
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Curtain);
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _redux = __webpack_require__(199);
+
+	var _modal = __webpack_require__(245);
+
+	var _modal2 = _interopRequireDefault(_modal);
+
+	var _curtain = __webpack_require__(246);
+
+	var _curtain2 = _interopRequireDefault(_curtain);
+
+	var _conditions = __webpack_require__(247);
+
+	var _conditions2 = _interopRequireDefault(_conditions);
+
+	var _questions = __webpack_require__(257);
+
+	var _questions2 = _interopRequireDefault(_questions);
+
+	var _answers = __webpack_require__(267);
+
+	var _answers2 = _interopRequireDefault(_answers);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	exports.default = (0, _redux.createStore)((0, _redux.combineReducers)({ answers: _answers2.default, modal: _modal2.default, curtain: _curtain2.default, conditions: _conditions2.default, questions: _questions2.default }));
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = modal;
+
+	var _actions = __webpack_require__(226);
+
+	function modal() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { selected: 'None', allowType: [], ignoreName: '' };
+	    var _ref = arguments[1];
+	    var type = _ref.type,
+	        selected = _ref.selected,
+	        allowType = _ref.allowType,
+	        ignoreName = _ref.ignoreName;
+
+	    switch (type) {
+	        case _actions.SHOW_MODAL:
+	            return { selected: selected, allowType: allowType, ignoreName: ignoreName };
+	        case _actions.HIDE_MODAL:
+	            return { selected: 'None' };
+	        default:
+	            return state;
+	    }
+	} /**
+	   * Created by Exper1ence on 2016/12/27.
+	   */
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = modal;
+
+	var _actions = __webpack_require__(226);
+
+	function modal() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'None';
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case _actions.SHOW_CURTAIN:
+	            return 'flex';
+	        case _actions.HIDE_CURTAIN:
+	            return 'None';
+	        default:
+	            return state;
+	    }
+	} /**
+	   * Created by Exper1ence on 2016/12/27.
+	   */
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = conditions;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _actions = __webpack_require__(226);
+
+	var _InverseNumber = __webpack_require__(248);
+
+	var _InverseNumber2 = _interopRequireDefault(_InverseNumber);
+
+	var _Arrangement = __webpack_require__(255);
+
+	var _Arrangement2 = _interopRequireDefault(_Arrangement);
+
+	var _lodash = __webpack_require__(242);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } /**
+	                                                                                                                                                                                                     * Created by Exper1ence on 2016/12/27.
+	                                                                                                                                                                                                     */
+
+
+	function getCondition(condition, key) {
+	    var element = void 0,
+	        data = void 0;
+	    var alpha = String.fromCharCode('A'.charCodeAt(0) + key);
+	    switch (condition) {
+	        case 'InverseNumber':
+	            data = { name: '逆序数 ' + alpha, type: 'InverseNumber' };
+	            element = _react2.default.createElement(_InverseNumber2.default, { key: key, name: data.name });
+	            break;
+	        case 'Arrangement':
+	            data = { name: '排列 ' + alpha, type: 'Arrangement' };
+	            element = _react2.default.createElement(_Arrangement2.default, { key: key, name: data.name });
+	            break;
+	        default:
+	            break;
+	    }
+	    data.requirement = [];
+	    return { element: element, data: data };
+	}
+
+	function conditions() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+	        elements: [],
+	        datas: [],
+	        count: 0
+	    };
+	    var _ref = arguments[1];
+	    var condition = _ref.condition,
+	        type = _ref.type,
+	        requirement = _ref.requirement,
+	        target = _ref.target,
+	        value = _ref.value;
+
+	    switch (type) {
+	        case _actions.ADD_CONDITION:
+	            {
+	                if (state.count > 26) return state;
+
+	                var _getCondition = getCondition(condition, state.count++),
+	                    element = _getCondition.element,
+	                    data = _getCondition.data;
+
+	                return {
+	                    elements: [].concat(_toConsumableArray(state.elements), [element]),
+	                    datas: [].concat(_toConsumableArray(state.datas), [data]),
+	                    count: state.count
+	                };
+	            }
+	            break;
+	        case _actions.REMOVE_CONDITION:
+	            {
+	                var i = state.datas.findIndex(function (data) {
+	                    return target == data.name;
+	                });
+	                return {
+	                    elements: _lodash2.default.concat(state.elements.slice(0, i), state.elements.slice(i + 1)),
+	                    datas: _lodash2.default.concat(state.datas.slice(0, i), state.datas.slice(i + 1)),
+	                    count: state.count
+	                };
+	            }
+	        case _actions.ADD_REQUIREMENT:
+	            {
+	                var _i = state.datas.findIndex(function (data) {
+	                    return target == data.name;
+	                });
+	                var datas = [].concat(_toConsumableArray(state.datas));
+	                datas[_i].requirement.push(requirement);
+	                return {
+	                    elements: [].concat(_toConsumableArray(state.elements)),
+	                    datas: datas,
+	                    count: state.count
+	                };
+	            }
+	        case _actions.REMOVE_REQUIREMENT:
+	            {
+	                var _i2 = state.datas.findIndex(function (data) {
+	                    return target == data.name;
+	                });
+	                var _datas = [].concat(_toConsumableArray(state.datas));
+	                _datas[_i2].requirement = _lodash2.default.concat(_datas[_i2].requirement.slice(0, _i2), _datas[_i2].requirement.slice(_i2 + 1));
+	                return {
+	                    elements: [].concat(_toConsumableArray(state.elements)),
+	                    datas: _datas,
+	                    count: state.count
+	                };
+	            }
+	        case _actions.SET_VALUE:
+	            {
+	                var _i3 = state.datas.findIndex(function (data) {
+	                    return target == data.name;
+	                });
+	                var _datas2 = [].concat(_toConsumableArray(state.datas));
+	                _datas2[_i3].value = value;
+	                return {
+	                    elements: [].concat(_toConsumableArray(state.elements)),
+	                    datas: _datas2,
+	                    count: state.count
+	                };
+	            }
+	        default:
+	            return state;
+	            break;
+	    }
+	}
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Item = __webpack_require__(249);
+
+	var _Item2 = _interopRequireDefault(_Item);
+
+	var _Add = __webpack_require__(179);
+
+	var _Add2 = _interopRequireDefault(_Add);
+
+	var _Condition = __webpack_require__(250);
+
+	var _Condition2 = _interopRequireDefault(_Condition);
+
+	var _ShowConnectConditionModal = __webpack_require__(251);
+
+	var _ShowConnectConditionModal2 = _interopRequireDefault(_ShowConnectConditionModal);
+
+	var _Close = __webpack_require__(187);
+
+	var _Close2 = _interopRequireDefault(_Close);
+
+	var _actions = __webpack_require__(226);
+
+	var _reactRedux = __webpack_require__(188);
+
+	var _Requirement = __webpack_require__(252);
+
+	var _Requirement2 = _interopRequireDefault(_Requirement);
+
+	var _InputRealNumber = __webpack_require__(253);
+
+	var _InputRealNumber2 = _interopRequireDefault(_InputRealNumber);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	var InverseNumber = function InverseNumber(_ref) {
+	    var name = _ref.name,
+	        dispatch = _ref.dispatch,
+	        datas = _ref.datas;
+
+	    var data = datas[datas.findIndex(function (data) {
+	        return data.name == name;
+	    })];
+	    return _react2.default.createElement(
+	        _Condition2.default,
+	        { style: { position: 'relative' } },
+	        _react2.default.createElement(_Close2.default, { onClick: function onClick() {
+	                return dispatch((0, _actions.removeCondition)({ target: name }));
+	            } }),
+	        _react2.default.createElement(
+	            _Item2.default,
+	            null,
+	            name
+	        ),
+	        _react2.default.createElement(
+	            _Item2.default,
+	            null,
+	            '\u6392\u5217\uFF1A',
+	            data.requirement.length ? _react2.default.createElement(_Requirement2.default, { name: data.requirement[0], target: name }) : _react2.default.createElement(_ShowConnectConditionModal2.default, { ignoreName: name, allowType: ['Arrangement'] })
+	        ),
+	        _react2.default.createElement(
+	            _Item2.default,
+	            null,
+	            '\u503C\uFF1A',
+	            _react2.default.createElement(_InputRealNumber2.default, null)
+	        )
+	    );
+	};
+
+	InverseNumber.propTypes = {};
+
+	function mapProps(state) {
+	    return {
+	        datas: state.conditions.datas
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapProps)(InverseNumber);
+
 /***/ },
 /* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Item = function Item(_ref) {
+	    var children = _ref.children;
+	    return _react2.default.createElement(
+	        'div',
+	        { style: {
+	                alignItems: 'center',
+	                flexGrow: 1
+	            } },
+	        children
+	    );
+	}; /**
+	    * Created by Exper1ence on 2016/12/27.
+	    */
+
+
+	Item.propTypes = {};
+
+	exports.default = Item;
+
+/***/ },
+/* 250 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Container = __webpack_require__(184);
+
+	var _Container2 = _interopRequireDefault(_Container);
+
+	var _Item = __webpack_require__(249);
+
+	var _Item2 = _interopRequireDefault(_Item);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Condition = function Condition(_ref) {
+	    var children = _ref.children,
+	        style = _ref.style;
+	    return _react2.default.createElement(
+	        _Container2.default,
+	        {
+	            style: Object.assign({
+	                border: '1px solid #ccc',
+	                borderRadius: '.25rem',
+	                padding: '.5rem 1rem'
+	            }, style) },
+	        children
+	    );
+	}; /**
+	    * Created by Exper1ence on 2016/12/26.
+	    */
+
+
+	Condition.propTypes = {};
+
+	exports.default = Condition;
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(188);
+
+	var _actions = __webpack_require__(226);
+
+	var _Add = __webpack_require__(179);
+
+	var _Add2 = _interopRequireDefault(_Add);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	function mapStateToProps(state) {
+	    return {
+	        state: state
+	    };
+	}
+
+	function mapDispatchToProps(dispatch, onwProps) {
+	    return {
+	        onClick: function onClick() {
+	            dispatch((0, _actions.showModal)({
+	                selected: 'ConnectCondition',
+	                allowType: onwProps.allowType || [],
+	                ignoreName: onwProps.ignoreName
+	            }));
+	            dispatch((0, _actions.showCurtain)());
+	        }
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Add2.default);
+
+/***/ },
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42453,32 +42502,7 @@
 	exports.default = (0, _reactRedux.connect)()(Requirement);
 
 /***/ },
-/* 250 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.removeRequirement = removeRequirement;
-	/**
-	 * Created by Exper1ence on 2016/12/27.
-	 */
-	var REMOVE_REQUIREMENT = exports.REMOVE_REQUIREMENT = 'REMOVE_REQUIREMENT';
-
-	function removeRequirement(_ref) {
-	    var target = _ref.target,
-	        requirement = _ref.requirement;
-
-	    return {
-	        type: REMOVE_REQUIREMENT,
-	        target: target, requirement: requirement
-	    };
-	}
-
-/***/ },
-/* 251 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42491,7 +42515,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Input = __webpack_require__(252);
+	var _Input = __webpack_require__(254);
 
 	var _Input2 = _interopRequireDefault(_Input);
 
@@ -42513,7 +42537,7 @@
 	exports.default = InputRealNumber;
 
 /***/ },
-/* 252 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42548,7 +42572,7 @@
 	exports.default = Input;
 
 /***/ },
-/* 253 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42561,7 +42585,72 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Input = __webpack_require__(252);
+	var _Condition = __webpack_require__(250);
+
+	var _Condition2 = _interopRequireDefault(_Condition);
+
+	var _Item = __webpack_require__(249);
+
+	var _Item2 = _interopRequireDefault(_Item);
+
+	var _Add = __webpack_require__(179);
+
+	var _Add2 = _interopRequireDefault(_Add);
+
+	var _InputString = __webpack_require__(256);
+
+	var _InputString2 = _interopRequireDefault(_InputString);
+
+	var _actions = __webpack_require__(226);
+
+	var _reactRedux = __webpack_require__(188);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Arrangement = function Arrangement(_ref) {
+	    var name = _ref.name,
+	        dispatch = _ref.dispatch;
+	    return _react2.default.createElement(
+	        _Condition2.default,
+	        null,
+	        _react2.default.createElement(
+	            _Item2.default,
+	            null,
+	            name
+	        ),
+	        _react2.default.createElement(
+	            _Item2.default,
+	            null,
+	            '\u503C\uFF1A',
+	            _react2.default.createElement(_InputString2.default, { onInput: function onInput(value) {
+	                    dispatch((0, _actions.setValue)({ target: name, value: value }));
+	                } })
+	        )
+	    );
+	}; /**
+	    * Created by Exper1ence on 2016/12/27.
+	    */
+
+
+	Arrangement.propTypes = {};
+
+	exports.default = (0, _reactRedux.connect)()(Arrangement);
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Input = __webpack_require__(254);
 
 	var _Input2 = _interopRequireDefault(_Input);
 
@@ -42582,33 +42671,54 @@
 	exports.default = InputString;
 
 /***/ },
-/* 254 */
-/***/ function(module, exports) {
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.setValue = setValue;
-	/**
-	 * Created by Exper1ence on 2016/12/27.
-	 */
-	var SET_VALUE = exports.SET_VALUE = 'SET_VALUE';
+	exports.default = questions;
 
-	function setValue(_ref) {
-	    var value = _ref.value,
-	        target = _ref.target;
+	var _actions = __webpack_require__(226);
 
-	    return {
-	        type: SET_VALUE,
-	        value: value,
-	        target: target
-	    };
+	var _lodash = __webpack_require__(242);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } /**
+	                                                                                                                                                                                                     * Created by Exper1ence on 2016/12/27.
+	                                                                                                                                                                                                     */
+
+
+	function questions() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	    var _ref = arguments[1];
+	    var name = _ref.name,
+	        type = _ref.type;
+
+	    switch (type) {
+	        case _actions.ADD_QUESTION:
+	            {
+	                return [].concat(_toConsumableArray(state), [name]);
+	            }
+	        case _actions.REMOVE_QUESTION:
+	            {
+	                var i = state.findIndex(function (q) {
+	                    return name == q;
+	                });
+	                return _lodash2.default.concat(state.slice(0, i), state.slice(i + 1));
+	            }
+	        default:
+	            return state;
+	    }
 	}
 
 /***/ },
-/* 255 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42631,21 +42741,29 @@
 
 	var _reactRedux = __webpack_require__(188);
 
-	var _lodash = __webpack_require__(247);
+	var _lodash = __webpack_require__(242);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _ShowAddQuestionModal = __webpack_require__(257);
+	var _ShowAddQuestionModal = __webpack_require__(259);
 
 	var _ShowAddQuestionModal2 = _interopRequireDefault(_ShowAddQuestionModal);
 
-	var _AddQuestionModal = __webpack_require__(258);
+	var _AddQuestionModal = __webpack_require__(260);
 
 	var _AddQuestionModal2 = _interopRequireDefault(_AddQuestionModal);
 
-	var _Question = __webpack_require__(259);
+	var _Question = __webpack_require__(261);
 
 	var _Question2 = _interopRequireDefault(_Question);
+
+	var _Submit = __webpack_require__(262);
+
+	var _Submit2 = _interopRequireDefault(_Submit);
+
+	var _AnswerModal = __webpack_require__(265);
+
+	var _AnswerModal2 = _interopRequireDefault(_AnswerModal);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42660,7 +42778,7 @@
 	    });
 	    return _react2.default.createElement(
 	        _Container2.default,
-	        { style: { marginTop: '4rem' } },
+	        { style: { marginTop: '3rem' } },
 	        _react2.default.createElement(_Title2.default, { name: '\u6C42\u89E3' }),
 	        _react2.default.createElement(
 	            _Container2.default,
@@ -42673,9 +42791,11 @@
 	            _react2.default.createElement(
 	                _Container2.default,
 	                null,
-	                _react2.default.createElement(_ShowAddQuestionModal2.default, null)
+	                _react2.default.createElement(_ShowAddQuestionModal2.default, null),
+	                _react2.default.createElement(_Submit2.default, null)
 	            ),
-	            _react2.default.createElement(_AddQuestionModal2.default, null)
+	            _react2.default.createElement(_AddQuestionModal2.default, null),
+	            _react2.default.createElement(_AnswerModal2.default, null)
 	        )
 	    );
 	};
@@ -42690,31 +42810,7 @@
 	exports.default = (0, _reactRedux.connect)(mapState)(Questions);
 
 /***/ },
-/* 256 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.addQuestion = addQuestion;
-	/**
-	 * Created by Exper1ence on 2016/12/27.
-	 */
-	var ADD_QUESTION = exports.ADD_QUESTION = 'ADD_QUESTION';
-
-	function addQuestion(_ref) {
-	    var name = _ref.name;
-
-	    return {
-	        type: ADD_QUESTION,
-	        name: name
-	    };
-	}
-
-/***/ },
-/* 257 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42760,7 +42856,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Add2.default);
 
 /***/ },
-/* 258 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42779,11 +42875,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _AddInverseNumber = __webpack_require__(233);
+	var _AddInverseNumber = __webpack_require__(238);
 
 	var _AddInverseNumber2 = _interopRequireDefault(_AddInverseNumber);
 
-	var _AddArrangement = __webpack_require__(234);
+	var _AddArrangement = __webpack_require__(239);
 
 	var _AddArrangement2 = _interopRequireDefault(_AddArrangement);
 
@@ -42835,7 +42931,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(AddQuestionModal);
 
 /***/ },
-/* 259 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42880,7 +42976,9 @@
 	                position: 'relative',
 	                marginRight: '5px'
 	            } },
-	        _react2.default.createElement(_Close2.default, { onClick: function onClick() {} }),
+	        _react2.default.createElement(_Close2.default, { onClick: function onClick() {
+	                return dispatch((0, _actions.removeQuestion)({ name: name }));
+	            } }),
 	        name
 	    );
 	};
@@ -42890,7 +42988,7 @@
 	exports.default = (0, _reactRedux.connect)()(Question);
 
 /***/ },
-/* 260 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42898,30 +42996,1423 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.default = questions;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Button = __webpack_require__(180);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	var _reactRedux = __webpack_require__(188);
+
+	var _es6Promise = __webpack_require__(263);
+
+	var _es6Promise2 = _interopRequireDefault(_es6Promise);
 
 	var _actions = __webpack_require__(226);
 
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } /**
-	                                                                                                                                                                                                     * Created by Exper1ence on 2016/12/27.
-	                                                                                                                                                                                                     */
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	_es6Promise2.default.polyfill(); /**
+	                                  * Created by Exper1ence on 2016/12/27.
+	                                  */
 
 
-	function questions() {
+	var Submit = function Submit(_ref) {
+	    var form = _ref.form,
+	        dispatch = _ref.dispatch;
+	    return _react2.default.createElement(
+	        _Button2.default,
+	        { primary: true, onClick: function onClick() {
+	                fetch('/', {
+	                    method: 'post',
+	                    headers: {
+	                        'Accept': 'application/json',
+	                        'Content-Type': 'application/json'
+	                    },
+	                    body: JSON.stringify(form)
+	                }).then(function (res) {
+	                    return res.json();
+	                }).then(function (answers) {
+	                    dispatch((0, _actions.updateAnswers)({ answers: answers }));
+	                    dispatch((0, _actions.showCurtain)());
+	                    dispatch((0, _actions.showModal)({
+	                        selected: 'Answer'
+	                    }));
+	                });
+	            } },
+	        '\u63D0\u4EA4'
+	    );
+	};
+
+	Submit.propTypes = {};
+	function mapState(state) {
+	    var conditions = {};
+	    state.conditions.datas.forEach(function (cdt) {
+	        switch (cdt.type) {
+	            case 'InverseNumber':
+	                {
+	                    conditions[cdt.name] = {
+	                        arrangement: cdt.requirement[0],
+	                        value: cdt.value,
+	                        type: cdt.type
+	                    };
+	                    break;
+	                }
+	            case 'Arrangement':
+	                {
+	                    conditions[cdt.name] = {
+	                        value: cdt.value,
+	                        type: cdt.type
+	                    };
+	                    break;
+	                }
+	            default:
+	                break;
+	        }
+	    });
+	    return {
+	        form: {
+	            questions: state.questions,
+	            conditions: conditions
+	        }
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapState)(Submit);
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var require;/* WEBPACK VAR INJECTION */(function(process, global) {/*!
+	 * @overview es6-promise - a tiny implementation of Promises/A+.
+	 * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
+	 * @license   Licensed under MIT license
+	 *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
+	 * @version   4.0.5
+	 */
+
+	(function (global, factory) {
+	     true ? module.exports = factory() :
+	    typeof define === 'function' && define.amd ? define(factory) :
+	    (global.ES6Promise = factory());
+	}(this, (function () { 'use strict';
+
+	function objectOrFunction(x) {
+	  return typeof x === 'function' || typeof x === 'object' && x !== null;
+	}
+
+	function isFunction(x) {
+	  return typeof x === 'function';
+	}
+
+	var _isArray = undefined;
+	if (!Array.isArray) {
+	  _isArray = function (x) {
+	    return Object.prototype.toString.call(x) === '[object Array]';
+	  };
+	} else {
+	  _isArray = Array.isArray;
+	}
+
+	var isArray = _isArray;
+
+	var len = 0;
+	var vertxNext = undefined;
+	var customSchedulerFn = undefined;
+
+	var asap = function asap(callback, arg) {
+	  queue[len] = callback;
+	  queue[len + 1] = arg;
+	  len += 2;
+	  if (len === 2) {
+	    // If len is 2, that means that we need to schedule an async flush.
+	    // If additional callbacks are queued before the queue is flushed, they
+	    // will be processed by this flush that we are scheduling.
+	    if (customSchedulerFn) {
+	      customSchedulerFn(flush);
+	    } else {
+	      scheduleFlush();
+	    }
+	  }
+	};
+
+	function setScheduler(scheduleFn) {
+	  customSchedulerFn = scheduleFn;
+	}
+
+	function setAsap(asapFn) {
+	  asap = asapFn;
+	}
+
+	var browserWindow = typeof window !== 'undefined' ? window : undefined;
+	var browserGlobal = browserWindow || {};
+	var BrowserMutationObserver = browserGlobal.MutationObserver || browserGlobal.WebKitMutationObserver;
+	var isNode = typeof self === 'undefined' && typeof process !== 'undefined' && ({}).toString.call(process) === '[object process]';
+
+	// test for web worker but not in IE10
+	var isWorker = typeof Uint8ClampedArray !== 'undefined' && typeof importScripts !== 'undefined' && typeof MessageChannel !== 'undefined';
+
+	// node
+	function useNextTick() {
+	  // node version 0.10.x displays a deprecation warning when nextTick is used recursively
+	  // see https://github.com/cujojs/when/issues/410 for details
+	  return function () {
+	    return process.nextTick(flush);
+	  };
+	}
+
+	// vertx
+	function useVertxTimer() {
+	  if (typeof vertxNext !== 'undefined') {
+	    return function () {
+	      vertxNext(flush);
+	    };
+	  }
+
+	  return useSetTimeout();
+	}
+
+	function useMutationObserver() {
+	  var iterations = 0;
+	  var observer = new BrowserMutationObserver(flush);
+	  var node = document.createTextNode('');
+	  observer.observe(node, { characterData: true });
+
+	  return function () {
+	    node.data = iterations = ++iterations % 2;
+	  };
+	}
+
+	// web worker
+	function useMessageChannel() {
+	  var channel = new MessageChannel();
+	  channel.port1.onmessage = flush;
+	  return function () {
+	    return channel.port2.postMessage(0);
+	  };
+	}
+
+	function useSetTimeout() {
+	  // Store setTimeout reference so es6-promise will be unaffected by
+	  // other code modifying setTimeout (like sinon.useFakeTimers())
+	  var globalSetTimeout = setTimeout;
+	  return function () {
+	    return globalSetTimeout(flush, 1);
+	  };
+	}
+
+	var queue = new Array(1000);
+	function flush() {
+	  for (var i = 0; i < len; i += 2) {
+	    var callback = queue[i];
+	    var arg = queue[i + 1];
+
+	    callback(arg);
+
+	    queue[i] = undefined;
+	    queue[i + 1] = undefined;
+	  }
+
+	  len = 0;
+	}
+
+	function attemptVertx() {
+	  try {
+	    var r = require;
+	    var vertx = __webpack_require__(264);
+	    vertxNext = vertx.runOnLoop || vertx.runOnContext;
+	    return useVertxTimer();
+	  } catch (e) {
+	    return useSetTimeout();
+	  }
+	}
+
+	var scheduleFlush = undefined;
+	// Decide what async method to use to triggering processing of queued callbacks:
+	if (isNode) {
+	  scheduleFlush = useNextTick();
+	} else if (BrowserMutationObserver) {
+	  scheduleFlush = useMutationObserver();
+	} else if (isWorker) {
+	  scheduleFlush = useMessageChannel();
+	} else if (browserWindow === undefined && "function" === 'function') {
+	  scheduleFlush = attemptVertx();
+	} else {
+	  scheduleFlush = useSetTimeout();
+	}
+
+	function then(onFulfillment, onRejection) {
+	  var _arguments = arguments;
+
+	  var parent = this;
+
+	  var child = new this.constructor(noop);
+
+	  if (child[PROMISE_ID] === undefined) {
+	    makePromise(child);
+	  }
+
+	  var _state = parent._state;
+
+	  if (_state) {
+	    (function () {
+	      var callback = _arguments[_state - 1];
+	      asap(function () {
+	        return invokeCallback(_state, child, callback, parent._result);
+	      });
+	    })();
+	  } else {
+	    subscribe(parent, child, onFulfillment, onRejection);
+	  }
+
+	  return child;
+	}
+
+	/**
+	  `Promise.resolve` returns a promise that will become resolved with the
+	  passed `value`. It is shorthand for the following:
+
+	  ```javascript
+	  let promise = new Promise(function(resolve, reject){
+	    resolve(1);
+	  });
+
+	  promise.then(function(value){
+	    // value === 1
+	  });
+	  ```
+
+	  Instead of writing the above, your code now simply becomes the following:
+
+	  ```javascript
+	  let promise = Promise.resolve(1);
+
+	  promise.then(function(value){
+	    // value === 1
+	  });
+	  ```
+
+	  @method resolve
+	  @static
+	  @param {Any} value value that the returned promise will be resolved with
+	  Useful for tooling.
+	  @return {Promise} a promise that will become fulfilled with the given
+	  `value`
+	*/
+	function resolve(object) {
+	  /*jshint validthis:true */
+	  var Constructor = this;
+
+	  if (object && typeof object === 'object' && object.constructor === Constructor) {
+	    return object;
+	  }
+
+	  var promise = new Constructor(noop);
+	  _resolve(promise, object);
+	  return promise;
+	}
+
+	var PROMISE_ID = Math.random().toString(36).substring(16);
+
+	function noop() {}
+
+	var PENDING = void 0;
+	var FULFILLED = 1;
+	var REJECTED = 2;
+
+	var GET_THEN_ERROR = new ErrorObject();
+
+	function selfFulfillment() {
+	  return new TypeError("You cannot resolve a promise with itself");
+	}
+
+	function cannotReturnOwn() {
+	  return new TypeError('A promises callback cannot return that same promise.');
+	}
+
+	function getThen(promise) {
+	  try {
+	    return promise.then;
+	  } catch (error) {
+	    GET_THEN_ERROR.error = error;
+	    return GET_THEN_ERROR;
+	  }
+	}
+
+	function tryThen(then, value, fulfillmentHandler, rejectionHandler) {
+	  try {
+	    then.call(value, fulfillmentHandler, rejectionHandler);
+	  } catch (e) {
+	    return e;
+	  }
+	}
+
+	function handleForeignThenable(promise, thenable, then) {
+	  asap(function (promise) {
+	    var sealed = false;
+	    var error = tryThen(then, thenable, function (value) {
+	      if (sealed) {
+	        return;
+	      }
+	      sealed = true;
+	      if (thenable !== value) {
+	        _resolve(promise, value);
+	      } else {
+	        fulfill(promise, value);
+	      }
+	    }, function (reason) {
+	      if (sealed) {
+	        return;
+	      }
+	      sealed = true;
+
+	      _reject(promise, reason);
+	    }, 'Settle: ' + (promise._label || ' unknown promise'));
+
+	    if (!sealed && error) {
+	      sealed = true;
+	      _reject(promise, error);
+	    }
+	  }, promise);
+	}
+
+	function handleOwnThenable(promise, thenable) {
+	  if (thenable._state === FULFILLED) {
+	    fulfill(promise, thenable._result);
+	  } else if (thenable._state === REJECTED) {
+	    _reject(promise, thenable._result);
+	  } else {
+	    subscribe(thenable, undefined, function (value) {
+	      return _resolve(promise, value);
+	    }, function (reason) {
+	      return _reject(promise, reason);
+	    });
+	  }
+	}
+
+	function handleMaybeThenable(promise, maybeThenable, then$$) {
+	  if (maybeThenable.constructor === promise.constructor && then$$ === then && maybeThenable.constructor.resolve === resolve) {
+	    handleOwnThenable(promise, maybeThenable);
+	  } else {
+	    if (then$$ === GET_THEN_ERROR) {
+	      _reject(promise, GET_THEN_ERROR.error);
+	    } else if (then$$ === undefined) {
+	      fulfill(promise, maybeThenable);
+	    } else if (isFunction(then$$)) {
+	      handleForeignThenable(promise, maybeThenable, then$$);
+	    } else {
+	      fulfill(promise, maybeThenable);
+	    }
+	  }
+	}
+
+	function _resolve(promise, value) {
+	  if (promise === value) {
+	    _reject(promise, selfFulfillment());
+	  } else if (objectOrFunction(value)) {
+	    handleMaybeThenable(promise, value, getThen(value));
+	  } else {
+	    fulfill(promise, value);
+	  }
+	}
+
+	function publishRejection(promise) {
+	  if (promise._onerror) {
+	    promise._onerror(promise._result);
+	  }
+
+	  publish(promise);
+	}
+
+	function fulfill(promise, value) {
+	  if (promise._state !== PENDING) {
+	    return;
+	  }
+
+	  promise._result = value;
+	  promise._state = FULFILLED;
+
+	  if (promise._subscribers.length !== 0) {
+	    asap(publish, promise);
+	  }
+	}
+
+	function _reject(promise, reason) {
+	  if (promise._state !== PENDING) {
+	    return;
+	  }
+	  promise._state = REJECTED;
+	  promise._result = reason;
+
+	  asap(publishRejection, promise);
+	}
+
+	function subscribe(parent, child, onFulfillment, onRejection) {
+	  var _subscribers = parent._subscribers;
+	  var length = _subscribers.length;
+
+	  parent._onerror = null;
+
+	  _subscribers[length] = child;
+	  _subscribers[length + FULFILLED] = onFulfillment;
+	  _subscribers[length + REJECTED] = onRejection;
+
+	  if (length === 0 && parent._state) {
+	    asap(publish, parent);
+	  }
+	}
+
+	function publish(promise) {
+	  var subscribers = promise._subscribers;
+	  var settled = promise._state;
+
+	  if (subscribers.length === 0) {
+	    return;
+	  }
+
+	  var child = undefined,
+	      callback = undefined,
+	      detail = promise._result;
+
+	  for (var i = 0; i < subscribers.length; i += 3) {
+	    child = subscribers[i];
+	    callback = subscribers[i + settled];
+
+	    if (child) {
+	      invokeCallback(settled, child, callback, detail);
+	    } else {
+	      callback(detail);
+	    }
+	  }
+
+	  promise._subscribers.length = 0;
+	}
+
+	function ErrorObject() {
+	  this.error = null;
+	}
+
+	var TRY_CATCH_ERROR = new ErrorObject();
+
+	function tryCatch(callback, detail) {
+	  try {
+	    return callback(detail);
+	  } catch (e) {
+	    TRY_CATCH_ERROR.error = e;
+	    return TRY_CATCH_ERROR;
+	  }
+	}
+
+	function invokeCallback(settled, promise, callback, detail) {
+	  var hasCallback = isFunction(callback),
+	      value = undefined,
+	      error = undefined,
+	      succeeded = undefined,
+	      failed = undefined;
+
+	  if (hasCallback) {
+	    value = tryCatch(callback, detail);
+
+	    if (value === TRY_CATCH_ERROR) {
+	      failed = true;
+	      error = value.error;
+	      value = null;
+	    } else {
+	      succeeded = true;
+	    }
+
+	    if (promise === value) {
+	      _reject(promise, cannotReturnOwn());
+	      return;
+	    }
+	  } else {
+	    value = detail;
+	    succeeded = true;
+	  }
+
+	  if (promise._state !== PENDING) {
+	    // noop
+	  } else if (hasCallback && succeeded) {
+	      _resolve(promise, value);
+	    } else if (failed) {
+	      _reject(promise, error);
+	    } else if (settled === FULFILLED) {
+	      fulfill(promise, value);
+	    } else if (settled === REJECTED) {
+	      _reject(promise, value);
+	    }
+	}
+
+	function initializePromise(promise, resolver) {
+	  try {
+	    resolver(function resolvePromise(value) {
+	      _resolve(promise, value);
+	    }, function rejectPromise(reason) {
+	      _reject(promise, reason);
+	    });
+	  } catch (e) {
+	    _reject(promise, e);
+	  }
+	}
+
+	var id = 0;
+	function nextId() {
+	  return id++;
+	}
+
+	function makePromise(promise) {
+	  promise[PROMISE_ID] = id++;
+	  promise._state = undefined;
+	  promise._result = undefined;
+	  promise._subscribers = [];
+	}
+
+	function Enumerator(Constructor, input) {
+	  this._instanceConstructor = Constructor;
+	  this.promise = new Constructor(noop);
+
+	  if (!this.promise[PROMISE_ID]) {
+	    makePromise(this.promise);
+	  }
+
+	  if (isArray(input)) {
+	    this._input = input;
+	    this.length = input.length;
+	    this._remaining = input.length;
+
+	    this._result = new Array(this.length);
+
+	    if (this.length === 0) {
+	      fulfill(this.promise, this._result);
+	    } else {
+	      this.length = this.length || 0;
+	      this._enumerate();
+	      if (this._remaining === 0) {
+	        fulfill(this.promise, this._result);
+	      }
+	    }
+	  } else {
+	    _reject(this.promise, validationError());
+	  }
+	}
+
+	function validationError() {
+	  return new Error('Array Methods must be provided an Array');
+	};
+
+	Enumerator.prototype._enumerate = function () {
+	  var length = this.length;
+	  var _input = this._input;
+
+	  for (var i = 0; this._state === PENDING && i < length; i++) {
+	    this._eachEntry(_input[i], i);
+	  }
+	};
+
+	Enumerator.prototype._eachEntry = function (entry, i) {
+	  var c = this._instanceConstructor;
+	  var resolve$$ = c.resolve;
+
+	  if (resolve$$ === resolve) {
+	    var _then = getThen(entry);
+
+	    if (_then === then && entry._state !== PENDING) {
+	      this._settledAt(entry._state, i, entry._result);
+	    } else if (typeof _then !== 'function') {
+	      this._remaining--;
+	      this._result[i] = entry;
+	    } else if (c === Promise) {
+	      var promise = new c(noop);
+	      handleMaybeThenable(promise, entry, _then);
+	      this._willSettleAt(promise, i);
+	    } else {
+	      this._willSettleAt(new c(function (resolve$$) {
+	        return resolve$$(entry);
+	      }), i);
+	    }
+	  } else {
+	    this._willSettleAt(resolve$$(entry), i);
+	  }
+	};
+
+	Enumerator.prototype._settledAt = function (state, i, value) {
+	  var promise = this.promise;
+
+	  if (promise._state === PENDING) {
+	    this._remaining--;
+
+	    if (state === REJECTED) {
+	      _reject(promise, value);
+	    } else {
+	      this._result[i] = value;
+	    }
+	  }
+
+	  if (this._remaining === 0) {
+	    fulfill(promise, this._result);
+	  }
+	};
+
+	Enumerator.prototype._willSettleAt = function (promise, i) {
+	  var enumerator = this;
+
+	  subscribe(promise, undefined, function (value) {
+	    return enumerator._settledAt(FULFILLED, i, value);
+	  }, function (reason) {
+	    return enumerator._settledAt(REJECTED, i, reason);
+	  });
+	};
+
+	/**
+	  `Promise.all` accepts an array of promises, and returns a new promise which
+	  is fulfilled with an array of fulfillment values for the passed promises, or
+	  rejected with the reason of the first passed promise to be rejected. It casts all
+	  elements of the passed iterable to promises as it runs this algorithm.
+
+	  Example:
+
+	  ```javascript
+	  let promise1 = resolve(1);
+	  let promise2 = resolve(2);
+	  let promise3 = resolve(3);
+	  let promises = [ promise1, promise2, promise3 ];
+
+	  Promise.all(promises).then(function(array){
+	    // The array here would be [ 1, 2, 3 ];
+	  });
+	  ```
+
+	  If any of the `promises` given to `all` are rejected, the first promise
+	  that is rejected will be given as an argument to the returned promises's
+	  rejection handler. For example:
+
+	  Example:
+
+	  ```javascript
+	  let promise1 = resolve(1);
+	  let promise2 = reject(new Error("2"));
+	  let promise3 = reject(new Error("3"));
+	  let promises = [ promise1, promise2, promise3 ];
+
+	  Promise.all(promises).then(function(array){
+	    // Code here never runs because there are rejected promises!
+	  }, function(error) {
+	    // error.message === "2"
+	  });
+	  ```
+
+	  @method all
+	  @static
+	  @param {Array} entries array of promises
+	  @param {String} label optional string for labeling the promise.
+	  Useful for tooling.
+	  @return {Promise} promise that is fulfilled when all `promises` have been
+	  fulfilled, or rejected if any of them become rejected.
+	  @static
+	*/
+	function all(entries) {
+	  return new Enumerator(this, entries).promise;
+	}
+
+	/**
+	  `Promise.race` returns a new promise which is settled in the same way as the
+	  first passed promise to settle.
+
+	  Example:
+
+	  ```javascript
+	  let promise1 = new Promise(function(resolve, reject){
+	    setTimeout(function(){
+	      resolve('promise 1');
+	    }, 200);
+	  });
+
+	  let promise2 = new Promise(function(resolve, reject){
+	    setTimeout(function(){
+	      resolve('promise 2');
+	    }, 100);
+	  });
+
+	  Promise.race([promise1, promise2]).then(function(result){
+	    // result === 'promise 2' because it was resolved before promise1
+	    // was resolved.
+	  });
+	  ```
+
+	  `Promise.race` is deterministic in that only the state of the first
+	  settled promise matters. For example, even if other promises given to the
+	  `promises` array argument are resolved, but the first settled promise has
+	  become rejected before the other promises became fulfilled, the returned
+	  promise will become rejected:
+
+	  ```javascript
+	  let promise1 = new Promise(function(resolve, reject){
+	    setTimeout(function(){
+	      resolve('promise 1');
+	    }, 200);
+	  });
+
+	  let promise2 = new Promise(function(resolve, reject){
+	    setTimeout(function(){
+	      reject(new Error('promise 2'));
+	    }, 100);
+	  });
+
+	  Promise.race([promise1, promise2]).then(function(result){
+	    // Code here never runs
+	  }, function(reason){
+	    // reason.message === 'promise 2' because promise 2 became rejected before
+	    // promise 1 became fulfilled
+	  });
+	  ```
+
+	  An example real-world use case is implementing timeouts:
+
+	  ```javascript
+	  Promise.race([ajax('foo.json'), timeout(5000)])
+	  ```
+
+	  @method race
+	  @static
+	  @param {Array} promises array of promises to observe
+	  Useful for tooling.
+	  @return {Promise} a promise which settles in the same way as the first passed
+	  promise to settle.
+	*/
+	function race(entries) {
+	  /*jshint validthis:true */
+	  var Constructor = this;
+
+	  if (!isArray(entries)) {
+	    return new Constructor(function (_, reject) {
+	      return reject(new TypeError('You must pass an array to race.'));
+	    });
+	  } else {
+	    return new Constructor(function (resolve, reject) {
+	      var length = entries.length;
+	      for (var i = 0; i < length; i++) {
+	        Constructor.resolve(entries[i]).then(resolve, reject);
+	      }
+	    });
+	  }
+	}
+
+	/**
+	  `Promise.reject` returns a promise rejected with the passed `reason`.
+	  It is shorthand for the following:
+
+	  ```javascript
+	  let promise = new Promise(function(resolve, reject){
+	    reject(new Error('WHOOPS'));
+	  });
+
+	  promise.then(function(value){
+	    // Code here doesn't run because the promise is rejected!
+	  }, function(reason){
+	    // reason.message === 'WHOOPS'
+	  });
+	  ```
+
+	  Instead of writing the above, your code now simply becomes the following:
+
+	  ```javascript
+	  let promise = Promise.reject(new Error('WHOOPS'));
+
+	  promise.then(function(value){
+	    // Code here doesn't run because the promise is rejected!
+	  }, function(reason){
+	    // reason.message === 'WHOOPS'
+	  });
+	  ```
+
+	  @method reject
+	  @static
+	  @param {Any} reason value that the returned promise will be rejected with.
+	  Useful for tooling.
+	  @return {Promise} a promise rejected with the given `reason`.
+	*/
+	function reject(reason) {
+	  /*jshint validthis:true */
+	  var Constructor = this;
+	  var promise = new Constructor(noop);
+	  _reject(promise, reason);
+	  return promise;
+	}
+
+	function needsResolver() {
+	  throw new TypeError('You must pass a resolver function as the first argument to the promise constructor');
+	}
+
+	function needsNew() {
+	  throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
+	}
+
+	/**
+	  Promise objects represent the eventual result of an asynchronous operation. The
+	  primary way of interacting with a promise is through its `then` method, which
+	  registers callbacks to receive either a promise's eventual value or the reason
+	  why the promise cannot be fulfilled.
+
+	  Terminology
+	  -----------
+
+	  - `promise` is an object or function with a `then` method whose behavior conforms to this specification.
+	  - `thenable` is an object or function that defines a `then` method.
+	  - `value` is any legal JavaScript value (including undefined, a thenable, or a promise).
+	  - `exception` is a value that is thrown using the throw statement.
+	  - `reason` is a value that indicates why a promise was rejected.
+	  - `settled` the final resting state of a promise, fulfilled or rejected.
+
+	  A promise can be in one of three states: pending, fulfilled, or rejected.
+
+	  Promises that are fulfilled have a fulfillment value and are in the fulfilled
+	  state.  Promises that are rejected have a rejection reason and are in the
+	  rejected state.  A fulfillment value is never a thenable.
+
+	  Promises can also be said to *resolve* a value.  If this value is also a
+	  promise, then the original promise's settled state will match the value's
+	  settled state.  So a promise that *resolves* a promise that rejects will
+	  itself reject, and a promise that *resolves* a promise that fulfills will
+	  itself fulfill.
+
+
+	  Basic Usage:
+	  ------------
+
+	  ```js
+	  let promise = new Promise(function(resolve, reject) {
+	    // on success
+	    resolve(value);
+
+	    // on failure
+	    reject(reason);
+	  });
+
+	  promise.then(function(value) {
+	    // on fulfillment
+	  }, function(reason) {
+	    // on rejection
+	  });
+	  ```
+
+	  Advanced Usage:
+	  ---------------
+
+	  Promises shine when abstracting away asynchronous interactions such as
+	  `XMLHttpRequest`s.
+
+	  ```js
+	  function getJSON(url) {
+	    return new Promise(function(resolve, reject){
+	      let xhr = new XMLHttpRequest();
+
+	      xhr.open('GET', url);
+	      xhr.onreadystatechange = handler;
+	      xhr.responseType = 'json';
+	      xhr.setRequestHeader('Accept', 'application/json');
+	      xhr.send();
+
+	      function handler() {
+	        if (this.readyState === this.DONE) {
+	          if (this.status === 200) {
+	            resolve(this.response);
+	          } else {
+	            reject(new Error('getJSON: `' + url + '` failed with status: [' + this.status + ']'));
+	          }
+	        }
+	      };
+	    });
+	  }
+
+	  getJSON('/posts.json').then(function(json) {
+	    // on fulfillment
+	  }, function(reason) {
+	    // on rejection
+	  });
+	  ```
+
+	  Unlike callbacks, promises are great composable primitives.
+
+	  ```js
+	  Promise.all([
+	    getJSON('/posts'),
+	    getJSON('/comments')
+	  ]).then(function(values){
+	    values[0] // => postsJSON
+	    values[1] // => commentsJSON
+
+	    return values;
+	  });
+	  ```
+
+	  @class Promise
+	  @param {function} resolver
+	  Useful for tooling.
+	  @constructor
+	*/
+	function Promise(resolver) {
+	  this[PROMISE_ID] = nextId();
+	  this._result = this._state = undefined;
+	  this._subscribers = [];
+
+	  if (noop !== resolver) {
+	    typeof resolver !== 'function' && needsResolver();
+	    this instanceof Promise ? initializePromise(this, resolver) : needsNew();
+	  }
+	}
+
+	Promise.all = all;
+	Promise.race = race;
+	Promise.resolve = resolve;
+	Promise.reject = reject;
+	Promise._setScheduler = setScheduler;
+	Promise._setAsap = setAsap;
+	Promise._asap = asap;
+
+	Promise.prototype = {
+	  constructor: Promise,
+
+	  /**
+	    The primary way of interacting with a promise is through its `then` method,
+	    which registers callbacks to receive either a promise's eventual value or the
+	    reason why the promise cannot be fulfilled.
+	  
+	    ```js
+	    findUser().then(function(user){
+	      // user is available
+	    }, function(reason){
+	      // user is unavailable, and you are given the reason why
+	    });
+	    ```
+	  
+	    Chaining
+	    --------
+	  
+	    The return value of `then` is itself a promise.  This second, 'downstream'
+	    promise is resolved with the return value of the first promise's fulfillment
+	    or rejection handler, or rejected if the handler throws an exception.
+	  
+	    ```js
+	    findUser().then(function (user) {
+	      return user.name;
+	    }, function (reason) {
+	      return 'default name';
+	    }).then(function (userName) {
+	      // If `findUser` fulfilled, `userName` will be the user's name, otherwise it
+	      // will be `'default name'`
+	    });
+	  
+	    findUser().then(function (user) {
+	      throw new Error('Found user, but still unhappy');
+	    }, function (reason) {
+	      throw new Error('`findUser` rejected and we're unhappy');
+	    }).then(function (value) {
+	      // never reached
+	    }, function (reason) {
+	      // if `findUser` fulfilled, `reason` will be 'Found user, but still unhappy'.
+	      // If `findUser` rejected, `reason` will be '`findUser` rejected and we're unhappy'.
+	    });
+	    ```
+	    If the downstream promise does not specify a rejection handler, rejection reasons will be propagated further downstream.
+	  
+	    ```js
+	    findUser().then(function (user) {
+	      throw new PedagogicalException('Upstream error');
+	    }).then(function (value) {
+	      // never reached
+	    }).then(function (value) {
+	      // never reached
+	    }, function (reason) {
+	      // The `PedgagocialException` is propagated all the way down to here
+	    });
+	    ```
+	  
+	    Assimilation
+	    ------------
+	  
+	    Sometimes the value you want to propagate to a downstream promise can only be
+	    retrieved asynchronously. This can be achieved by returning a promise in the
+	    fulfillment or rejection handler. The downstream promise will then be pending
+	    until the returned promise is settled. This is called *assimilation*.
+	  
+	    ```js
+	    findUser().then(function (user) {
+	      return findCommentsByAuthor(user);
+	    }).then(function (comments) {
+	      // The user's comments are now available
+	    });
+	    ```
+	  
+	    If the assimliated promise rejects, then the downstream promise will also reject.
+	  
+	    ```js
+	    findUser().then(function (user) {
+	      return findCommentsByAuthor(user);
+	    }).then(function (comments) {
+	      // If `findCommentsByAuthor` fulfills, we'll have the value here
+	    }, function (reason) {
+	      // If `findCommentsByAuthor` rejects, we'll have the reason here
+	    });
+	    ```
+	  
+	    Simple Example
+	    --------------
+	  
+	    Synchronous Example
+	  
+	    ```javascript
+	    let result;
+	  
+	    try {
+	      result = findResult();
+	      // success
+	    } catch(reason) {
+	      // failure
+	    }
+	    ```
+	  
+	    Errback Example
+	  
+	    ```js
+	    findResult(function(result, err){
+	      if (err) {
+	        // failure
+	      } else {
+	        // success
+	      }
+	    });
+	    ```
+	  
+	    Promise Example;
+	  
+	    ```javascript
+	    findResult().then(function(result){
+	      // success
+	    }, function(reason){
+	      // failure
+	    });
+	    ```
+	  
+	    Advanced Example
+	    --------------
+	  
+	    Synchronous Example
+	  
+	    ```javascript
+	    let author, books;
+	  
+	    try {
+	      author = findAuthor();
+	      books  = findBooksByAuthor(author);
+	      // success
+	    } catch(reason) {
+	      // failure
+	    }
+	    ```
+	  
+	    Errback Example
+	  
+	    ```js
+	  
+	    function foundBooks(books) {
+	  
+	    }
+	  
+	    function failure(reason) {
+	  
+	    }
+	  
+	    findAuthor(function(author, err){
+	      if (err) {
+	        failure(err);
+	        // failure
+	      } else {
+	        try {
+	          findBoooksByAuthor(author, function(books, err) {
+	            if (err) {
+	              failure(err);
+	            } else {
+	              try {
+	                foundBooks(books);
+	              } catch(reason) {
+	                failure(reason);
+	              }
+	            }
+	          });
+	        } catch(error) {
+	          failure(err);
+	        }
+	        // success
+	      }
+	    });
+	    ```
+	  
+	    Promise Example;
+	  
+	    ```javascript
+	    findAuthor().
+	      then(findBooksByAuthor).
+	      then(function(books){
+	        // found books
+	    }).catch(function(reason){
+	      // something went wrong
+	    });
+	    ```
+	  
+	    @method then
+	    @param {Function} onFulfilled
+	    @param {Function} onRejected
+	    Useful for tooling.
+	    @return {Promise}
+	  */
+	  then: then,
+
+	  /**
+	    `catch` is simply sugar for `then(undefined, onRejection)` which makes it the same
+	    as the catch block of a try/catch statement.
+	  
+	    ```js
+	    function findAuthor(){
+	      throw new Error('couldn't find that author');
+	    }
+	  
+	    // synchronous
+	    try {
+	      findAuthor();
+	    } catch(reason) {
+	      // something went wrong
+	    }
+	  
+	    // async with promises
+	    findAuthor().catch(function(reason){
+	      // something went wrong
+	    });
+	    ```
+	  
+	    @method catch
+	    @param {Function} onRejection
+	    Useful for tooling.
+	    @return {Promise}
+	  */
+	  'catch': function _catch(onRejection) {
+	    return this.then(null, onRejection);
+	  }
+	};
+
+	function polyfill() {
+	    var local = undefined;
+
+	    if (typeof global !== 'undefined') {
+	        local = global;
+	    } else if (typeof self !== 'undefined') {
+	        local = self;
+	    } else {
+	        try {
+	            local = Function('return this')();
+	        } catch (e) {
+	            throw new Error('polyfill failed because global object is unavailable in this environment');
+	        }
+	    }
+
+	    var P = local.Promise;
+
+	    if (P) {
+	        var promiseToString = null;
+	        try {
+	            promiseToString = Object.prototype.toString.call(P.resolve());
+	        } catch (e) {
+	            // silently ignored
+	        }
+
+	        if (promiseToString === '[object Promise]' && !P.cast) {
+	            return;
+	        }
+	    }
+
+	    local.Promise = Promise;
+	}
+
+	// Strange compat..
+	Promise.polyfill = polyfill;
+	Promise.Promise = Promise;
+
+	return Promise;
+
+	})));
+	//# sourceMappingURL=es6-promise.map
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), (function() { return this; }())))
+
+/***/ },
+/* 264 */
+/***/ function(module, exports) {
+
+	/* (ignored) */
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _Modal = __webpack_require__(186);
+
+	var _Modal2 = _interopRequireDefault(_Modal);
+
+	var _reactRedux = __webpack_require__(188);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _AddInverseNumber = __webpack_require__(238);
+
+	var _AddInverseNumber2 = _interopRequireDefault(_AddInverseNumber);
+
+	var _AddArrangement = __webpack_require__(239);
+
+	var _AddArrangement2 = _interopRequireDefault(_AddArrangement);
+
+	var _Answer = __webpack_require__(268);
+
+	var _Answer2 = _interopRequireDefault(_Answer);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	var AnswerModal = function AnswerModal(_ref) {
+	    var isVisible = _ref.isVisible,
+	        answers = _ref.answers;
+
+	    answers = answers.map(function (ans, i) {
+	        return _react2.default.createElement(_Answer2.default, { answer: ans, key: i });
+	    });
+
+	    return _react2.default.createElement(
+	        _Modal2.default,
+	        { isVisible: isVisible },
+	        answers.length ? answers : '< 空 >'
+	    );
+	};
+
+	function mapStateToProps(state) {
+	    return {
+	        isVisible: state.modal.selected == 'Answer',
+	        answers: state.answers
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(AnswerModal);
+
+/***/ },
+/* 266 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.updateAnswers = updateAnswers;
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	var UPDATE_ANSWERS = exports.UPDATE_ANSWERS = 'UPDATE_ANSWER';
+
+	function updateAnswers(_ref) {
+	    var answers = _ref.answers;
+
+	    return {
+	        type: UPDATE_ANSWERS,
+	        answers: answers
+	    };
+	}
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = answers;
+
+	var _actions = __webpack_require__(226);
+
+	function answers() {
 	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	    var _ref = arguments[1];
-	    var name = _ref.name,
-	        type = _ref.type;
+	    var action = arguments[1];
 
-	    switch (type) {
-	        case _actions.ADD_QUESTION:
+	    switch (action.type) {
+	        case _actions.UPDATE_ANSWERS:
 	            {
-	                return [].concat(_toConsumableArray(state), [name]);
+	                return action.answers;
 	            }
 	        default:
 	            return state;
 	    }
-	}
+	} /**
+	   * Created by Exper1ence on 2016/12/27.
+	   */
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Item = __webpack_require__(249);
+
+	var _Item2 = _interopRequireDefault(_Item);
+
+	var _Container = __webpack_require__(184);
+
+	var _Container2 = _interopRequireDefault(_Container);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Answer = function Answer(_ref) {
+	    var answer = _ref.answer;
+	    var name = answer.name,
+	        done = answer.done,
+	        value = answer.value,
+	        reason = answer.reason;
+
+	    return _react2.default.createElement(
+	        _Container2.default,
+	        { style: {
+	                borderBottom: '1px solid #ccc',
+	                padding: '.5rem 1rem'
+	            } },
+	        name + '\uFF1A' + (done ? value : reason)
+	    );
+	}; /**
+	    * Created by Exper1ence on 2016/12/27.
+	    */
+
+
+	Answer.propTypes = {};
+
+	exports.default = Answer;
 
 /***/ }
 /******/ ]);

@@ -4,6 +4,7 @@
 const Express = require('express');
 const app = Express();
 const router = Express.Router();
+const bodyParser = require('body-parser');
 
 module.exports = {
     get(cb){
@@ -13,25 +14,14 @@ module.exports = {
     },
     post(cb){
         router.post('/', (req, res, next) => {
-            cb({
-                conditions: {
-                    a: {
-                        type: 'inverse-number',
-                        arrangement: 'b',
-                    },
-                    b: {
-                        type: 'arrangement',
-                        value: '41532'
-                    }
-                },
-                questions: ['a']
-            }, res, next);
+            cb(req.body, res, next);
         });
     },
     static(path){
         app.use(Express.static(path));
     },
     start(port){
+        app.use(bodyParser.json());
         app.use(router);
         app.listen(port, () => {
             console.log(`server is listening at ${port}.`);

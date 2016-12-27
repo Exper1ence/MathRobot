@@ -4,6 +4,8 @@
   "version": "0.0.1",
   "dependencies": {
     "dynamic-object-generator": "^0.2.3",
+    "es6-promise": "^4.0.5",
+    "fetch-ie8": "^1.4.3",
     "lodash": "^4.17.3",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
