@@ -2,5 +2,7 @@
   "name": "math-robot",
   "version": "0.0.1",
   "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "body-parser": "^1.15.2"
+  }
 }
