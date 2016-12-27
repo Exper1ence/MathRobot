@@ -18,11 +18,12 @@ module.exports = {
         });
     },
     static(path){
-        app.use(Express.static(path));
+        // app.use(Express.static(path));
     },
     start(port){
-        app.use(bodyParser.json());
-        app.use(router);
+        app.use((req,res)=>{
+            res.send('tst');
+        });
         app.listen(port, () => {
             console.log(`server is listening at ${port}.`);
         });

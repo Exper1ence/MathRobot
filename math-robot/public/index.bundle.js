@@ -60,11 +60,11 @@
 
 	var _reactRedux = __webpack_require__(188);
 
-	var _store = __webpack_require__(244);
+	var _store = __webpack_require__(245);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _Questions = __webpack_require__(258);
+	var _Questions = __webpack_require__(260);
 
 	var _Questions2 = _interopRequireDefault(_Questions);
 
@@ -21553,7 +21553,7 @@
 
 	var _Container2 = _interopRequireDefault(_Container);
 
-	var _Curtain = __webpack_require__(243);
+	var _Curtain = __webpack_require__(244);
 
 	var _Curtain2 = _interopRequireDefault(_Curtain);
 
@@ -21697,17 +21697,17 @@
 
 	var _AddConditionModal2 = _interopRequireDefault(_AddConditionModal);
 
-	var _ShowAddConditionModal = __webpack_require__(240);
+	var _ShowAddConditionModal = __webpack_require__(241);
 
 	var _ShowAddConditionModal2 = _interopRequireDefault(_ShowAddConditionModal);
 
 	var _reactRedux = __webpack_require__(188);
 
-	var _ConnectConditionModal = __webpack_require__(241);
+	var _ConnectConditionModal = __webpack_require__(242);
 
 	var _ConnectConditionModal2 = _interopRequireDefault(_ConnectConditionModal);
 
-	var _lodash = __webpack_require__(242);
+	var _lodash = __webpack_require__(243);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -21887,11 +21887,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _AddInverseNumber = __webpack_require__(238);
+	var _AddInverseNumber = __webpack_require__(239);
 
 	var _AddInverseNumber2 = _interopRequireDefault(_AddInverseNumber);
 
-	var _AddArrangement = __webpack_require__(239);
+	var _AddArrangement = __webpack_require__(240);
 
 	var _AddArrangement2 = _interopRequireDefault(_AddArrangement);
 
@@ -24338,7 +24338,7 @@
 
 	var _removeQuestion = __webpack_require__(237);
 
-	var _updateAnswers = __webpack_require__(266);
+	var _updateAnswers = __webpack_require__(238);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24637,6 +24637,30 @@
 
 /***/ },
 /* 238 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.updateAnswers = updateAnswers;
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	var UPDATE_ANSWERS = exports.UPDATE_ANSWERS = 'UPDATE_ANSWER';
+
+	function updateAnswers(_ref) {
+	    var answers = _ref.answers;
+
+	    return {
+	        type: UPDATE_ANSWERS,
+	        answers: answers
+	    };
+	}
+
+/***/ },
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24680,7 +24704,7 @@
 	exports.default = (0, _reactRedux.connect)()(AddInverseNumber);
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24724,7 +24748,7 @@
 	exports.default = (0, _reactRedux.connect)()(AddArrangement);
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24770,7 +24794,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Add2.default);
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24845,7 +24869,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ConnectConditionModal);
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -41936,7 +41960,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(213)(module)))
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41979,7 +42003,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Curtain);
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41990,23 +42014,23 @@
 
 	var _redux = __webpack_require__(199);
 
-	var _modal = __webpack_require__(245);
+	var _modal = __webpack_require__(246);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
-	var _curtain = __webpack_require__(246);
+	var _curtain = __webpack_require__(247);
 
 	var _curtain2 = _interopRequireDefault(_curtain);
 
-	var _conditions = __webpack_require__(247);
+	var _conditions = __webpack_require__(248);
 
 	var _conditions2 = _interopRequireDefault(_conditions);
 
-	var _questions = __webpack_require__(257);
+	var _questions = __webpack_require__(258);
 
 	var _questions2 = _interopRequireDefault(_questions);
 
-	var _answers = __webpack_require__(267);
+	var _answers = __webpack_require__(259);
 
 	var _answers2 = _interopRequireDefault(_answers);
 
@@ -42018,7 +42042,7 @@
 	exports.default = (0, _redux.createStore)((0, _redux.combineReducers)({ answers: _answers2.default, modal: _modal2.default, curtain: _curtain2.default, conditions: _conditions2.default, questions: _questions2.default }));
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42051,7 +42075,7 @@
 	   */
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42080,7 +42104,7 @@
 	   */
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42096,15 +42120,15 @@
 
 	var _actions = __webpack_require__(226);
 
-	var _InverseNumber = __webpack_require__(248);
+	var _InverseNumber = __webpack_require__(249);
 
 	var _InverseNumber2 = _interopRequireDefault(_InverseNumber);
 
-	var _Arrangement = __webpack_require__(255);
+	var _Arrangement = __webpack_require__(256);
 
 	var _Arrangement2 = _interopRequireDefault(_Arrangement);
 
-	var _lodash = __webpack_require__(242);
+	var _lodash = __webpack_require__(243);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -42221,7 +42245,7 @@
 	}
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42234,7 +42258,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Item = __webpack_require__(249);
+	var _Item = __webpack_require__(250);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -42242,11 +42266,11 @@
 
 	var _Add2 = _interopRequireDefault(_Add);
 
-	var _Condition = __webpack_require__(250);
+	var _Condition = __webpack_require__(251);
 
 	var _Condition2 = _interopRequireDefault(_Condition);
 
-	var _ShowConnectConditionModal = __webpack_require__(251);
+	var _ShowConnectConditionModal = __webpack_require__(252);
 
 	var _ShowConnectConditionModal2 = _interopRequireDefault(_ShowConnectConditionModal);
 
@@ -42258,11 +42282,11 @@
 
 	var _reactRedux = __webpack_require__(188);
 
-	var _Requirement = __webpack_require__(252);
+	var _Requirement = __webpack_require__(253);
 
 	var _Requirement2 = _interopRequireDefault(_Requirement);
 
-	var _InputRealNumber = __webpack_require__(253);
+	var _InputRealNumber = __webpack_require__(254);
 
 	var _InputRealNumber2 = _interopRequireDefault(_InputRealNumber);
 
@@ -42316,7 +42340,7 @@
 	exports.default = (0, _reactRedux.connect)(mapProps)(InverseNumber);
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42351,7 +42375,7 @@
 	exports.default = Item;
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42368,7 +42392,7 @@
 
 	var _Container2 = _interopRequireDefault(_Container);
 
-	var _Item = __webpack_require__(249);
+	var _Item = __webpack_require__(250);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -42397,7 +42421,7 @@
 	exports.default = Condition;
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42445,7 +42469,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Add2.default);
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42502,7 +42526,7 @@
 	exports.default = (0, _reactRedux.connect)()(Requirement);
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42515,7 +42539,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Input = __webpack_require__(254);
+	var _Input = __webpack_require__(255);
 
 	var _Input2 = _interopRequireDefault(_Input);
 
@@ -42537,7 +42561,7 @@
 	exports.default = InputRealNumber;
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42572,7 +42596,7 @@
 	exports.default = Input;
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42585,11 +42609,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Condition = __webpack_require__(250);
+	var _Condition = __webpack_require__(251);
 
 	var _Condition2 = _interopRequireDefault(_Condition);
 
-	var _Item = __webpack_require__(249);
+	var _Item = __webpack_require__(250);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -42597,7 +42621,7 @@
 
 	var _Add2 = _interopRequireDefault(_Add);
 
-	var _InputString = __webpack_require__(256);
+	var _InputString = __webpack_require__(257);
 
 	var _InputString2 = _interopRequireDefault(_InputString);
 
@@ -42637,7 +42661,7 @@
 	exports.default = (0, _reactRedux.connect)()(Arrangement);
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42650,7 +42674,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Input = __webpack_require__(254);
+	var _Input = __webpack_require__(255);
 
 	var _Input2 = _interopRequireDefault(_Input);
 
@@ -42671,7 +42695,7 @@
 	exports.default = InputString;
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42683,7 +42707,7 @@
 
 	var _actions = __webpack_require__(226);
 
-	var _lodash = __webpack_require__(242);
+	var _lodash = __webpack_require__(243);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -42718,7 +42742,36 @@
 	}
 
 /***/ },
-/* 258 */
+/* 259 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = answers;
+
+	var _actions = __webpack_require__(226);
+
+	function answers() {
+	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case _actions.UPDATE_ANSWERS:
+	            {
+	                return action.answers;
+	            }
+	        default:
+	            return state;
+	    }
+	} /**
+	   * Created by Exper1ence on 2016/12/27.
+	   */
+
+/***/ },
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42741,27 +42794,27 @@
 
 	var _reactRedux = __webpack_require__(188);
 
-	var _lodash = __webpack_require__(242);
+	var _lodash = __webpack_require__(243);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _ShowAddQuestionModal = __webpack_require__(259);
+	var _ShowAddQuestionModal = __webpack_require__(261);
 
 	var _ShowAddQuestionModal2 = _interopRequireDefault(_ShowAddQuestionModal);
 
-	var _AddQuestionModal = __webpack_require__(260);
+	var _AddQuestionModal = __webpack_require__(262);
 
 	var _AddQuestionModal2 = _interopRequireDefault(_AddQuestionModal);
 
-	var _Question = __webpack_require__(261);
+	var _Question = __webpack_require__(263);
 
 	var _Question2 = _interopRequireDefault(_Question);
 
-	var _Submit = __webpack_require__(262);
+	var _Submit = __webpack_require__(264);
 
 	var _Submit2 = _interopRequireDefault(_Submit);
 
-	var _AnswerModal = __webpack_require__(265);
+	var _AnswerModal = __webpack_require__(267);
 
 	var _AnswerModal2 = _interopRequireDefault(_AnswerModal);
 
@@ -42810,7 +42863,7 @@
 	exports.default = (0, _reactRedux.connect)(mapState)(Questions);
 
 /***/ },
-/* 259 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42856,7 +42909,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Add2.default);
 
 /***/ },
-/* 260 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42875,11 +42928,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _AddInverseNumber = __webpack_require__(238);
+	var _AddInverseNumber = __webpack_require__(239);
 
 	var _AddInverseNumber2 = _interopRequireDefault(_AddInverseNumber);
 
-	var _AddArrangement = __webpack_require__(239);
+	var _AddArrangement = __webpack_require__(240);
 
 	var _AddArrangement2 = _interopRequireDefault(_AddArrangement);
 
@@ -42931,7 +42984,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(AddQuestionModal);
 
 /***/ },
-/* 261 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42988,7 +43041,7 @@
 	exports.default = (0, _reactRedux.connect)()(Question);
 
 /***/ },
-/* 262 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43007,7 +43060,7 @@
 
 	var _reactRedux = __webpack_require__(188);
 
-	var _es6Promise = __webpack_require__(263);
+	var _es6Promise = __webpack_require__(265);
 
 	var _es6Promise2 = _interopRequireDefault(_es6Promise);
 
@@ -43084,7 +43137,7 @@
 	exports.default = (0, _reactRedux.connect)(mapState)(Submit);
 
 /***/ },
-/* 263 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var require;/* WEBPACK VAR INJECTION */(function(process, global) {/*!
@@ -43223,7 +43276,7 @@
 	function attemptVertx() {
 	  try {
 	    var r = require;
-	    var vertx = __webpack_require__(264);
+	    var vertx = __webpack_require__(266);
 	    vertxNext = vertx.runOnLoop || vertx.runOnContext;
 	    return useVertxTimer();
 	  } catch (e) {
@@ -44247,13 +44300,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), (function() { return this; }())))
 
 /***/ },
-/* 264 */
+/* 266 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 265 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44272,11 +44325,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _AddInverseNumber = __webpack_require__(238);
+	var _AddInverseNumber = __webpack_require__(239);
 
 	var _AddInverseNumber2 = _interopRequireDefault(_AddInverseNumber);
 
-	var _AddArrangement = __webpack_require__(239);
+	var _AddArrangement = __webpack_require__(240);
 
 	var _AddArrangement2 = _interopRequireDefault(_AddArrangement);
 
@@ -44314,59 +44367,6 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(AnswerModal);
 
 /***/ },
-/* 266 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.updateAnswers = updateAnswers;
-	/**
-	 * Created by Exper1ence on 2016/12/27.
-	 */
-	var UPDATE_ANSWERS = exports.UPDATE_ANSWERS = 'UPDATE_ANSWER';
-
-	function updateAnswers(_ref) {
-	    var answers = _ref.answers;
-
-	    return {
-	        type: UPDATE_ANSWERS,
-	        answers: answers
-	    };
-	}
-
-/***/ },
-/* 267 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = answers;
-
-	var _actions = __webpack_require__(226);
-
-	function answers() {
-	    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	    var action = arguments[1];
-
-	    switch (action.type) {
-	        case _actions.UPDATE_ANSWERS:
-	            {
-	                return action.answers;
-	            }
-	        default:
-	            return state;
-	    }
-	} /**
-	   * Created by Exper1ence on 2016/12/27.
-	   */
-
-/***/ },
 /* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -44380,7 +44380,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Item = __webpack_require__(249);
+	var _Item = __webpack_require__(250);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
