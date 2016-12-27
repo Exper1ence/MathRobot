@@ -4,6 +4,6 @@
 import {createStore, combineReducers,} from 'redux';
 import modal from './modal';
 import curtain from './curtain';
+import conditions from './conditions';
 
-
-export default createStore(combineReducers({modal, curtain,}));
+export default createStore(combineReducers({modal, curtain, conditions,}));

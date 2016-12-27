@@ -2,31 +2,32 @@
  * Created by Exper1ence on 2016/12/26.
  */
 import Title from './Title';
-import Add from './Add';
 import Container from './Container';
-import Board from './Modal';
 import React, {PropTypes} from 'react'
-import InverseNumber from './InverseNumber';
-import DataTypeModal from './DataTypeModal';
-import AddData from './AddData';
-import Curtain from './Curtain';
+import AddConditionModal from './AddConditionModal';
+import ShowAddConditionModal from './ShowAddConditionModal';
+import {connect} from 'react-redux';
+import ConnectConditionModal from './ConnectConditionModal';
 
-const Conditions = ({}) => (
+const Conditions = ({conditions}) => (
     <Container>
         <Title name="条件"/>
         <Container>
-            <InverseNumber>
-            </InverseNumber>
+            {conditions}
             <Container>
-                <AddData/>
+                <ShowAddConditionModal/>
             </Container>
-            <DataTypeModal>
-            
-            </DataTypeModal>
+            <AddConditionModal/>
+            <ConnectConditionModal/>
         </Container>
     </Container>
 );
 
 Conditions.propTypes = {};
+function mapState(state) {
+    return {
+        conditions: state.conditions,
+    }
+}
 
-export default Conditions;
+export default connect(mapState)(Conditions);

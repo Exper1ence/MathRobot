@@ -3,7 +3,7 @@
  */
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {showModal, showCurtain,} from './actions';
+import {showModal, showCurtain} from './actions';
 import Add from './Add';
 
 function mapStateToProps(state) {
@@ -15,7 +15,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         onAdd(){
-            dispatch(showModal('DataType'));
+            dispatch(showModal('AddCondition'));
             dispatch(showCurtain());
         }
     }

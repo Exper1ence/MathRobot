@@ -5,7 +5,8 @@ import React, {PropTypes} from 'react'
 
 const Item = ({children}) => (
     <div style={{
-        alignItems:'center',
+        alignItems: 'center',
+        flexGrow: 1,
     }}>
         {children}
     </div>

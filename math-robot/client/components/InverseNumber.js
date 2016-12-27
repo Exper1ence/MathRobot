@@ -5,13 +5,15 @@ import React, {PropTypes} from 'react'
 import Item from './Item';
 import Add from './Add';
 import Condition from './Condition';
+import ShowConnectConditionModal from './ShowConnectConditionModal';
+
 const InverseNumber = ({}) => (
-    <Condition style={{
-        justifyContent: 'space-between'
-    }}>
-        逆序数
+    <Condition>
         <Item>
-            排列：<Add/>
+            逆序数
+        </Item>
+        <Item>
+            排列：<ShowConnectConditionModal/>
         </Item>
         <Item>
             值：<Add/>
