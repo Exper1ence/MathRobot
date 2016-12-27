@@ -11,6 +11,7 @@ const Curtain = ({display}) => (
             position: 'absolute',
             display,
             backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            zIndex:99,
         }}>
     
     </div>

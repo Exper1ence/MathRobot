@@ -7,7 +7,7 @@ import React, {PropTypes} from 'react'
 import AddInverseNumber from './AddInverseNumber';
 import AddArrangement from './AddArrangement';
 
-const DataTypeModal = ({isVisible}) => (
+const AddConditionModal = ({isVisible}) => (
     <Modal isVisible={isVisible}>
         <AddInverseNumber/>
         <AddArrangement/>
@@ -16,8 +16,8 @@ const DataTypeModal = ({isVisible}) => (
 
 function mapStateToProps(state) {
     return {
-        isVisible: state.modal == 'AddCondition',
+        isVisible: state.modal.selected == 'AddCondition',
     }
 }
 
-export default connect(mapStateToProps)(DataTypeModal);
+export default connect(mapStateToProps)(AddConditionModal);

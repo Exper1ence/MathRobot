@@ -5,18 +5,23 @@ import React, {PropTypes} from 'react'
 import Condition from './Condition';
 import Item from './Item';
 import Add from './Add';
+import InputString from './InputString';
+import {setValue} from './actions';
+import {connect} from 'react-redux';
 
-const Arrangement = ({}) => (
+const Arrangement = ({name, dispatch}) => (
     <Condition>
         <Item>
-            排列
+            {name}
         </Item>
         <Item>
-            值：<Add/>
+            值：<InputString onInput={(value) => {
+            dispatch(setValue({target: name, value,}));
+        }}/>
         </Item>
     </Condition>
 );
 
 Arrangement.propTypes = {};
 
-export default Arrangement;
+export default connect()(Arrangement);

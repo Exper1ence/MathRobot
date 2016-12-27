@@ -10,7 +10,7 @@ const AddInverseNumber = ({dispatch}) => (
     <Button onClick={() => {
         dispatch(hideCurtain());
         dispatch(hideModal());
-        dispatch(addCondition('InverseNumber'));
+        dispatch(addCondition({condition: 'InverseNumber',}));
     }}>
         逆序数
     </Button>

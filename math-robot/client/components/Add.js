@@ -3,8 +3,8 @@
  */
 import React, {PropTypes} from 'react';
 import Button from './Button';
-const Add = ({onAdd}) => (
-    <Button onClick={onAdd}>
+const Add = ({onClick}) => (
+    <Button onClick={onClick}>
         添加
     </Button>
 );

@@ -1,5 +1,5 @@
 /**
- * Created by Exper1ence on 2016/12/27.
+ * Created by greyman on 2016/12/27.
  */
 import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
@@ -16,7 +16,7 @@ function mapDispatchToProps(dispatch) {
     return {
         onClick(){
             dispatch(showModal({
-                selected: 'AddCondition',
+                selected: 'AddQuestion',
             }));
             dispatch(showCurtain());
         }

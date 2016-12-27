@@ -10,7 +10,7 @@ const AddArrangement = ({dispatch}) => (
     <Button onClick={() => {
         dispatch(hideCurtain());
         dispatch(hideModal());
-        dispatch(addCondition('Arrangement'));
+        dispatch(addCondition({condition: 'Arrangement',}));
     }}>
         排列
     </Button>

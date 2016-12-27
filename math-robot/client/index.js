@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import {Add, Conditions, Curtain,} from './components';
 import {Provider} from 'react-redux';
 import store from './components/store';
+import Questions from './components/Questions';
 
 class MathRobot extends Component {
     render() {
@@ -18,6 +19,7 @@ class MathRobot extends Component {
                         margin: 'auto',
                     }}>
                         <Conditions></Conditions>
+                        <Questions></Questions>
                     </div>
                 </div>
             </Provider>

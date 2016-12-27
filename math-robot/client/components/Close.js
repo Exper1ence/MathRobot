@@ -2,10 +2,8 @@
  * Created by Exper1ence on 2016/12/27.
  */
 import React, {PropTypes} from 'react'
-import {connect} from 'react-redux';
-import {hideModal,hideCurtain,} from './actions';
 
-const Close = ({dispatch}) => (
+const Close = ({dispatch, onClick}) => (
     <div
         style={{
             position: 'absolute',
@@ -13,14 +11,11 @@ const Close = ({dispatch}) => (
             right: '5px',
             cursor: 'pointer',
         }}
-        onClick={() => {
-            dispatch(hideModal());
-            dispatch(hideCurtain());
-        }}>
+        onClick={onClick}>
         x
     </div>
 );
 
 Close.propTypes = {};
 
-export default connect()(Close);
+export default Close;

@@ -4,7 +4,7 @@
 import React, {PropTypes, Component} from 'react';
 import Close from './Close';
 import {connect} from 'react-redux';
-import {hideModal} from './actions';
+import {hideModal, hideCurtain} from './actions';
 
 class Modal extends Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class Modal extends Component {
     }
     
     render() {
-        const {children, style, isVisible}=this.props;
+        const {children, style, isVisible, dispatch}=this.props;
         const {marginLeft, marginTop, display, visibility}=this.state;
         return (
             <div
@@ -44,13 +44,17 @@ class Modal extends Component {
                     display: this.init ? (isVisible ? 'flex' : 'none') : display,
                     visibility,
                     backgroundColor: 'white',
+                    zIndex:100,
                 }, style)}
                 ref={div => this.div = div}>
-                <Close/>
+                <Close onClick={() => {
+                    dispatch(hideModal());
+                    dispatch(hideCurtain());
+                }}/>
                 {children}
             </div>
         )
     }
 }
 
-export default Modal;
+export default connect()(Modal);

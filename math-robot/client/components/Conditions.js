@@ -8,6 +8,8 @@ import AddConditionModal from './AddConditionModal';
 import ShowAddConditionModal from './ShowAddConditionModal';
 import {connect} from 'react-redux';
 import ConnectConditionModal from './ConnectConditionModal';
+import _ from 'lodash';
+
 
 const Conditions = ({conditions}) => (
     <Container>
@@ -26,7 +28,7 @@ const Conditions = ({conditions}) => (
 Conditions.propTypes = {};
 function mapState(state) {
     return {
-        conditions: state.conditions,
+        conditions: state.conditions.elements,
     }
 }
 

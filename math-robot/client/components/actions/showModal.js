@@ -3,9 +3,11 @@
  */
 export const SHOW_MODAL = 'SHOW_MODAL';
 
-export default function showModal(modal) {
+export default function showModal({selected, allowType, ignoreName}) {
     return {
         type: SHOW_MODAL,
-        modal,
+        selected,
+        allowType,
+        ignoreName,
     };
 }

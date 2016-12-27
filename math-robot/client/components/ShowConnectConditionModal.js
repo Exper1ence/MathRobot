@@ -12,10 +12,14 @@ function mapStateToProps(state) {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, onwProps) {
     return {
-        onAdd(){
-            dispatch(showModal('ConnectCondition'));
+        onClick(){
+            dispatch(showModal({
+                selected: 'ConnectCondition',
+                allowType: onwProps.allowType || [],
+                ignoreName: onwProps.ignoreName,
+            }));
             dispatch(showCurtain());
         }
     }
