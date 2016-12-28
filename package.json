@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "devDependencies": {},
   "dependencies": {
-    "body-parser": "^1.15.2"
+    "body-parser": "^1.15.2",
+    "lodash": "^4.17.3"
   }
 }
