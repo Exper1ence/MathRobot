@@ -32,7 +32,7 @@ const InputArrangement = ({conditions, dispatch, name}) => {
                 newValue.push({data: ''});
                 dispatch(setValue({
                     value: newValue,
-                    name, valid, dirty: newValue.length > 0,
+                    name, valid, dirty: newValue.length > 1,
                 }));
             }}
             type='positiveInt'
