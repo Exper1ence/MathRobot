@@ -11,13 +11,12 @@ module.exports = {
         const cdt = topic.conditions[name];
         if (!cdt.arrangement)return {name, done: false, msg: '未设置排列'};
         const arr = topic.conditions[cdt.arrangement].value;
-        if (!_.isArrayLike(arr))return {name, done: false, msg: '依赖的排列未设置值'};
+        if (!_.isArrayLike(arr))return {name, done: false, msg: '依赖的排列的值未知'};
         arr.pop();
         let value = 0;
         for (let i = 0; i < arr.length; i++) {
-            if (arr[i] == '')continue;
+            if (arr[i] == '')return {name, done: false, msg: '依赖的排列的值未知'};
             for (let j = 0; j < i; j++) {
-                if (arr[j] == '')continue;
                 if ((isNaN(parseInt(arr[i])) || isNaN(parseInt(arr[j])))) {
                     return {
                         name,
