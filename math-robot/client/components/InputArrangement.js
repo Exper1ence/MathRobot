@@ -40,7 +40,7 @@ const InputArrangement = ({conditions, dispatch, name}) => {
         />
     ));
     return (
-        <div>
+        <div style={{flexDirection:'column'}}>
             {numbers}
         </div>
     )

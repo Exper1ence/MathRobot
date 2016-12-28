@@ -11,6 +11,7 @@ import InverseNumber from '../InverseNumber';
 import Arrangement from '../Arrangement';
 import _ from 'lodash';
 import Div from '../Div';
+import Determinant from '../Determinant';
 
 function getCondition(condition, key) {
     let element, data;
@@ -23,6 +24,10 @@ function getCondition(condition, key) {
         case 'Arrangement':
             data = {name: '排列 ' + alpha, type: 'Arrangement'};
             element = <Div key={key}><Arrangement name={data.name}/></Div>;
+            break;
+        case 'Determinant':
+            data = {name: '行列式 ' + alpha, type: 'Determinant'};
+            element = <Div key={key}><Determinant name={data.name}/></Div>;
             break;
         default:
             break;

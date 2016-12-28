@@ -60,11 +60,11 @@
 
 	var _reactRedux = __webpack_require__(190);
 
-	var _store = __webpack_require__(250);
+	var _store = __webpack_require__(251);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _Questions = __webpack_require__(266);
+	var _Questions = __webpack_require__(270);
 
 	var _Questions2 = _interopRequireDefault(_Questions);
 
@@ -21553,7 +21553,7 @@
 
 	var _Container2 = _interopRequireDefault(_Container);
 
-	var _Curtain = __webpack_require__(249);
+	var _Curtain = __webpack_require__(250);
 
 	var _Curtain2 = _interopRequireDefault(_Curtain);
 
@@ -21696,17 +21696,17 @@
 
 	var _AddConditionModal2 = _interopRequireDefault(_AddConditionModal);
 
-	var _ShowAddConditionModal = __webpack_require__(246);
+	var _ShowAddConditionModal = __webpack_require__(247);
 
 	var _ShowAddConditionModal2 = _interopRequireDefault(_ShowAddConditionModal);
 
 	var _reactRedux = __webpack_require__(190);
 
-	var _ConnectConditionModal = __webpack_require__(247);
+	var _ConnectConditionModal = __webpack_require__(248);
 
 	var _ConnectConditionModal2 = _interopRequireDefault(_ConnectConditionModal);
 
-	var _lodash = __webpack_require__(248);
+	var _lodash = __webpack_require__(249);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -21827,19 +21827,15 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); } /**
-	                                                                                                                   * Created by Exper1ence on 2016/12/26.
-	                                                                                                                   */
-
-
+	/**
+	 * Created by Exper1ence on 2016/12/26.
+	 */
 	var Line = function Line(_ref) {
-	    _objectDestructuringEmpty(_ref);
+	    var vertical = _ref.vertical;
 
-	    return _react2.default.createElement('div', {
-	        style: {
-	            width: '100%',
-	            border: '1px solid #ccc'
-	        } });
+	    var style = { border: '1px solid #ccc' };
+	    if (vertical) style.height = '100%';else style.width = '100%';
+	    return _react2.default.createElement('div', { style: style });
 	};
 
 	Line.propTypes = {};
@@ -21997,8 +21993,15 @@
 
 	var _Div2 = _interopRequireDefault(_Div);
 
+	var _AddDeterminant = __webpack_require__(246);
+
+	var _AddDeterminant2 = _interopRequireDefault(_AddDeterminant);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/**
+	 * Created by Exper1ence on 2016/12/26.
+	 */
 	var AddConditionModal = function AddConditionModal(_ref) {
 	    var isVisible = _ref.isVisible;
 	    return _react2.default.createElement(
@@ -22018,13 +22021,15 @@
 	                _Div2.default,
 	                null,
 	                _react2.default.createElement(_AddArrangement2.default, null)
+	            ),
+	            _react2.default.createElement(
+	                _Div2.default,
+	                null,
+	                _react2.default.createElement(_AddDeterminant2.default, null)
 	            )
 	        )
 	    );
-	}; /**
-	    * Created by Exper1ence on 2016/12/26.
-	    */
-
+	};
 
 	function mapStateToProps(state) {
 	    return {
@@ -24978,6 +24983,50 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _Button = __webpack_require__(180);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	var _actions = __webpack_require__(228);
+
+	var _reactRedux = __webpack_require__(190);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Created by Exper1ence on 2016/12/28.
+	 */
+	var AddDeterminant = function AddDeterminant(_ref) {
+	    var dispatch = _ref.dispatch;
+	    return _react2.default.createElement(
+	        _Button2.default,
+	        { onClick: function onClick() {
+	                dispatch((0, _actions.hideCurtain)());
+	                dispatch((0, _actions.hideModal)());
+	                dispatch((0, _actions.addCondition)({ condition: 'Determinant' }));
+	            } },
+	        '\u884C\u5217\u5F0F'
+	    );
+	};
+
+	AddDeterminant.propTypes = {};
+
+	exports.default = (0, _reactRedux.connect)()(AddDeterminant);
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _reactRedux = __webpack_require__(190);
 
 	var _actions = __webpack_require__(228);
@@ -25011,7 +25060,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Add2.default);
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25105,7 +25154,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ConnectConditionModal);
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -42196,7 +42245,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(215)(module)))
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42239,7 +42288,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Curtain);
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42250,23 +42299,23 @@
 
 	var _redux = __webpack_require__(201);
 
-	var _modal = __webpack_require__(251);
+	var _modal = __webpack_require__(252);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
-	var _curtain = __webpack_require__(252);
+	var _curtain = __webpack_require__(253);
 
 	var _curtain2 = _interopRequireDefault(_curtain);
 
-	var _conditions = __webpack_require__(253);
+	var _conditions = __webpack_require__(254);
 
 	var _conditions2 = _interopRequireDefault(_conditions);
 
-	var _questions = __webpack_require__(264);
+	var _questions = __webpack_require__(268);
 
 	var _questions2 = _interopRequireDefault(_questions);
 
-	var _answers = __webpack_require__(265);
+	var _answers = __webpack_require__(269);
 
 	var _answers2 = _interopRequireDefault(_answers);
 
@@ -42278,7 +42327,7 @@
 	exports.default = (0, _redux.createStore)((0, _redux.combineReducers)({ answers: _answers2.default, modal: _modal2.default, curtain: _curtain2.default, conditions: _conditions2.default, questions: _questions2.default }));
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42311,7 +42360,7 @@
 	   */
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42340,7 +42389,7 @@
 	   */
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42356,21 +42405,25 @@
 
 	var _actions = __webpack_require__(228);
 
-	var _InverseNumber = __webpack_require__(254);
+	var _InverseNumber = __webpack_require__(255);
 
 	var _InverseNumber2 = _interopRequireDefault(_InverseNumber);
 
-	var _Arrangement = __webpack_require__(262);
+	var _Arrangement = __webpack_require__(263);
 
 	var _Arrangement2 = _interopRequireDefault(_Arrangement);
 
-	var _lodash = __webpack_require__(248);
+	var _lodash = __webpack_require__(249);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
 	var _Div = __webpack_require__(243);
 
 	var _Div2 = _interopRequireDefault(_Div);
+
+	var _Determinant = __webpack_require__(265);
+
+	var _Determinant2 = _interopRequireDefault(_Determinant);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42398,6 +42451,14 @@
 	                _Div2.default,
 	                { key: key },
 	                _react2.default.createElement(_Arrangement2.default, { name: data.name })
+	            );
+	            break;
+	        case 'Determinant':
+	            data = { name: '行列式 ' + alpha, type: 'Determinant' };
+	            element = _react2.default.createElement(
+	                _Div2.default,
+	                { key: key },
+	                _react2.default.createElement(_Determinant2.default, { name: data.name })
 	            );
 	            break;
 	        default:
@@ -42517,7 +42578,7 @@
 	}
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42530,7 +42591,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Item = __webpack_require__(255);
+	var _Item = __webpack_require__(256);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -42538,11 +42599,11 @@
 
 	var _Add2 = _interopRequireDefault(_Add);
 
-	var _Condition = __webpack_require__(256);
+	var _Condition = __webpack_require__(257);
 
 	var _Condition2 = _interopRequireDefault(_Condition);
 
-	var _ShowConnectConditionModal = __webpack_require__(258);
+	var _ShowConnectConditionModal = __webpack_require__(259);
 
 	var _ShowConnectConditionModal2 = _interopRequireDefault(_ShowConnectConditionModal);
 
@@ -42554,7 +42615,7 @@
 
 	var _reactRedux = __webpack_require__(190);
 
-	var _Requirement = __webpack_require__(259);
+	var _Requirement = __webpack_require__(260);
 
 	var _Requirement2 = _interopRequireDefault(_Requirement);
 
@@ -42566,7 +42627,7 @@
 
 	var _Div2 = _interopRequireDefault(_Div);
 
-	var _Caption = __webpack_require__(260);
+	var _Caption = __webpack_require__(261);
 
 	var _Caption2 = _interopRequireDefault(_Caption);
 
@@ -42574,11 +42635,11 @@
 
 	var _Fill2 = _interopRequireDefault(_Fill);
 
-	var _TipLine = __webpack_require__(257);
+	var _TipLine = __webpack_require__(258);
 
 	var _TipLine2 = _interopRequireDefault(_TipLine);
 
-	var _Input = __webpack_require__(261);
+	var _Input = __webpack_require__(262);
 
 	var _Input2 = _interopRequireDefault(_Input);
 
@@ -42649,7 +42710,7 @@
 	exports.default = (0, _reactRedux.connect)(mapProps)(InverseNumber);
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42684,7 +42745,7 @@
 	exports.default = Item;
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42701,7 +42762,7 @@
 
 	var _Container2 = _interopRequireDefault(_Container);
 
-	var _Item = __webpack_require__(255);
+	var _Item = __webpack_require__(256);
 
 	var _Item2 = _interopRequireDefault(_Item);
 
@@ -42721,7 +42782,7 @@
 
 	var _Vid2 = _interopRequireDefault(_Vid);
 
-	var _TipLine = __webpack_require__(257);
+	var _TipLine = __webpack_require__(258);
 
 	var _TipLine2 = _interopRequireDefault(_TipLine);
 
@@ -42768,7 +42829,7 @@
 	exports.default = (0, _reactRedux.connect)()(Condition);
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42837,7 +42898,7 @@
 	exports.default = (0, _reactRedux.connect)(mapState)(TipLine);
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42885,7 +42946,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Add2.default);
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42942,7 +43003,7 @@
 	exports.default = (0, _reactRedux.connect)()(Requirement);
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42967,15 +43028,16 @@
 	var Caption = function Caption(_ref) {
 	    var children = _ref.children,
 	        _ref$size = _ref.size,
-	        size = _ref$size === undefined ? 1 : _ref$size;
+	        size = _ref$size === undefined ? 1 : _ref$size,
+	        style = _ref.style;
 	    return _react2.default.createElement(
 	        'div',
 	        {
-	            style: {
+	            style: Object.assign({
 	                justifyContent: 'flex-end',
 	                width: size * 60 + 'px',
 	                alignItems: 'center'
-	            } },
+	            }, style) },
 	        children
 	    );
 	};
@@ -42985,7 +43047,7 @@
 	exports.default = Caption;
 
 /***/ },
-/* 261 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43004,7 +43066,7 @@
 
 	var _actions = __webpack_require__(228);
 
-	var _lodash = __webpack_require__(248);
+	var _lodash = __webpack_require__(249);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -43021,8 +43083,12 @@
 	    var valid = void 0;
 	    switch (type) {
 	        case 'positiveInt':
-	            valid = toCheck.match(/^\+?\d+$/);
+	            valid = !!toCheck.match(/^\+?\d+$/);
 	            value = valid ? parseInt(toCheck) : toCheck;
+	            break;
+	        case 'realNumber':
+	            valid = !!(toCheck.match(/^(\+|-)?\d+$/) || toCheck.match(/^(\+|-)?\d*\.\d+$/));
+	            value = valid ? parseFloat(toCheck) : toCheck;
 	            break;
 	        default:
 	            break;
@@ -43050,6 +43116,7 @@
 	                _onBlur = _props.onBlur,
 	                _props$size = _props.size,
 	                size = _props$size === undefined ? 1 : _props$size,
+	                style = _props.style,
 	                type = _props.type,
 	                value = _props.value,
 	                onEnter = _props.onEnter,
@@ -43069,19 +43136,19 @@
 	                }
 	            }
 	            return _react2.default.createElement('input', {
-	                style: {
+	                style: Object.assign({
 	                    borderRadius: '.25rem',
 	                    height: '35px',
 	                    padding: '0 .5rem',
 	                    backgroundColor: '#fff',
 	                    border: '1px solid #ccc',
 	                    width: size * 50 + 'px'
-	                },
+	                }, style),
 	                onChange: function onChange(e) {
-	                    return _onChange(check(e.target.value.replace(/ /g, ''), type));
+	                    return _onChange && _onChange(check(e.target.value.replace(/ /g, ''), type));
 	                },
 	                onBlur: function onBlur(e) {
-	                    return _onBlur(check(e.target.value.replace(/ /g, ''), type));
+	                    return _onBlur && _onBlur();
 	                },
 	                value: _lodash2.default.isUndefined(value) ? '' : value,
 	                onKeyUp: function onKeyUp(e) {
@@ -43090,9 +43157,9 @@
 	                    }
 	                    e.preventDefault();
 	                    if (e.keyCode == 13) {
-	                        _onBlur(check(e.target.value.replace(/ /g, ''), type));
+	                        _onBlur && _onBlur(check(e.target.value.replace(/ /g, ''), type));
 	                        _this2.refs.input.blur();
-	                        onEnter(e);
+	                        onEnter && onEnter(e);
 	                    }
 	                },
 	                ref: 'input'
@@ -43113,7 +43180,7 @@
 	exports.default = (0, _reactRedux.connect)(mapState)(Input);
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43126,7 +43193,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Condition = __webpack_require__(256);
+	var _Condition = __webpack_require__(257);
 
 	var _Condition2 = _interopRequireDefault(_Condition);
 
@@ -43136,15 +43203,15 @@
 
 	var _Div2 = _interopRequireDefault(_Div);
 
-	var _Caption = __webpack_require__(260);
+	var _Caption = __webpack_require__(261);
 
 	var _Caption2 = _interopRequireDefault(_Caption);
 
-	var _Input = __webpack_require__(261);
+	var _Input = __webpack_require__(262);
 
 	var _Input2 = _interopRequireDefault(_Input);
 
-	var _InputArrangement = __webpack_require__(263);
+	var _InputArrangement = __webpack_require__(264);
 
 	var _InputArrangement2 = _interopRequireDefault(_InputArrangement);
 
@@ -43177,7 +43244,7 @@
 	exports.default = (0, _reactRedux.connect)()(Arrangement);
 
 /***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43194,11 +43261,11 @@
 
 	var _actions = __webpack_require__(228);
 
-	var _lodash = __webpack_require__(248);
+	var _lodash = __webpack_require__(249);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _Input = __webpack_require__(261);
+	var _Input = __webpack_require__(262);
 
 	var _Input2 = _interopRequireDefault(_Input);
 
@@ -43279,7 +43346,7 @@
 	    });
 	    return _react2.default.createElement(
 	        'div',
-	        null,
+	        { style: { flexDirection: 'column' } },
 	        numbers
 	    );
 	};
@@ -43294,7 +43361,430 @@
 	exports.default = (0, _reactRedux.connect)(mapState)(InputArrangement);
 
 /***/ },
-/* 264 */
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Item = __webpack_require__(256);
+
+	var _Item2 = _interopRequireDefault(_Item);
+
+	var _Add = __webpack_require__(179);
+
+	var _Add2 = _interopRequireDefault(_Add);
+
+	var _Condition = __webpack_require__(257);
+
+	var _Condition2 = _interopRequireDefault(_Condition);
+
+	var _ShowConnectConditionModal = __webpack_require__(259);
+
+	var _ShowConnectConditionModal2 = _interopRequireDefault(_ShowConnectConditionModal);
+
+	var _Close = __webpack_require__(189);
+
+	var _Close2 = _interopRequireDefault(_Close);
+
+	var _actions = __webpack_require__(228);
+
+	var _reactRedux = __webpack_require__(190);
+
+	var _Requirement = __webpack_require__(260);
+
+	var _Requirement2 = _interopRequireDefault(_Requirement);
+
+	var _Button = __webpack_require__(180);
+
+	var _Button2 = _interopRequireDefault(_Button);
+
+	var _Div = __webpack_require__(243);
+
+	var _Div2 = _interopRequireDefault(_Div);
+
+	var _Caption = __webpack_require__(261);
+
+	var _Caption2 = _interopRequireDefault(_Caption);
+
+	var _Fill = __webpack_require__(186);
+
+	var _Fill2 = _interopRequireDefault(_Fill);
+
+	var _TipLine = __webpack_require__(258);
+
+	var _TipLine2 = _interopRequireDefault(_TipLine);
+
+	var _Input = __webpack_require__(262);
+
+	var _Input2 = _interopRequireDefault(_Input);
+
+	var _InputDeterminant = __webpack_require__(266);
+
+	var _InputDeterminant2 = _interopRequireDefault(_InputDeterminant);
+
+	var _InputRC = __webpack_require__(267);
+
+	var _InputRC2 = _interopRequireDefault(_InputRC);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Determinant = function Determinant(_ref) {
+	    var name = _ref.name,
+	        datas = _ref.datas,
+	        dispatch = _ref.dispatch;
+
+	    var data = datas[datas.findIndex(function (data) {
+	        return data.name == name;
+	    })];
+	    return _react2.default.createElement(
+	        _Condition2.default,
+	        { name: name },
+	        _react2.default.createElement(
+	            _Div2.default,
+	            { style: { justifyContent: 'center' } },
+	            _react2.default.createElement(
+	                _Caption2.default,
+	                null,
+	                '\u503C\uFF1A'
+	            ),
+	            _react2.default.createElement(_InputRC2.default, { name: name })
+	        ),
+	        _react2.default.createElement(
+	            _Div2.default,
+	            null,
+	            _react2.default.createElement(_InputDeterminant2.default, { name: name })
+	        )
+	    );
+	}; /**
+	    * Created by Exper1ence on 2016/12/28.
+	    */
+
+
+	Determinant.propTypes = {};
+
+	function mapProps(state) {
+	    return {
+	        datas: state.conditions.datas
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapProps)(Determinant);
+
+/***/ },
+/* 266 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Input = __webpack_require__(262);
+
+	var _Input2 = _interopRequireDefault(_Input);
+
+	var _reactRedux = __webpack_require__(190);
+
+	var _Fill = __webpack_require__(186);
+
+	var _Fill2 = _interopRequireDefault(_Fill);
+
+	var _Line = __webpack_require__(183);
+
+	var _Line2 = _interopRequireDefault(_Line);
+
+	var _Div = __webpack_require__(243);
+
+	var _Div2 = _interopRequireDefault(_Div);
+
+	var _Vid = __webpack_require__(185);
+
+	var _Vid2 = _interopRequireDefault(_Vid);
+
+	var _actions = __webpack_require__(228);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } /**
+	                                                                                                                                                                                                     * Created by Exper1ence on 2016/12/28.
+	                                                                                                                                                                                                     */
+
+
+	var InputDeterminant = function InputDeterminant(_ref) {
+	    var conditions = _ref.conditions,
+	        name = _ref.name,
+	        dispatch = _ref.dispatch;
+
+	    var cdt = conditions.find(function (cdt) {
+	        return cdt.name == name;
+	    });
+	    var rows = [],
+	        cols = [];
+
+	    var _loop = function _loop(i) {
+	        var _loop2 = function _loop2(j) {
+	            cols.push(_react2.default.createElement(_Input2.default, {
+	                key: j, size: .5,
+	                value: cdt.value.data[i] && cdt.value.data[i][j] ? cdt.value.data[i][j].data : '',
+	                type: 'realNumber',
+	                onChange: function onChange(_ref2) {
+	                    var value = _ref2.value,
+	                        valid = _ref2.valid;
+
+	                    var newData = cdt.value.data.map(function (row) {
+	                        return [].concat(_toConsumableArray(row));
+	                    });
+	                    newData[i] = newData[i] || [];
+	                    newData[i][j] = { data: value, valid: valid };
+	                    dispatch((0, _actions.setValue)(Object.assign({}, cdt, {
+	                        value: Object.assign({}, cdt.value, {
+	                            data: newData
+	                        }), dirty: false
+	                    })));
+	                },
+	                onBlur: function onBlur() {
+	                    var newData = [].concat(_toConsumableArray(cdt.value.data));
+	                    var valid = true;
+	                    var _iteratorNormalCompletion = true;
+	                    var _didIteratorError = false;
+	                    var _iteratorError = undefined;
+
+	                    try {
+	                        for (var _iterator = newData[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                            var row = _step.value;
+	                            var _iteratorNormalCompletion2 = true;
+	                            var _didIteratorError2 = false;
+	                            var _iteratorError2 = undefined;
+
+	                            try {
+	                                for (var _iterator2 = row[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                                    var col = _step2.value;
+
+	                                    if (!col.valid) {
+	                                        valid = false;
+	                                        break;
+	                                    }
+	                                }
+	                            } catch (err) {
+	                                _didIteratorError2 = true;
+	                                _iteratorError2 = err;
+	                            } finally {
+	                                try {
+	                                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                                        _iterator2.return();
+	                                    }
+	                                } finally {
+	                                    if (_didIteratorError2) {
+	                                        throw _iteratorError2;
+	                                    }
+	                                }
+	                            }
+	                        }
+	                    } catch (err) {
+	                        _didIteratorError = true;
+	                        _iteratorError = err;
+	                    } finally {
+	                        try {
+	                            if (!_iteratorNormalCompletion && _iterator.return) {
+	                                _iterator.return();
+	                            }
+	                        } finally {
+	                            if (_didIteratorError) {
+	                                throw _iteratorError;
+	                            }
+	                        }
+	                    }
+
+	                    dispatch((0, _actions.setValue)(Object.assign({}, cdt, {
+	                        dirty: valid, valid: true
+	                    })));
+	                },
+	                onEnter: function onEnter() {
+	                    return dispatch((0, _actions.focusInput)({ name: name, focus: cdt.value.length - 1 }));
+	                }
+	            }));
+	        };
+
+	        for (var j = 0; j < cdt.value.col.value; j++) {
+	            _loop2(j);
+	        }
+	        rows.push(_react2.default.createElement(
+	            'div',
+	            { key: i },
+	            cols
+	        ));
+	        cols = [];
+	    };
+
+	    for (var i = 0; i < cdt.value.row.value; i++) {
+	        _loop(i);
+	    }
+	    return _react2.default.createElement(
+	        _Fill2.default,
+	        { style: { justifyContent: 'center' } },
+	        _react2.default.createElement(
+	            _Vid2.default,
+	            null,
+	            _react2.default.createElement(
+	                _Div2.default,
+	                null,
+	                _react2.default.createElement(_Line2.default, { vertical: true })
+	            ),
+	            _react2.default.createElement(
+	                _Div2.default,
+	                { style: { flexDirection: 'column' } },
+	                rows
+	            ),
+	            _react2.default.createElement(
+	                _Div2.default,
+	                null,
+	                _react2.default.createElement(_Line2.default, { vertical: true })
+	            )
+	        )
+	    );
+	};
+
+	InputDeterminant.propTypes = {};
+	function mapState(state) {
+	    return {
+	        conditions: state.conditions.datas
+	    };
+	}
+	exports.default = (0, _reactRedux.connect)(mapState)(InputDeterminant);
+
+/***/ },
+/* 267 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Input = __webpack_require__(262);
+
+	var _Input2 = _interopRequireDefault(_Input);
+
+	var _reactRedux = __webpack_require__(190);
+
+	var _actions = __webpack_require__(228);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Created by Exper1ence on 2016/12/28.
+	 */
+	var InputRC = function InputRC(_ref) {
+	    var style = _ref.style,
+	        conditions = _ref.conditions,
+	        name = _ref.name,
+	        dispatch = _ref.dispatch;
+
+	    var cdt = conditions.find(function (cdt) {
+	        return cdt.name == name;
+	    });
+	    cdt.value = cdt.value || { data: [[]], row: {}, col: {} };
+	    return _react2.default.createElement(
+	        'div',
+	        { style: Object.assign({ alignItems: 'center' }, style) },
+	        '\u884C',
+	        _react2.default.createElement(_Input2.default, {
+	            name: name,
+	            focus: 0,
+	            size: .3,
+	            value: cdt.value.row.value,
+	            style: { margin: '0 5px' },
+	            type: 'positiveInt',
+	            onChange: function onChange(_ref2) {
+	                var value = _ref2.value,
+	                    valid = _ref2.valid;
+
+	                dispatch((0, _actions.setValue)(Object.assign({}, cdt, {
+	                    value: Object.assign({}, cdt.value, {
+	                        row: { value: _.isNumber(value) ? Math.min(value, 10) : value, valid: valid }
+	                    })
+	                })));
+	            },
+	            onBlur: function onBlur() {
+	                var _cdt$value = cdt.value,
+	                    col = _cdt$value.col,
+	                    row = _cdt$value.row;
+
+	                var colDir = col.value != undefined && col.value != '';
+	                var valid = void 0;
+	                if (colDir) valid = row.valid && col.valid;else valid = row.valid;
+	                var dirty = row.value != undefined && row.value != '';
+	                dispatch((0, _actions.setValue)(Object.assign({}, cdt, { valid: valid, dirty: dirty })));
+	            },
+	            onEnter: function onEnter() {
+	                dispatch((0, _actions.focusInput)({ name: name, focus: 1 }));
+	            }
+	        }),
+	        '\u5217',
+	        _react2.default.createElement(_Input2.default, {
+	            name: name,
+	            focus: 1,
+	            size: .3,
+	            value: cdt.value.col.value,
+	            style: { margin: '0 5px' },
+	            type: 'positiveInt',
+	            onChange: function onChange(_ref3) {
+	                var value = _ref3.value,
+	                    valid = _ref3.valid;
+
+	                dispatch((0, _actions.setValue)(Object.assign({}, cdt, {
+	                    value: Object.assign({}, cdt.value, {
+	                        col: { value: _.isNumber(value) ? Math.min(value, 10) : value, valid: valid }
+	                    })
+	                })));
+	            },
+	            onBlur: function onBlur() {
+	                var _cdt$value2 = cdt.value,
+	                    col = _cdt$value2.col,
+	                    row = _cdt$value2.row;
+
+	                var rowDir = row.value != undefined && row.value != '';
+	                var valid = void 0;
+	                if (rowDir) valid = col.valid && row.valid;else valid = col.valid;
+	                var dirty = col.value != undefined && col.value != '';
+	                dispatch((0, _actions.setValue)(Object.assign({}, cdt, { valid: valid, dirty: dirty })));
+	            },
+	            onEnter: function onEnter() {
+	                return dispatch((0, _actions.focusInput)({ name: name, focus: 2 }));
+	            }
+	        })
+	    );
+	};
+
+	function mapState(state) {
+	    return {
+	        conditions: state.conditions.datas
+	    };
+	}
+	InputRC.propTypes = {};
+
+	exports.default = (0, _reactRedux.connect)(mapState)(InputRC);
+
+/***/ },
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43306,7 +43796,7 @@
 
 	var _actions = __webpack_require__(228);
 
-	var _lodash = __webpack_require__(248);
+	var _lodash = __webpack_require__(249);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -43341,7 +43831,7 @@
 	}
 
 /***/ },
-/* 265 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43370,7 +43860,7 @@
 	   */
 
 /***/ },
-/* 266 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43393,27 +43883,27 @@
 
 	var _reactRedux = __webpack_require__(190);
 
-	var _lodash = __webpack_require__(248);
+	var _lodash = __webpack_require__(249);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _ShowAddQuestionModal = __webpack_require__(267);
+	var _ShowAddQuestionModal = __webpack_require__(271);
 
 	var _ShowAddQuestionModal2 = _interopRequireDefault(_ShowAddQuestionModal);
 
-	var _AddQuestionModal = __webpack_require__(268);
+	var _AddQuestionModal = __webpack_require__(272);
 
 	var _AddQuestionModal2 = _interopRequireDefault(_AddQuestionModal);
 
-	var _Question = __webpack_require__(269);
+	var _Question = __webpack_require__(273);
 
 	var _Question2 = _interopRequireDefault(_Question);
 
-	var _Submit = __webpack_require__(270);
+	var _Submit = __webpack_require__(274);
 
 	var _Submit2 = _interopRequireDefault(_Submit);
 
-	var _AnswerModal = __webpack_require__(273);
+	var _AnswerModal = __webpack_require__(277);
 
 	var _AnswerModal2 = _interopRequireDefault(_AnswerModal);
 
@@ -43491,7 +43981,7 @@
 	exports.default = (0, _reactRedux.connect)(mapState)(Questions);
 
 /***/ },
-/* 267 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43537,7 +44027,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Add2.default);
 
 /***/ },
-/* 268 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43624,7 +44114,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(AddQuestionModal);
 
 /***/ },
-/* 269 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43680,7 +44170,7 @@
 	exports.default = (0, _reactRedux.connect)()(Question);
 
 /***/ },
-/* 270 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -43699,7 +44189,7 @@
 
 	var _reactRedux = __webpack_require__(190);
 
-	var _es6Promise = __webpack_require__(271);
+	var _es6Promise = __webpack_require__(275);
 
 	var _es6Promise2 = _interopRequireDefault(_es6Promise);
 
@@ -43784,7 +44274,7 @@
 	exports.default = (0, _reactRedux.connect)(mapState)(Submit);
 
 /***/ },
-/* 271 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var require;/* WEBPACK VAR INJECTION */(function(process, global) {/*!
@@ -43923,7 +44413,7 @@
 	function attemptVertx() {
 	  try {
 	    var r = require;
-	    var vertx = __webpack_require__(272);
+	    var vertx = __webpack_require__(276);
 	    vertxNext = vertx.runOnLoop || vertx.runOnContext;
 	    return useVertxTimer();
 	  } catch (e) {
@@ -44947,13 +45437,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), (function() { return this; }())))
 
 /***/ },
-/* 272 */
+/* 276 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 273 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44980,7 +45470,7 @@
 
 	var _AddArrangement2 = _interopRequireDefault(_AddArrangement);
 
-	var _Answer = __webpack_require__(274);
+	var _Answer = __webpack_require__(278);
 
 	var _Answer2 = _interopRequireDefault(_Answer);
 
@@ -45034,7 +45524,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(AnswerModal);
 
 /***/ },
-/* 274 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45047,7 +45537,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Item = __webpack_require__(255);
+	var _Item = __webpack_require__(256);
 
 	var _Item2 = _interopRequireDefault(_Item);
 

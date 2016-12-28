@@ -4,13 +4,13 @@
 import React, {PropTypes} from 'react'
 import Fill from './Fill';
 
-const Caption = ({children, size = 1}) => (
+const Caption = ({children, size = 1,style}) => (
     <div
-        style={{
+        style={Object.assign({
             justifyContent: 'flex-end',
             width: size * 60 + 'px',
             alignItems: 'center',
-        }}>
+        },style)}>
         {children}
     </div>
 );

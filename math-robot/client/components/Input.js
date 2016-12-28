@@ -8,8 +8,12 @@ function check(toCheck, type) {
     let valid;
     switch (type) {
         case 'positiveInt':
-            valid = toCheck.match(/^\+?\d+$/);
+            valid = !!toCheck.match(/^\+?\d+$/);
             value = valid ? parseInt(toCheck) : toCheck;
+            break;
+        case 'realNumber':
+            valid = !!(toCheck.match(/^(\+|-)?\d+$/) || toCheck.match(/^(\+|-)?\d*\.\d+$/));
+            value = valid ? parseFloat(toCheck) : toCheck;
             break;
         default:
             break;
@@ -19,7 +23,7 @@ function check(toCheck, type) {
 class Input extends Component {
     render() {
         const {
-            conditions, onChange, onBlur, size = 1,
+            conditions, onChange, onBlur, size = 1, style,
             type, value, onEnter, focus, name, dispatch,
         }=this.props;
         if (name) {
@@ -33,16 +37,16 @@ class Input extends Component {
         }
         return (
             <input
-                style={{
+                style={Object.assign({
                     borderRadius: '.25rem',
                     height: '35px',
                     padding: '0 .5rem',
                     backgroundColor: '#fff',
                     border: '1px solid #ccc',
                     width: size * 50 + 'px',
-                }}
-                onChange={(e) => onChange(check(e.target.value.replace(/ /g, ''), type))}
-                onBlur={(e) => onBlur(check(e.target.value.replace(/ /g, ''), type))}
+                }, style)}
+                onChange={(e) => onChange && onChange(check(e.target.value.replace(/ /g, ''), type))}
+                onBlur={(e) => onBlur && onBlur()}
                 value={_.isUndefined(value) ? '' : value}
                 onKeyUp={e => {
                     if (!e) {
@@ -50,9 +54,9 @@ class Input extends Component {
                     }
                     e.preventDefault();
                     if (e.keyCode == 13) {
-                        onBlur(check(e.target.value.replace(/ /g, ''), type));
+                        onBlur && onBlur(check(e.target.value.replace(/ /g, ''), type));
                         this.refs.input.blur();
-                        onEnter(e);
+                        onEnter && onEnter(e);
                     }
                 }}
                 ref='input'
