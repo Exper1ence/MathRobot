@@ -11,6 +11,14 @@ p.polyfill();
 
 const Submit = ({form, dispatch}) => (
     <Button primary onClick={() => {
+        if (form.questions.length < 1) {
+            dispatch(updateAnswers({answers: []}));
+            dispatch(showCurtain());
+            dispatch(showModal({
+                selected: 'Answer'
+            }));
+            return;
+        }
         fetch('/', {
             method: 'post',
             headers: {
