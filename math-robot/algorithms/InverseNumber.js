@@ -8,20 +8,21 @@ module.exports = {
     resolve(topic, name){
         const cdt = topic.conditions[name];
         if (!cdt.arrangement)return {name, done: false, reason: '未设置排列'};
-        const arr = topic.conditions[cdt.arrangement].value.split(' ');
+        const arr = topic.conditions[cdt.arrangement].value;
+        arr.pop();
         let value = 0;
         for (let i = 0; i < arr.length; i++) {
             for (let j = 0; j < i; j++) {
-                if (isValidNumber(arr[i]) && isValidNumber(arr[j])) {
-                    if (arr[j] > arr[i]) {
-                        value++;
-                    }
-                }
-                else {
+                if ((isNaN(arr[i]) || isNaN(arr[j]))) {
                     return {
                         name,
                         done: false,
-                        reason: '排列由元素组成，每个元素用空格隔开'
+                        reason: '排列由元素组成'
+                    }
+                }
+                else {
+                    if (arr[j] > arr[i]) {
+                        value++;
                     }
                 }
             }

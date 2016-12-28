@@ -7,6 +7,8 @@ import React, {PropTypes} from 'react'
 import AddInverseNumber from './AddInverseNumber';
 import AddArrangement from './AddArrangement';
 import Answer from './Answer';
+import Vid from './Vid';
+import Div from './Div';
 
 const AnswerModal = ({isVisible, answers}) => {
     answers = answers.map((ans, i) => {
@@ -16,8 +18,10 @@ const AnswerModal = ({isVisible, answers}) => {
     });
     
     return (
-        <Modal isVisible={isVisible}>
-            {answers.length ? answers : '< 空 >'}
+        <Modal isVisible={isVisible} title='解'>
+            <Vid style={{justifyContent: 'center'}}>
+                {answers.length ? answers : <Div>{'< 空 >'}</Div>}
+            </Vid>
         </Modal>
     )
 };

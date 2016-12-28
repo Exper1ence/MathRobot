@@ -9,6 +9,11 @@ import Div from './Div';
 import Vid from './Vid';
 
 class Modal extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {visibility: 'hidden'}
+    }
+    
     render() {
         const {children, style, isVisible, dispatch, title,}=this.props;
         const sty = {};
@@ -16,7 +21,8 @@ class Modal extends Component {
             Object.assign(sty, {
                 marginLeft: `-${this.refs.div.offsetWidth / 2}px`,
                 marginTop: `-${this.refs.div.offsetHeight / 2}px`,
-            })
+            });
+            setTimeout(() => this.setState({visibility: 'visible'}));
         }
         return (
             <div
@@ -25,7 +31,7 @@ class Modal extends Component {
                     position: 'absolute',
                     left: '50%',
                     top: '50%',
-                    visibility: isVisible ? 'visible' : 'hidden',
+                    visibility: !isVisible ? 'hidden' : this.state.visibility,
                     backgroundColor: 'white',
                     zIndex: 100,
                     flexDirection: 'column'

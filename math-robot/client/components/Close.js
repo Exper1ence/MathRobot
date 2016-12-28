@@ -7,7 +7,7 @@ const Close = ({dispatch, onClick}) => (
     <div
         style={{
             position: 'absolute',
-            top: '0px',
+            top: '-1px',
             right: '5px',
             cursor: 'pointer',
             color:'#d9534f'

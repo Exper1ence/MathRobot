@@ -21696,17 +21696,17 @@
 
 	var _AddConditionModal2 = _interopRequireDefault(_AddConditionModal);
 
-	var _ShowAddConditionModal = __webpack_require__(243);
+	var _ShowAddConditionModal = __webpack_require__(244);
 
 	var _ShowAddConditionModal2 = _interopRequireDefault(_ShowAddConditionModal);
 
 	var _reactRedux = __webpack_require__(190);
 
-	var _ConnectConditionModal = __webpack_require__(244);
+	var _ConnectConditionModal = __webpack_require__(245);
 
 	var _ConnectConditionModal2 = _interopRequireDefault(_ConnectConditionModal);
 
-	var _lodash = __webpack_require__(245);
+	var _lodash = __webpack_require__(246);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -21714,7 +21714,7 @@
 
 	var _Vid2 = _interopRequireDefault(_Vid);
 
-	var _Div = __webpack_require__(246);
+	var _Div = __webpack_require__(241);
 
 	var _Div2 = _interopRequireDefault(_Div);
 
@@ -21981,11 +21981,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _AddInverseNumber = __webpack_require__(241);
+	var _AddInverseNumber = __webpack_require__(242);
 
 	var _AddInverseNumber2 = _interopRequireDefault(_AddInverseNumber);
 
-	var _AddArrangement = __webpack_require__(242);
+	var _AddArrangement = __webpack_require__(243);
 
 	var _AddArrangement2 = _interopRequireDefault(_AddArrangement);
 
@@ -21993,7 +21993,7 @@
 
 	var _Vid2 = _interopRequireDefault(_Vid);
 
-	var _Div = __webpack_require__(246);
+	var _Div = __webpack_require__(241);
 
 	var _Div2 = _interopRequireDefault(_Div);
 
@@ -22058,7 +22058,7 @@
 
 	var _actions = __webpack_require__(228);
 
-	var _Div = __webpack_require__(246);
+	var _Div = __webpack_require__(241);
 
 	var _Div2 = _interopRequireDefault(_Div);
 
@@ -22080,15 +22080,20 @@
 	var Modal = function (_Component) {
 	    _inherits(Modal, _Component);
 
-	    function Modal() {
+	    function Modal(props) {
 	        _classCallCheck(this, Modal);
 
-	        return _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this, props));
+
+	        _this.state = { visibility: 'hidden' };
+	        return _this;
 	    }
 
 	    _createClass(Modal, [{
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
 	            var _props = this.props,
 	                children = _props.children,
 	                style = _props.style,
@@ -22102,6 +22107,9 @@
 	                    marginLeft: '-' + this.refs.div.offsetWidth / 2 + 'px',
 	                    marginTop: '-' + this.refs.div.offsetHeight / 2 + 'px'
 	                });
+	                setTimeout(function () {
+	                    return _this2.setState({ visibility: 'visible' });
+	                });
 	            }
 	            return _react2.default.createElement(
 	                'div',
@@ -22111,7 +22119,7 @@
 	                        position: 'absolute',
 	                        left: '50%',
 	                        top: '50%',
-	                        visibility: isVisible ? 'visible' : 'hidden',
+	                        visibility: !isVisible ? 'hidden' : this.state.visibility,
 	                        backgroundColor: 'white',
 	                        zIndex: 100,
 	                        flexDirection: 'column'
@@ -22168,7 +22176,7 @@
 	        {
 	            style: {
 	                position: 'absolute',
-	                top: '0px',
+	                top: '-1px',
 	                right: '5px',
 	                cursor: 'pointer',
 	                color: '#d9534f'
@@ -24790,6 +24798,40 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Div = function Div(_ref) {
+	    var children = _ref.children,
+	        style = _ref.style;
+	    return _react2.default.createElement(
+	        'div',
+	        {
+	            style: Object.assign({ marginBottom: '.5rem', marginRight: '.5rem' }, style) },
+	        children
+	    );
+	}; /**
+	    * Created by Exper1ence on 2016/12/28.
+	    */
+
+
+	Div.propTypes = {};
+
+	exports.default = Div;
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _Button = __webpack_require__(180);
 
 	var _Button2 = _interopRequireDefault(_Button);
@@ -24821,7 +24863,7 @@
 	exports.default = (0, _reactRedux.connect)()(AddInverseNumber);
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24865,7 +24907,7 @@
 	exports.default = (0, _reactRedux.connect)()(AddArrangement);
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24911,7 +24953,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_Add2.default);
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24940,7 +24982,7 @@
 
 	var _Vid2 = _interopRequireDefault(_Vid);
 
-	var _Div = __webpack_require__(246);
+	var _Div = __webpack_require__(241);
 
 	var _Div2 = _interopRequireDefault(_Div);
 
@@ -24948,16 +24990,15 @@
 
 	var ConnectConditionModal = function ConnectConditionModal(_ref) {
 	    var isVisible = _ref.isVisible,
-	        datas = _ref.datas,
+	        conditions = _ref.conditions,
 	        ignoreName = _ref.ignoreName,
 	        allowType = _ref.allowType,
 	        dispatch = _ref.dispatch;
 
-	    var items = datas.filter(function (data, i) {
-	        return allowType && data.name != ignoreName && allowType.indexOf(data.type) >= 0;
-	    });
-	    items = items.map(function (data, i) {
-	        return _react2.default.createElement(
+	    var items = [];
+	    conditions.forEach(function (cdt, i) {
+	        if (!allowType || cdt.name == ignoreName || allowType.indexOf(cdt.type) < 0) return;
+	        items.push(_react2.default.createElement(
 	            _Div2.default,
 	            { key: i },
 	            _react2.default.createElement(
@@ -24965,21 +25006,19 @@
 	                { onClick: function onClick() {
 	                        dispatch((0, _actions.hideCurtain)());
 	                        dispatch((0, _actions.hideModal)());
-	                        dispatch((0, _actions.addRequirement)({ name: ignoreName, requirement: data.name }));
+	                        dispatch((0, _actions.addRequirement)({ name: ignoreName, requirement: cdt.name }));
 	                    } },
-	                data.name
+	                cdt.name
 	            )
-	        );
+	        ));
 	    });
 	    return _react2.default.createElement(
 	        _Modal2.default,
 	        { isVisible: isVisible, title: '\u53EF\u9009\u4F9D\u8D56' },
 	        _react2.default.createElement(
 	            _Vid2.default,
-	            { style: {
-	                    justifyContent: 'center'
-	                } },
-	            items.length ? items : _react2.default.createElement(
+	            { style: { justifyContent: 'center' } },
+	            items.length > 0 ? items : _react2.default.createElement(
 	                _Div2.default,
 	                null,
 	                '< 空 >'
@@ -24999,7 +25038,7 @@
 
 	    return {
 	        isVisible: selected == 'ConnectCondition',
-	        datas: state.conditions.datas,
+	        conditions: state.conditions.datas,
 	        ignoreName: ignoreName,
 	        allowType: allowType
 	    };
@@ -25008,7 +25047,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ConnectConditionModal);
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -42099,40 +42138,6 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(215)(module)))
 
 /***/ },
-/* 246 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Div = function Div(_ref) {
-	    var children = _ref.children,
-	        style = _ref.style;
-	    return _react2.default.createElement(
-	        'div',
-	        {
-	            style: Object.assign({ marginBottom: '.5rem', marginRight: '.5rem' }, style) },
-	        children
-	    );
-	}; /**
-	    * Created by Exper1ence on 2016/12/28.
-	    */
-
-
-	Div.propTypes = {};
-
-	exports.default = Div;
-
-/***/ },
 /* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -42301,11 +42306,11 @@
 
 	var _Arrangement2 = _interopRequireDefault(_Arrangement);
 
-	var _lodash = __webpack_require__(245);
+	var _lodash = __webpack_require__(246);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _Div = __webpack_require__(246);
+	var _Div = __webpack_require__(241);
 
 	var _Div2 = _interopRequireDefault(_Div);
 
@@ -42479,7 +42484,7 @@
 
 	var _Button2 = _interopRequireDefault(_Button);
 
-	var _Div = __webpack_require__(246);
+	var _Div = __webpack_require__(241);
 
 	var _Div2 = _interopRequireDefault(_Div);
 
@@ -42503,7 +42508,8 @@
 
 	var InverseNumber = function InverseNumber(_ref) {
 	    var name = _ref.name,
-	        datas = _ref.datas;
+	        datas = _ref.datas,
+	        dispatch = _ref.dispatch;
 
 	    var data = datas[datas.findIndex(function (data) {
 	        return data.name == name;
@@ -42529,7 +42535,21 @@
 	                null,
 	                '\u503C\uFF1A'
 	            ),
-	            _react2.default.createElement(_Input2.default, { name: name, type: 'int' })
+	            _react2.default.createElement(_Input2.default, {
+	                name: name,
+	                type: 'positiveInt',
+	                onChange: function onChange(_ref2) {
+	                    var value = _ref2.value,
+	                        valid = _ref2.valid;
+	                    return dispatch((0, _actions.setValue)({ value: value, name: name, valid: valid, dirty: false }));
+	                },
+	                onDirty: function onDirty(_ref3) {
+	                    var value = _ref3.value,
+	                        valid = _ref3.valid;
+	                    return dispatch((0, _actions.setValue)({ name: name, valid: valid, value: value, dirty: true }));
+	                },
+	                value: data.value
+	            })
 	        ) : ''
 	    );
 	}; /**
@@ -42604,7 +42624,7 @@
 
 	var _Item2 = _interopRequireDefault(_Item);
 
-	var _Div = __webpack_require__(246);
+	var _Div = __webpack_require__(241);
 
 	var _Div2 = _interopRequireDefault(_Div);
 
@@ -42901,21 +42921,18 @@
 
 	var _actions = __webpack_require__(228);
 
-	var _lodash = __webpack_require__(245);
+	var _lodash = __webpack_require__(246);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/**
-	 * Created by Exper1ence on 2016/12/27.
-	 */
 	function check(toCheck, type) {
 	    var value = void 0;
 	    var valid = void 0;
 	    switch (type) {
-	        case 'int':
-	            valid = toCheck.match(/^\d+$/);
+	        case 'positiveInt':
+	            valid = toCheck.match(/^\+?\d+$/);
 	            value = valid ? parseInt(toCheck) : toCheck;
 	            break;
 	        default:
@@ -42925,17 +42942,12 @@
 	}
 
 	var Input = function Input(_ref) {
-	    var onChange = _ref.onChange,
+	    var _onChange = _ref.onChange,
+	        onDirty = _ref.onDirty,
 	        _ref$size = _ref.size,
 	        size = _ref$size === undefined ? 1 : _ref$size,
-	        conditions = _ref.conditions,
-	        dispatch = _ref.dispatch,
-	        name = _ref.name,
-	        type = _ref.type;
-
-	    var cdt = conditions.find(function (cdt) {
-	        return cdt.name == name;
-	    });
+	        type = _ref.type,
+	        value = _ref.value;
 	    return _react2.default.createElement('input', {
 	        style: {
 	            borderRadius: '.25rem',
@@ -42944,32 +42956,18 @@
 	            backgroundColor: '#fff',
 	            border: '1px solid #ccc',
 	            width: size * 50 + 'px'
-	        }, onChange: function onChange(e) {
-	            var _check = check(e.target.value.replace(/ /g, ''), type),
-	                value = _check.value,
-	                valid = _check.valid;
-
-	            dispatch((0, _actions.setValue)({ value: value, name: name, valid: valid, dirty: false }));
-	        }, onBlur: function onBlur(e) {
+	        },
+	        onChange: function onChange(e) {
+	            return _onChange(check(e.target.value.replace(/ /g, ''), type));
+	        },
+	        onBlur: function onBlur(e) {
 	            var toCheck = e.target.value.replace(/ /g, '');
-	            if (toCheck == '') return dispatch((0, _actions.setValue)({ name: name, dirty: false }));
-
-	            var _check2 = check(toCheck, type),
-	                value = _check2.value,
-	                valid = _check2.valid;
-
-	            dispatch((0, _actions.setValue)({ name: name, valid: valid, value: value, dirty: true }));
-	        }, value: _lodash2.default.isUndefined(cdt.value) ? '' : cdt.value });
+	            if (toCheck == '') return;
+	            onDirty(check(toCheck, type));
+	        }, value: _lodash2.default.isUndefined(value) ? '' : value });
 	};
 
-	Input.propTypes = {};
-	function mapState(state) {
-	    return {
-	        conditions: state.conditions.datas
-	    };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapState)(Input);
+	exports.default = Input;
 
 /***/ },
 /* 260 */
@@ -42989,19 +42987,9 @@
 
 	var _Condition2 = _interopRequireDefault(_Condition);
 
-	var _Item = __webpack_require__(253);
-
-	var _Item2 = _interopRequireDefault(_Item);
-
-	var _Add = __webpack_require__(179);
-
-	var _Add2 = _interopRequireDefault(_Add);
-
-	var _actions = __webpack_require__(228);
-
 	var _reactRedux = __webpack_require__(190);
 
-	var _Div = __webpack_require__(246);
+	var _Div = __webpack_require__(241);
 
 	var _Div2 = _interopRequireDefault(_Div);
 
@@ -43009,19 +42997,16 @@
 
 	var _Caption2 = _interopRequireDefault(_Caption);
 
-	var _Button = __webpack_require__(180);
-
-	var _Button2 = _interopRequireDefault(_Button);
-
 	var _Input = __webpack_require__(259);
 
 	var _Input2 = _interopRequireDefault(_Input);
 
+	var _InputArrangement = __webpack_require__(272);
+
+	var _InputArrangement2 = _interopRequireDefault(_InputArrangement);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/**
-	 * Created by Exper1ence on 2016/12/27.
-	 */
 	var Arrangement = function Arrangement(_ref) {
 	    var name = _ref.name,
 	        dispatch = _ref.dispatch;
@@ -43036,10 +43021,13 @@
 	                null,
 	                '\u503C\uFF1A'
 	            ),
-	            _react2.default.createElement(_Input2.default, { name: name })
+	            _react2.default.createElement(_InputArrangement2.default, { name: name })
 	        )
 	    );
-	};
+	}; /**
+	    * Created by Exper1ence on 2016/12/27.
+	    */
+
 
 	Arrangement.propTypes = {};
 
@@ -43058,7 +43046,7 @@
 
 	var _actions = __webpack_require__(228);
 
-	var _lodash = __webpack_require__(245);
+	var _lodash = __webpack_require__(246);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -43145,7 +43133,7 @@
 
 	var _reactRedux = __webpack_require__(190);
 
-	var _lodash = __webpack_require__(245);
+	var _lodash = __webpack_require__(246);
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
@@ -43173,7 +43161,7 @@
 
 	var _Vid2 = _interopRequireDefault(_Vid);
 
-	var _Div = __webpack_require__(246);
+	var _Div = __webpack_require__(241);
 
 	var _Div2 = _interopRequireDefault(_Div);
 
@@ -43296,14 +43284,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _AddInverseNumber = __webpack_require__(241);
-
-	var _AddInverseNumber2 = _interopRequireDefault(_AddInverseNumber);
-
-	var _AddArrangement = __webpack_require__(242);
-
-	var _AddArrangement2 = _interopRequireDefault(_AddArrangement);
-
 	var _Button = __webpack_require__(180);
 
 	var _Button2 = _interopRequireDefault(_Button);
@@ -43314,7 +43294,7 @@
 
 	var _Vid2 = _interopRequireDefault(_Vid);
 
-	var _Div = __webpack_require__(246);
+	var _Div = __webpack_require__(241);
 
 	var _Div2 = _interopRequireDefault(_Div);
 
@@ -43466,6 +43446,7 @@
 	    return _react2.default.createElement(
 	        _Button2.default,
 	        { primary: true, onClick: function onClick() {
+	                console.log(form);
 	                fetch('/', {
 	                    method: 'post',
 	                    headers: {
@@ -44712,17 +44693,25 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _AddInverseNumber = __webpack_require__(241);
+	var _AddInverseNumber = __webpack_require__(242);
 
 	var _AddInverseNumber2 = _interopRequireDefault(_AddInverseNumber);
 
-	var _AddArrangement = __webpack_require__(242);
+	var _AddArrangement = __webpack_require__(243);
 
 	var _AddArrangement2 = _interopRequireDefault(_AddArrangement);
 
 	var _Answer = __webpack_require__(271);
 
 	var _Answer2 = _interopRequireDefault(_Answer);
+
+	var _Vid = __webpack_require__(185);
+
+	var _Vid2 = _interopRequireDefault(_Vid);
+
+	var _Div = __webpack_require__(241);
+
+	var _Div2 = _interopRequireDefault(_Div);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44739,8 +44728,16 @@
 
 	    return _react2.default.createElement(
 	        _Modal2.default,
-	        { isVisible: isVisible },
-	        answers.length ? answers : '< 空 >'
+	        { isVisible: isVisible, title: '\u89E3' },
+	        _react2.default.createElement(
+	            _Vid2.default,
+	            { style: { justifyContent: 'center' } },
+	            answers.length ? answers : _react2.default.createElement(
+	                _Div2.default,
+	                null,
+	                '< 空 >'
+	            )
+	        )
 	    );
 	};
 
@@ -44800,6 +44797,89 @@
 	Answer.propTypes = {};
 
 	exports.default = Answer;
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(190);
+
+	var _actions = __webpack_require__(228);
+
+	var _lodash = __webpack_require__(246);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	var _Input = __webpack_require__(259);
+
+	var _Input2 = _interopRequireDefault(_Input);
+
+	var _Div = __webpack_require__(241);
+
+	var _Div2 = _interopRequireDefault(_Div);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+	var InputArrangement = function InputArrangement(_ref) {
+	    var conditions = _ref.conditions,
+	        dispatch = _ref.dispatch,
+	        name = _ref.name;
+
+	    var cdt = conditions.find(function (cdt) {
+	        return cdt.name == name;
+	    });
+	    cdt.value = cdt.value || [''];
+	    var numbers = cdt.value.map(function (v, i) {
+	        return _react2.default.createElement(_Input2.default, {
+	            key: i,
+	            value: v,
+	            onChange: function onChange(_ref2) {
+	                var value = _ref2.value,
+	                    valid = _ref2.valid;
+
+	                dispatch((0, _actions.setValue)({
+	                    value: _lodash2.default.concat(cdt.value.slice(0, i), value, cdt.value.slice(i + 1)),
+	                    name: name, valid: valid, dirty: false
+	                }));
+	            },
+	            onDirty: function onDirty(_ref3) {
+	                var value = _ref3.value,
+	                    valid = _ref3.valid;
+	                return dispatch((0, _actions.setValue)({
+	                    value: valid && i == cdt.value.length - 1 ? [].concat(_toConsumableArray(cdt.value), ['']) : [].concat(_toConsumableArray(cdt.value)),
+	                    name: name, valid: valid, dirty: true
+	                }));
+	            },
+	            type: 'positiveInt'
+	        });
+	    });
+	    return _react2.default.createElement(
+	        'div',
+	        null,
+	        numbers
+	    );
+	};
+
+	InputArrangement.propTypes = {};
+	function mapState(state) {
+	    return {
+	        conditions: state.conditions.datas
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapState)(InputArrangement);
 
 /***/ }
 /******/ ]);

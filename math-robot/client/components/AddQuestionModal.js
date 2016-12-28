@@ -4,8 +4,6 @@
 import Modal from './Modal';
 import {connect} from 'react-redux';
 import React, {PropTypes} from 'react'
-import AddInverseNumber from './AddInverseNumber';
-import AddArrangement from './AddArrangement';
 import Button from './Button';
 import {addQuestion, hideCurtain, hideModal} from './actions';
 import Vid from './Vid';

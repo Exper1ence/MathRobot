@@ -7,7 +7,7 @@ import Add from './Add';
 import Condition from './Condition';
 import ShowConnectConditionModal from './ShowConnectConditionModal';
 import Close from './Close';
-import {removeCondition} from './actions';
+import {setValue} from './actions';
 import {connect} from 'react-redux';
 import Requirement from './Requirement';
 import Button from './Button';
@@ -17,7 +17,7 @@ import Fill from './Fill';
 import TipLine from './TipLine';
 import Input from './Input';
 
-const InverseNumber = ({name, datas}) => {
+const InverseNumber = ({name, datas,dispatch}) => {
     const data = datas[datas.findIndex(data => data.name == name)];
     return (
         <Condition name={name}>
@@ -26,7 +26,14 @@ const InverseNumber = ({name, datas}) => {
                         <ShowConnectConditionModal ignoreName={name} allowType={['Arrangement']}/>}
                 </Div>)}
             {data.requirement.length == 0 ? (
-                    <Div><Caption>值：</Caption><Input name={name} type='int'/></Div>) : ''}
+                    <Div><Caption>值：</Caption>
+                        <Input
+                            name={name}
+                            type='positiveInt'
+                            onChange={({value, valid}) => dispatch(setValue({value, name, valid, dirty: false,}))}
+                            onDirty={({value, valid}) => dispatch(setValue({name, valid, value, dirty: true,}))}
+                            value={data.value}
+                        /></Div>) : ''}
         </Condition>
     );
 };
