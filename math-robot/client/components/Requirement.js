@@ -18,7 +18,7 @@ const Requirement = ({name, target, dispatch}) => (
         alignItems: 'center',
         position: 'relative',
     }}>
-        <Close onClick={() => dispatch(removeRequirement({target, requirement: name}))}/>
+        <Close onClick={() => dispatch(removeRequirement({name: target, requirement: name}))}/>
         {name}
     </div>
 );

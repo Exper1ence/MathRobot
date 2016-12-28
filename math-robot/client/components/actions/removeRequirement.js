@@ -3,9 +3,9 @@
  */
 export const REMOVE_REQUIREMENT = 'REMOVE_REQUIREMENT';
 
-export function removeRequirement({target, requirement}) {
+export function removeRequirement({name, requirement}) {
     return {
         type: REMOVE_REQUIREMENT,
-        target, requirement,
+        name, requirement,
     };
 }

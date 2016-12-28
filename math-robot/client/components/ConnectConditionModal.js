@@ -15,7 +15,7 @@ const ConnectConditionModal = ({isVisible, datas, ignoreName, allowType, dispatc
         <Button onClick={() => {
             dispatch(hideCurtain());
             dispatch(hideModal());
-            dispatch(addRequirement({target: ignoreName, requirement: data.name}));
+            dispatch(addRequirement({name: ignoreName, requirement: data.name}));
         }} key={i}>
             {data.name}
         </Button>

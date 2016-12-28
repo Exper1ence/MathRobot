@@ -3,9 +3,9 @@
  */
 export const REMOVE_CONDITION = 'REMOVE_CONDITION';
 
-export function removeCondition({target}) {
+export function removeCondition({name}) {
     return {
         type: REMOVE_CONDITION,
-        target,
+        name,
     };
 }

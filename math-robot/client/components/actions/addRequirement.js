@@ -3,10 +3,10 @@
  */
 export const ADD_REQUIREMENT = 'ADD_REQUIREMENT';
 
-export function addRequirement({target, requirement}) {
+export function addRequirement({name, requirement}) {
     return {
         type: ADD_REQUIREMENT,
-        target,
+        name,
         requirement,
     };
 }

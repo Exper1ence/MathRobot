@@ -17,7 +17,7 @@ const Conditions = ({conditions}) => (
     <Container style={{marginTop: '3rem'}}>
         <Title name="条件"/>
         <Div/>
-        <Fill width>{conditions}</Fill>
+        <Fill width style={{alignItems:'flex-start'}}>{conditions}</Fill>
         <Div><ShowAddConditionModal/></Div>
         <AddConditionModal/>
         <ConnectConditionModal/>

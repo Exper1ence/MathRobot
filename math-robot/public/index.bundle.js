@@ -21733,7 +21733,7 @@
 	        _react2.default.createElement(_Div2.default, null),
 	        _react2.default.createElement(
 	            _Fill2.default,
-	            { width: true },
+	            { width: true, style: { alignItems: 'flex-start' } },
 	            conditions
 	        ),
 	        _react2.default.createElement(
@@ -21945,7 +21945,7 @@
 	        height = _ref.height,
 	        style = _ref.style;
 
-	    var sty = { alignItems: 'center' };
+	    var sty = {};
 	    if (width) sty.width = '100%';
 	    if (height) sty.height = '100%';
 	    return _react2.default.createElement(
@@ -24598,11 +24598,11 @@
 	var REMOVE_CONDITION = exports.REMOVE_CONDITION = 'REMOVE_CONDITION';
 
 	function removeCondition(_ref) {
-	    var target = _ref.target;
+	    var name = _ref.name;
 
 	    return {
 	        type: REMOVE_CONDITION,
-	        target: target
+	        name: name
 	    };
 	}
 
@@ -24622,12 +24622,12 @@
 	var ADD_REQUIREMENT = exports.ADD_REQUIREMENT = 'ADD_REQUIREMENT';
 
 	function addRequirement(_ref) {
-	    var target = _ref.target,
+	    var name = _ref.name,
 	        requirement = _ref.requirement;
 
 	    return {
 	        type: ADD_REQUIREMENT,
-	        target: target,
+	        name: name,
 	        requirement: requirement
 	    };
 	}
@@ -24648,12 +24648,12 @@
 	var REMOVE_REQUIREMENT = exports.REMOVE_REQUIREMENT = 'REMOVE_REQUIREMENT';
 
 	function removeRequirement(_ref) {
-	    var target = _ref.target,
+	    var name = _ref.name,
 	        requirement = _ref.requirement;
 
 	    return {
 	        type: REMOVE_REQUIREMENT,
-	        target: target, requirement: requirement
+	        name: name, requirement: requirement
 	    };
 	}
 
@@ -24674,12 +24674,16 @@
 
 	function setValue(_ref) {
 	    var value = _ref.value,
-	        target = _ref.target;
+	        name = _ref.name,
+	        valid = _ref.valid,
+	        dirty = _ref.dirty;
 
 	    return {
 	        type: SET_VALUE,
 	        value: value,
-	        target: target
+	        valid: valid,
+	        name: name,
+	        dirty: dirty
 	    };
 	}
 
@@ -24933,7 +24937,7 @@
 	            { onClick: function onClick() {
 	                    dispatch((0, _actions.hideCurtain)());
 	                    dispatch((0, _actions.hideModal)());
-	                    dispatch((0, _actions.addRequirement)({ target: ignoreName, requirement: data.name }));
+	                    dispatch((0, _actions.addRequirement)({ name: ignoreName, requirement: data.name }));
 	                }, key: i },
 	            data.name
 	        );
@@ -42311,8 +42315,10 @@
 	    var condition = _ref.condition,
 	        type = _ref.type,
 	        requirement = _ref.requirement,
-	        target = _ref.target,
-	        value = _ref.value;
+	        name = _ref.name,
+	        value = _ref.value,
+	        valid = _ref.valid,
+	        dirty = _ref.dirty;
 
 	    switch (type) {
 	        case _actions.ADD_CONDITION:
@@ -42333,7 +42339,7 @@
 	        case _actions.REMOVE_CONDITION:
 	            {
 	                var i = state.datas.findIndex(function (data) {
-	                    return target == data.name;
+	                    return name == data.name;
 	                });
 	                return {
 	                    elements: _lodash2.default.concat(state.elements.slice(0, i), state.elements.slice(i + 1)),
@@ -42344,7 +42350,7 @@
 	        case _actions.ADD_REQUIREMENT:
 	            {
 	                var _i = state.datas.findIndex(function (data) {
-	                    return target == data.name;
+	                    return name == data.name;
 	                });
 	                var datas = [].concat(_toConsumableArray(state.datas));
 	                datas[_i].requirement.push(requirement);
@@ -42357,7 +42363,7 @@
 	        case _actions.REMOVE_REQUIREMENT:
 	            {
 	                var _i2 = state.datas.findIndex(function (data) {
-	                    return target == data.name;
+	                    return name == data.name;
 	                });
 	                var _datas = [].concat(_toConsumableArray(state.datas));
 	                _datas[_i2].requirement = _lodash2.default.concat(_datas[_i2].requirement.slice(0, _i2), _datas[_i2].requirement.slice(_i2 + 1));
@@ -42370,10 +42376,12 @@
 	        case _actions.SET_VALUE:
 	            {
 	                var _i3 = state.datas.findIndex(function (data) {
-	                    return target == data.name;
+	                    return name == data.name;
 	                });
 	                var _datas2 = [].concat(_toConsumableArray(state.datas));
 	                _datas2[_i3].value = value;
+	                _datas2[_i3].valid = valid;
+	                _datas2[_i3].dirty = dirty;
 	                return {
 	                    elements: [].concat(_toConsumableArray(state.elements)),
 	                    datas: _datas2,
@@ -42428,10 +42436,6 @@
 
 	var _Requirement2 = _interopRequireDefault(_Requirement);
 
-	var _InputRealNumber = __webpack_require__(257);
-
-	var _InputRealNumber2 = _interopRequireDefault(_InputRealNumber);
-
 	var _Button = __webpack_require__(180);
 
 	var _Button2 = _interopRequireDefault(_Button);
@@ -42448,11 +42452,16 @@
 
 	var _Fill2 = _interopRequireDefault(_Fill);
 
+	var _TipLine = __webpack_require__(273);
+
+	var _TipLine2 = _interopRequireDefault(_TipLine);
+
+	var _Input = __webpack_require__(258);
+
+	var _Input2 = _interopRequireDefault(_Input);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/**
-	 * Created by Exper1ence on 2016/12/27.
-	 */
 	var InverseNumber = function InverseNumber(_ref) {
 	    var name = _ref.name,
 	        datas = _ref.datas;
@@ -42463,7 +42472,7 @@
 	    return _react2.default.createElement(
 	        _Condition2.default,
 	        { name: name },
-	        _react2.default.createElement(
+	        data.dirty ? '' : _react2.default.createElement(
 	            _Div2.default,
 	            null,
 	            _react2.default.createElement(
@@ -42473,7 +42482,7 @@
 	            ),
 	            data.requirement.length ? _react2.default.createElement(_Requirement2.default, { name: data.requirement[0], target: name }) : _react2.default.createElement(_ShowConnectConditionModal2.default, { ignoreName: name, allowType: ['Arrangement'] })
 	        ),
-	        _react2.default.createElement(
+	        data.requirement.length == 0 ? _react2.default.createElement(
 	            _Div2.default,
 	            null,
 	            _react2.default.createElement(
@@ -42481,14 +42490,13 @@
 	                null,
 	                '\u503C\uFF1A'
 	            ),
-	            _react2.default.createElement(
-	                _Button2.default,
-	                { warning: true },
-	                '\u672A\u77E5'
-	            )
-	        )
+	            _react2.default.createElement(_Input2.default, { name: name, type: 'int' })
+	        ) : ''
 	    );
-	};
+	}; /**
+	    * Created by Exper1ence on 2016/12/27.
+	    */
+
 
 	InverseNumber.propTypes = {};
 
@@ -42573,36 +42581,47 @@
 
 	var _Vid2 = _interopRequireDefault(_Vid);
 
+	var _TipLine = __webpack_require__(273);
+
+	var _TipLine2 = _interopRequireDefault(_TipLine);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/**
-	 * Created by Exper1ence on 2016/12/26.
-	 */
 	var Condition = function Condition(_ref) {
 	    var children = _ref.children,
 	        style = _ref.style,
 	        name = _ref.name,
 	        dispatch = _ref.dispatch;
 	    return _react2.default.createElement(
-	        _Vid2.default,
-	        {
-	            style: Object.assign({
+	        'div',
+	        { style: {
 	                border: '1px solid #ccc',
 	                borderRadius: '.25rem',
 	                position: 'relative',
 	                flexDirection: 'column'
-	            }, style) },
+	            } },
 	        _react2.default.createElement(_Close2.default, { onClick: function onClick() {
-	                return dispatch((0, _actions.removeCondition)({ target: name }));
+	                return dispatch((0, _actions.removeCondition)({ name: name }));
 	            } }),
 	        _react2.default.createElement(
-	            _Div2.default,
-	            { style: { justifyContent: 'center', fontSize: '1.2rem', fontWeight: 'bold' } },
-	            name
+	            _Vid2.default,
+	            {
+	                style: Object.assign({
+	                    flexDirection: 'column'
+	                }, style) },
+	            _react2.default.createElement(
+	                _Div2.default,
+	                { style: { justifyContent: 'center', fontSize: '1.2rem', fontWeight: 'bold' } },
+	                name
+	            ),
+	            children
 	        ),
-	        children
+	        _react2.default.createElement(_TipLine2.default, { name: name })
 	    );
-	};
+	}; /**
+	    * Created by Exper1ence on 2016/12/26.
+	    */
+
 
 	Condition.propTypes = {};
 
@@ -42703,7 +42722,7 @@
 	                position: 'relative'
 	            } },
 	        _react2.default.createElement(_Close2.default, { onClick: function onClick() {
-	                return dispatch((0, _actions.removeRequirement)({ target: target, requirement: name }));
+	                return dispatch((0, _actions.removeRequirement)({ name: target, requirement: name }));
 	            } }),
 	        name
 	    );
@@ -42714,41 +42733,7 @@
 	exports.default = (0, _reactRedux.connect)()(Requirement);
 
 /***/ },
-/* 257 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Input = __webpack_require__(258);
-
-	var _Input2 = _interopRequireDefault(_Input);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); } /**
-	                                                                                                                   * Created by Exper1ence on 2016/12/27.
-	                                                                                                                   */
-
-
-	var InputRealNumber = function InputRealNumber(_ref) {
-	  _objectDestructuringEmpty(_ref);
-
-	  return _react2.default.createElement(_Input2.default, null);
-	};
-
-	InputRealNumber.propTypes = {};
-
-	exports.default = InputRealNumber;
-
-/***/ },
+/* 257 */,
 /* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -42762,10 +42747,45 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(190);
+
+	var _actions = __webpack_require__(228);
+
+	var _lodash = __webpack_require__(245);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/**
+	 * Created by Exper1ence on 2016/12/27.
+	 */
+	function check(toCheck, type) {
+	    var value = void 0;
+	    var valid = void 0;
+	    switch (type) {
+	        case 'int':
+	            valid = toCheck.match(/^\d+$/);
+	            value = valid ? parseInt(toCheck) : toCheck;
+	            break;
+	        default:
+	            break;
+	    }
+	    return { value: value, valid: valid };
+	}
+
 	var Input = function Input(_ref) {
-	    var onChange = _ref.onChange;
+	    var onChange = _ref.onChange,
+	        _ref$size = _ref.size,
+	        size = _ref$size === undefined ? 1 : _ref$size,
+	        conditions = _ref.conditions,
+	        dispatch = _ref.dispatch,
+	        name = _ref.name,
+	        type = _ref.type;
+
+	    var cdt = conditions.find(function (cdt) {
+	        return cdt.name == name;
+	    });
 	    return _react2.default.createElement('input', {
 	        style: {
 	            borderRadius: '.25rem',
@@ -42773,16 +42793,33 @@
 	            padding: '0 .5rem',
 	            backgroundColor: '#fff',
 	            border: '1px solid #ccc',
-	            marginTop: '10px'
-	        }, onChange: onChange });
-	}; /**
-	    * Created by Exper1ence on 2016/12/27.
-	    */
+	            width: size * 50 + 'px'
+	        }, onChange: function onChange(e) {
+	            var _check = check(e.target.value.replace(/ /g, ''), type),
+	                value = _check.value,
+	                valid = _check.valid;
 
+	            dispatch((0, _actions.setValue)({ value: value, name: name, valid: valid, dirty: false }));
+	        }, onBlur: function onBlur(e) {
+	            var toCheck = e.target.value.replace(/ /g, '');
+	            if (toCheck == '') return dispatch((0, _actions.setValue)({ name: name, dirty: false }));
+
+	            var _check2 = check(toCheck, type),
+	                value = _check2.value,
+	                valid = _check2.valid;
+
+	            dispatch((0, _actions.setValue)({ name: name, valid: valid, value: value, dirty: true }));
+	        }, value: _lodash2.default.isUndefined(cdt.value) ? '' : cdt.value });
+	};
 
 	Input.propTypes = {};
+	function mapState(state) {
+	    return {
+	        conditions: state.conditions.datas
+	    };
+	}
 
-	exports.default = Input;
+	exports.default = (0, _reactRedux.connect)(mapState)(Input);
 
 /***/ },
 /* 259 */
@@ -42853,10 +42890,6 @@
 
 	var _Add2 = _interopRequireDefault(_Add);
 
-	var _InputString = __webpack_require__(261);
-
-	var _InputString2 = _interopRequireDefault(_InputString);
-
 	var _actions = __webpack_require__(228);
 
 	var _reactRedux = __webpack_require__(190);
@@ -42872,6 +42905,10 @@
 	var _Button = __webpack_require__(180);
 
 	var _Button2 = _interopRequireDefault(_Button);
+
+	var _Input = __webpack_require__(258);
+
+	var _Input2 = _interopRequireDefault(_Input);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42892,7 +42929,7 @@
 	                null,
 	                '\u503C\uFF1A'
 	            ),
-	            _react2.default.createElement(_InputString2.default, null)
+	            _react2.default.createElement(_Input2.default, { name: name })
 	        )
 	    );
 	};
@@ -42902,40 +42939,7 @@
 	exports.default = (0, _reactRedux.connect)()(Arrangement);
 
 /***/ },
-/* 261 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Input = __webpack_require__(258);
-
-	var _Input2 = _interopRequireDefault(_Input);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * Created by Exper1ence on 2016/12/27.
-	 */
-	var InputString = function InputString(_ref) {
-	    var onInput = _ref.onInput;
-	    return _react2.default.createElement(_Input2.default, { onChange: function onChange(e) {
-	            return onInput(e.target.value);
-	        } });
-	};
-
-	InputString.propTypes = {};
-
-	exports.default = InputString;
-
-/***/ },
+/* 261 */,
 /* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -44670,6 +44674,75 @@
 	Answer.propTypes = {};
 
 	exports.default = Answer;
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Fill = __webpack_require__(186);
+
+	var _Fill2 = _interopRequireDefault(_Fill);
+
+	var _reactRedux = __webpack_require__(190);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var TipLine = function TipLine(_ref) {
+	    var name = _ref.name,
+	        conditions = _ref.conditions,
+	        onCheck = _ref.onCheck;
+
+	    var cdt = conditions.find(function (cdt) {
+	        return cdt.name == name;
+	    });
+	    var word = '未知';
+	    var backgroundColor = '#f0ad4e';
+	    if (cdt.dirty) {
+	        if (cdt.valid) {
+	            word = '已知';
+	            backgroundColor = '#5cb85c';
+	        } else {
+	            word = '无效值';
+	            backgroundColor = '#d9534f';
+	        }
+	        !onCheck || onCheck(cdt.valid);
+	    }
+	    return _react2.default.createElement(
+	        _Fill2.default,
+	        { width: true,
+	            style: {
+	                padding: '.5rem 1rem',
+	                backgroundColor: backgroundColor,
+	                alignItems: 'center',
+	                color: 'white',
+	                justifyContent: 'center',
+	                fontWeight: 'bold'
+	            } },
+	        word
+	    );
+	}; /**
+	    * Created by Exper1ence on 2016/12/28.
+	    */
+
+
+	TipLine.propTypes = {};
+	function mapState(state) {
+	    return {
+	        conditions: state.conditions.datas
+	    };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapState)(TipLine);
 
 /***/ }
 /******/ ]);

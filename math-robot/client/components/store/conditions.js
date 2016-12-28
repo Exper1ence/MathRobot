@@ -4,7 +4,7 @@
 import React from 'react';
 import {
     ADD_CONDITION, REMOVE_CONDITION,
-    ADD_REQUIREMENT, REMOVE_REQUIREMENT, SET_VALUE
+    ADD_REQUIREMENT, REMOVE_REQUIREMENT, SET_VALUE,
 } from '../actions';
 import InverseNumber from '../InverseNumber';
 import Arrangement from '../Arrangement';
@@ -34,7 +34,7 @@ export default function conditions(state = {
     elements: [],
     datas: [],
     count: 0,
-}, {condition, type, requirement, target, value,}) {
+}, {condition, type, requirement, name, value, valid, dirty}) {
     switch (type) {
         case ADD_CONDITION: {
             if (state.count > 26)return state;
@@ -53,7 +53,7 @@ export default function conditions(state = {
         }
             break;
         case REMOVE_CONDITION: {
-            const i = state.datas.findIndex(data => target == data.name);
+            const i = state.datas.findIndex(data => name == data.name);
             return {
                 elements: _.concat(state.elements.slice(0, i), state.elements.slice(i + 1)),
                 datas: _.concat(state.datas.slice(0, i), state.datas.slice(i + 1)),
@@ -61,7 +61,7 @@ export default function conditions(state = {
             };
         }
         case ADD_REQUIREMENT: {
-            const i = state.datas.findIndex(data => target == data.name);
+            const i = state.datas.findIndex(data => name == data.name);
             const datas = [...state.datas];
             datas[i].requirement.push(requirement);
             return {
@@ -71,7 +71,7 @@ export default function conditions(state = {
             };
         }
         case REMOVE_REQUIREMENT: {
-            const i = state.datas.findIndex(data => target == data.name);
+            const i = state.datas.findIndex(data => name == data.name);
             const datas = [...state.datas];
             datas[i].requirement = _.concat(datas[i].requirement.slice(0, i), datas[i].requirement.slice(i + 1));
             return {
@@ -81,9 +81,11 @@ export default function conditions(state = {
             };
         }
         case SET_VALUE: {
-            const i = state.datas.findIndex(data => target == data.name);
+            const i = state.datas.findIndex(data => name == data.name);
             const datas = [...state.datas];
             datas[i].value = value;
+            datas[i].valid = valid;
+            datas[i].dirty = dirty;
             return {
                 elements: [...state.elements],
                 datas,

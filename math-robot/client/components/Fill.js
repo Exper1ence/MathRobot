@@ -4,7 +4,7 @@
 import React, {PropTypes} from 'react'
 
 const Fill = ({children, width, height, style}) => {
-    const sty = {alignItems: 'center',};
+    const sty = {};
     if (width) sty.width = '100%';
     if (height) sty.height = '100%';
     return (
