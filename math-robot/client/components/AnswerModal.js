@@ -13,7 +13,7 @@ import Div from './Div';
 const AnswerModal = ({isVisible, answers}) => {
     answers = answers.map((ans, i) => {
         return (
-            <Answer answer={ans} key={i}/>
+            <Div key={i}><Answer answer={ans}/></Div>
         )
     });
     

@@ -5,6 +5,7 @@ import React from 'react';
 import {
     ADD_CONDITION, REMOVE_CONDITION,
     ADD_REQUIREMENT, REMOVE_REQUIREMENT, SET_VALUE,
+    FOCUS_INPUT, RESET_FOCUS,
 } from '../actions';
 import InverseNumber from '../InverseNumber';
 import Arrangement from '../Arrangement';
@@ -27,6 +28,7 @@ function getCondition(condition, key) {
             break;
     }
     data.requirement = [];
+    data.focus = 0;
     return {element, data};
 }
 
@@ -34,7 +36,7 @@ export default function conditions(state = {
     elements: [],
     datas: [],
     count: 0,
-}, {condition, type, requirement, name, value, valid, dirty}) {
+}, {condition, type, requirement, name, value, valid, dirty, focus}) {
     switch (type) {
         case ADD_CONDITION: {
             if (state.count > 26)return state;
@@ -91,6 +93,18 @@ export default function conditions(state = {
                 datas,
                 count: state.count,
             }
+        }
+        case FOCUS_INPUT: {
+            const i = state.datas.findIndex(data => name == data.name);
+            const newState = Object.create(state);
+            newState.datas[i].focus = focus;
+            return newState;
+        }
+        case RESET_FOCUS: {
+            const i = state.datas.findIndex(data => name == data.name);
+            const newState = Object.create(state);
+            newState.datas[i].focus = -1;
+            return newState;
         }
         default:
             return state;

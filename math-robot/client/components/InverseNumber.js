@@ -17,7 +17,7 @@ import Fill from './Fill';
 import TipLine from './TipLine';
 import Input from './Input';
 
-const InverseNumber = ({name, datas,dispatch}) => {
+const InverseNumber = ({name, datas, dispatch}) => {
     const data = datas[datas.findIndex(data => data.name == name)];
     return (
         <Condition name={name}>
@@ -28,10 +28,14 @@ const InverseNumber = ({name, datas,dispatch}) => {
             {data.requirement.length == 0 ? (
                     <Div><Caption>值：</Caption>
                         <Input
+                            focus={0}
                             name={name}
                             type='positiveInt'
                             onChange={({value, valid}) => dispatch(setValue({value, name, valid, dirty: false,}))}
-                            onDirty={({value, valid}) => dispatch(setValue({name, valid, value, dirty: true,}))}
+                            onBlur={({value, valid}) => {
+                                if (value == '')return dispatch(setValue({name, dirty: false}));
+                                dispatch(setValue({name, valid, value, dirty: true,}));
+                            }}
                             value={data.value}
                         /></Div>) : ''}
         </Condition>

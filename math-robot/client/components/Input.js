@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes, Component} from 'react'
 import {connect} from 'react-redux';
-import {setValue} from './actions';
+import {resetFocus} from './actions';
 import _ from 'lodash';
 
 function check(toCheck, type) {
@@ -16,25 +16,56 @@ function check(toCheck, type) {
     }
     return {value, valid,}
 }
+class Input extends Component {
+    render() {
+        const {
+            conditions, onChange, onBlur, size = 1,
+            type, value, onEnter, focus, name, dispatch,
+        }=this.props;
+        if (name) {
+            const cdt = conditions.find(cdt => cdt.name == name);
+            if (cdt.focus == focus) {
+                setTimeout(() => {
+                    this.refs.input.focus();
+                    dispatch(resetFocus({name,}));
+                })
+            }
+        }
+        return (
+            <input
+                style={{
+                    borderRadius: '.25rem',
+                    height: '35px',
+                    padding: '0 .5rem',
+                    backgroundColor: '#fff',
+                    border: '1px solid #ccc',
+                    width: size * 50 + 'px',
+                }}
+                onChange={(e) => onChange(check(e.target.value.replace(/ /g, ''), type))}
+                onBlur={(e) => onBlur(check(e.target.value.replace(/ /g, ''), type))}
+                value={_.isUndefined(value) ? '' : value}
+                onKeyUp={e => {
+                    if (!e) {
+                        const e = window.event;
+                    }
+                    e.preventDefault();
+                    if (e.keyCode == 13) {
+                        onBlur(check(e.target.value.replace(/ /g, ''), type));
+                        this.refs.input.blur();
+                        onEnter(e);
+                    }
+                }}
+                ref='input'
+            />
+        );
+    }
+}
 
-const Input = ({onChange, onDirty, size = 1, type, value}) => (
-    <input
-        style={{
-            borderRadius: '.25rem',
-            height: '35px',
-            padding: '0 .5rem',
-            backgroundColor: '#fff',
-            border: '1px solid #ccc',
-            width: size * 50 + 'px',
-        }}
-        onChange={(e) => onChange(check(e.target.value.replace(/ /g, ''), type))}
-        onBlur={(e) => {
-            const toCheck = e.target.value.replace(/ /g, '');
-            if (toCheck == '') return;
-            onDirty(check(toCheck, type));
-        }} value={_.isUndefined(value) ? '' : value}>
-    
-    </input>
-);
+// const Input = ({onChange, onBlur, size = 1, type, value}) =>
 
-export default Input;
+function mapState(state) {
+    return {
+        conditions: state.conditions.datas,
+    }
+}
+export default connect(mapState)(Input);

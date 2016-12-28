@@ -12,7 +12,7 @@ import Div from './Div';
 const AddQuestionModal = ({isVisible, questions, conditions, dispatch}) => {
     const lefts = [];
     conditions.forEach((cdt, i) => {
-        if (questions.indexOf(cdt.name) > -1)return;
+        if (questions.indexOf(cdt.name) > -1 || cdt.valid)return;
         lefts.push(<Div key={i}><Button onClick={() => {
             dispatch(hideCurtain());
             dispatch(hideModal());

@@ -11,7 +11,6 @@ p.polyfill();
 
 const Submit = ({form, dispatch}) => (
     <Button primary onClick={() => {
-        console.log(form);
         fetch('/', {
             method: 'post',
             headers: {

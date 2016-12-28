@@ -4,16 +4,17 @@
 import React, {PropTypes} from 'react'
 import Item from './Item';
 import Container from './Container';
+import Button from './Button';
 
 const Answer = ({answer}) => {
-    const {name, done, value, reason}=answer;
-    return(
-        <Container style={{
+    const {name, done, value, msg}=answer;
+    return (
+        <Button style={{
             borderBottom: '1px solid #ccc',
             padding: '.5rem 1rem',
-        }}>
-            {`${name}：${done ? value : reason}`}
-        </Container>
+        }} success={done} danger={!done}>
+            {`${name} ：${done ? value : msg}`}
+        </Button>
     )
 };
 

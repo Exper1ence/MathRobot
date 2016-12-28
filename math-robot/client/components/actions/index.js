@@ -13,6 +13,8 @@ import {setValue, SET_VALUE,} from './setValue';
 import {addQuestion, ADD_QUESTION,} from './addQuestion';
 import {removeQuestion, REMOVE_QUESTION,} from './removeQuestion';
 import {updateAnswers, UPDATE_ANSWERS,} from './updateAnswers';
+import {focusInput,FOCUS_INPUT,} from './focusInput';
+import {resetFocus,RESET_FOCUS,} from './resetFocus';
 
 export {
     showModal, hideModal, showCurtain, hideCurtain, HIDE_MODAL,
@@ -20,5 +22,6 @@ export {
     removeCondition, REMOVE_CONDITION, addRequirement, ADD_REQUIREMENT,
     removeRequirement, REMOVE_REQUIREMENT, setValue, SET_VALUE,
     addQuestion, ADD_QUESTION, removeQuestion, REMOVE_QUESTION,
-    updateAnswers, UPDATE_ANSWERS,
+    updateAnswers, UPDATE_ANSWERS,focusInput,FOCUS_INPUT,
+    resetFocus,RESET_FOCUS,
 }
