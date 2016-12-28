@@ -43718,8 +43718,6 @@
 	    return _react2.default.createElement(
 	        _Button2.default,
 	        { primary: true, onClick: function onClick() {
-	                console.log(form.questions);
-	                console.log(form.questions.length);
 	                if (form.questions.length < 1) {
 	                    dispatch((0, _actions.updateAnswers)({ answers: [] }));
 	                    dispatch((0, _actions.showCurtain)());

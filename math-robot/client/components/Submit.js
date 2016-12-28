@@ -11,8 +11,6 @@ p.polyfill();
 
 const Submit = ({form, dispatch}) => (
     <Button primary onClick={() => {
-        console.log(form.questions)
-        console.log(form.questions.length)
         if (form.questions.length < 1) {
             dispatch(updateAnswers({answers: []}));
             dispatch(showCurtain());
