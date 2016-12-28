@@ -6,11 +6,17 @@ import {connect} from 'react-redux';
 import React, {PropTypes} from 'react'
 import AddInverseNumber from './AddInverseNumber';
 import AddArrangement from './AddArrangement';
+import Vid from './Vid';
+import Div from './Div';
 
 const AddConditionModal = ({isVisible}) => (
-    <Modal isVisible={isVisible}>
-        <AddInverseNumber/>
-        <AddArrangement/>
+    <Modal isVisible={isVisible} title='可选类型'>
+        <Vid style={{
+            justifyContent: 'center',
+        }}>
+            <Div><AddInverseNumber/></Div>
+            <Div><AddArrangement/></Div>
+        </Vid>
     </Modal>
 );
 

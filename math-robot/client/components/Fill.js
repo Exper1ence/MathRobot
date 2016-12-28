@@ -3,10 +3,10 @@
  */
 import React, {PropTypes} from 'react'
 
-const Fill = ({children, width, height, style}) => {
+const Fill = ({children, height, style}) => {
     const sty = {};
-    if (width) sty.width = '100%';
     if (height) sty.height = '100%';
+    else sty.width = '100%';
     return (
         <div
             style={Object.assign(sty, style)}>

@@ -5,24 +5,30 @@ import Modal from './Modal';
 import {connect} from 'react-redux';
 import React, {PropTypes} from 'react'
 import Button from './Button';
-import {addRequirement,hideCurtain,hideModal} from './actions';
+import {addRequirement, hideCurtain, hideModal} from './actions';
+import Vid from './Vid';
+import Div from './Div';
 
 const ConnectConditionModal = ({isVisible, datas, ignoreName, allowType, dispatch,}) => {
     let items = datas.filter((data, i) => {
         return allowType && data.name != ignoreName && allowType.indexOf(data.type) >= 0;
     });
     items = items.map((data, i) => (
-        <Button onClick={() => {
+        <Div key={i}><Button onClick={() => {
             dispatch(hideCurtain());
             dispatch(hideModal());
             dispatch(addRequirement({name: ignoreName, requirement: data.name}));
-        }} key={i}>
+        }}>
             {data.name}
-        </Button>
+        </Button></Div>
     ));
     return (
-        <Modal isVisible={isVisible}>
-            {items.length ? items : '< 空 >'}
+        <Modal isVisible={isVisible} title='可选依赖'>
+            <Vid style={{
+                justifyContent:'center',
+            }}>
+                {items.length ? items : <Div>{'< 空 >'}</Div>}
+            </Vid>
         </Modal>
     )
 };

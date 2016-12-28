@@ -5,56 +5,48 @@ import React, {PropTypes, Component} from 'react';
 import Close from './Close';
 import {connect} from 'react-redux';
 import {hideModal, hideCurtain} from './actions';
+import Div from './Div';
+import Vid from './Vid';
 
 class Modal extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            marginLeft: '0',
-            marginTop: '0',
-            display: 'flex',
-            visibility: 'hidden',
-        };
-    }
-    
-    componentDidMount() {
-        this.setState({
-            marginLeft: `-${this.div.offsetWidth / 2}px`,
-            marginTop: `-${this.div.offsetHeight / 2}px`,
-            visibility: 'visible',
-            display: this.props.isVisible == false ? 'none' : 'flex',
-        });
-        this.init = true;
-    }
-    
     render() {
-        const {children, style, isVisible, dispatch}=this.props;
-        const {marginLeft, marginTop, display, visibility}=this.state;
+        const {children, style, isVisible, dispatch, title,}=this.props;
+        const sty = {};
+        if (isVisible && this.refs.div) {
+            Object.assign(sty, {
+                marginLeft: `-${this.refs.div.offsetWidth / 2}px`,
+                marginTop: `-${this.refs.div.offsetHeight / 2}px`,
+            })
+        }
         return (
             <div
                 style={Object.assign({
-                    border: '1px solid #ccc',
                     borderRadius: '.25rem',
                     position: 'absolute',
-                    padding: '1rem 1rem',
                     left: '50%',
-                    marginLeft,
                     top: '50%',
-                    marginTop,
-                    display: this.init ? (isVisible ? 'flex' : 'none') : display,
-                    visibility,
+                    visibility: isVisible ? 'visible' : 'hidden',
                     backgroundColor: 'white',
-                    zIndex:100,
-                }, style)}
-                ref={div => this.div = div}>
+                    zIndex: 100,
+                    flexDirection: 'column'
+                }, sty, style)}
+                ref='div'>
                 <Close onClick={() => {
                     dispatch(hideModal());
                     dispatch(hideCurtain());
                 }}/>
+                <div style={{
+                    fontSize: '1.5rem',
+                    fontWeight: 'bold',
+                    justifyContent: 'center',
+                    backgroundColor: '#5bc0de',
+                    color: 'white',
+                    margin: '18px 0 9px',
+                    padding: '2px 20px',
+                }}>{title}</div>
                 {children}
             </div>
         )
     }
 }
-
 export default connect()(Modal);
