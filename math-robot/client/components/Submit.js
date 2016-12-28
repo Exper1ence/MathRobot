@@ -36,7 +36,8 @@ const Submit = ({form, dispatch}) => (
                 dispatch(showModal({
                     selected: 'Answer'
                 }));
-            });
+            })
+            .catch(()=>{});
     }}>
         提交
     </Button>

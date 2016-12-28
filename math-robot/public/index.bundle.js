@@ -43741,7 +43741,7 @@
 	                    dispatch((0, _actions.showModal)({
 	                        selected: 'Answer'
 	                    }));
-	                });
+	                }).catch(function () {});
 	            } },
 	        '\u63D0\u4EA4'
 	    );
