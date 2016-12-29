@@ -15,8 +15,10 @@ module.exports = {
         arr.pop();
         let value = 0;
         for (let i = 0; i < arr.length; i++) {
+            let number1 = arr[i].data;
             for (let j = 0; j < i; j++) {
-                if ((isNaN(parseInt(arr[i])) || isNaN(parseInt(arr[j])))) {
+                let number2 = arr[j].data;
+                if ((isNaN(parseInt(number1)) || isNaN(parseInt(number2)))) {
                     return {
                         name,
                         done: false,
@@ -24,7 +26,7 @@ module.exports = {
                     }
                 }
                 else {
-                    if (arr[j] > arr[i]) {
+                    if (number2 > number1) {
                         value++;
                     }
                 }

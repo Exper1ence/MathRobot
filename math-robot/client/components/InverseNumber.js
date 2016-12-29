@@ -32,9 +32,9 @@ const InverseNumber = ({name, datas, dispatch}) => {
                             name={name}
                             type='positiveInt'
                             onChange={({value, valid}) => dispatch(setValue({value, name, valid, dirty: false,}))}
-                            onBlur={({value, valid}) => {
-                                if (value == '')return dispatch(setValue({name, dirty: false}));
-                                dispatch(setValue({name, valid, value, dirty: true,}));
+                            onBlur={() => {
+                                if (data.value == undefined || data.value == '')return dispatch(setValue(Object.assign({}, data, {dirty: false})));
+                                dispatch(setValue(Object.assign({}, data, {dirty: true,})));
                             }}
                             value={data.value}
                         /></Div>) : ''}

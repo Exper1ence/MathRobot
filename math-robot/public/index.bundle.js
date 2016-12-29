@@ -21539,7 +21539,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.Curtain = exports.Container = exports.Conditions = exports.Add = undefined;
+	exports.Component = exports.Curtain = exports.Container = exports.Conditions = exports.Add = undefined;
 
 	var _Add = __webpack_require__(179);
 
@@ -21557,15 +21557,20 @@
 
 	var _Curtain2 = _interopRequireDefault(_Curtain);
 
+	var _Component = __webpack_require__(279);
+
+	var _Component2 = _interopRequireDefault(_Component);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/**
-	 * Created by Exper1ence on 2016/12/26.
-	 */
 	exports.Add = _Add2.default;
 	exports.Conditions = _Conditions2.default;
 	exports.Container = _Container2.default;
 	exports.Curtain = _Curtain2.default;
+	exports.Component = _Component2.default; /**
+	                                          * Created by Exper1ence on 2016/12/26.
+	                                          */
+
 	exports.default = {};
 
 /***/ },
@@ -42683,12 +42688,9 @@
 	                        valid = _ref2.valid;
 	                    return dispatch((0, _actions.setValue)({ value: value, name: name, valid: valid, dirty: false }));
 	                },
-	                onBlur: function onBlur(_ref3) {
-	                    var value = _ref3.value,
-	                        valid = _ref3.valid;
-
-	                    if (value == '') return dispatch((0, _actions.setValue)({ name: name, dirty: false }));
-	                    dispatch((0, _actions.setValue)({ name: name, valid: valid, value: value, dirty: true }));
+	                onBlur: function onBlur() {
+	                    if (data.value == undefined || data.value == '') return dispatch((0, _actions.setValue)(Object.assign({}, data, { dirty: false })));
+	                    dispatch((0, _actions.setValue)(Object.assign({}, data, { dirty: true })));
 	                },
 	                value: data.value
 	            })
@@ -43732,7 +43734,7 @@
 	                var valid = void 0;
 	                if (colDir) valid = row.valid && col.valid;else valid = row.valid;
 	                var dirty = row.value != undefined && row.value != '';
-	                dispatch((0, _actions.setValue)(Object.assign({}, cdt, { valid: valid, dirty: dirty })));
+	                dispatch((0, _actions.setValue)(Object.assign({}, cdt, { valid: valid, dirty: false })));
 	            },
 	            onEnter: function onEnter() {
 	                dispatch((0, _actions.focusInput)({ name: name, focus: 1 }));
@@ -43765,7 +43767,7 @@
 	                var valid = void 0;
 	                if (rowDir) valid = col.valid && row.valid;else valid = col.valid;
 	                var dirty = col.value != undefined && col.value != '';
-	                dispatch((0, _actions.setValue)(Object.assign({}, cdt, { valid: valid, dirty: dirty })));
+	                dispatch((0, _actions.setValue)(Object.assign({}, cdt, { valid: valid, dirty: false })));
 	            },
 	            onEnter: function onEnter() {
 	                return dispatch((0, _actions.focusInput)({ name: name, focus: 2 }));
@@ -45565,7 +45567,8 @@
 	        _Button2.default,
 	        { style: {
 	                borderBottom: '1px solid #ccc',
-	                padding: '.5rem 1rem'
+	                padding: '.5rem 1rem',
+	                cursor: 'normal'
 	            }, success: done, danger: !done },
 	        name + ' \uFF1A' + (done ? value : msg)
 	    );
@@ -45574,6 +45577,85 @@
 	Answer.propTypes = {};
 
 	exports.default = Answer;
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _util = __webpack_require__(280);
+
+	var _util2 = _interopRequireDefault(_util);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Exper1ence on 2016/12/29.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	var Component = function (_Base) {
+	    _inherits(Component, _Base);
+
+	    function Component() {
+	        _classCallCheck(this, Component);
+
+	        return _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).apply(this, arguments));
+	    }
+
+	    _createClass(Component, [{
+	        key: 'render',
+	        value: function render() {
+	            return _util2.default.toFunction(this.run)(_util2.default.toPlainObject(this.props.args));
+	        }
+	    }]);
+
+	    return Component;
+	}(_react.Component);
+
+	exports.default = Component;
+
+/***/ },
+/* 280 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _lodash = __webpack_require__(249);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = {
+	    toPlainObject: function toPlainObject(obj) {
+	        return _lodash2.default.isPlainObject(obj) ? obj : {};
+	    },
+	    toFunction: function toFunction(func) {
+	        return _lodash2.default.isFunction(func) ? func : function () {};
+	    }
+	}; /**
+	    * Created by Exper1ence on 2016/12/29.
+	    */
 
 /***/ }
 /******/ ]);

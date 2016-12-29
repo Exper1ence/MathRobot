@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Add, Conditions, Curtain,} from './components';
+import {Add, Conditions, Curtain} from './components';
 import {Provider} from 'react-redux';
 import store from './components/store';
 import Questions from './components/Questions';
@@ -12,7 +12,7 @@ class MathRobot extends Component {
     render() {
         return (
             <Provider store={store}>
-                <div style={{width:'100%'}}>
+                <div style={{width: '100%'}}>
                     <Curtain/>
                     <div style={{
                         width: '1024px',

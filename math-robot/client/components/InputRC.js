@@ -33,7 +33,7 @@ const InputRC = ({style, conditions, name, dispatch}) => {
                     if (colDir) valid = row.valid && col.valid;
                     else valid = row.valid;
                     const dirty = row.value != undefined && row.value != '';
-                    dispatch(setValue(Object.assign({}, cdt, {valid, dirty,})));
+                    dispatch(setValue(Object.assign({}, cdt, {valid, dirty:false,})));
                 }}
                 onEnter={() => {
                     dispatch(focusInput({name, focus: 1}));
@@ -61,7 +61,7 @@ const InputRC = ({style, conditions, name, dispatch}) => {
                     if (rowDir) valid = col.valid && row.valid;
                     else valid = col.valid
                     const dirty = col.value != undefined && col.value != '';
-                    dispatch(setValue(Object.assign({}, cdt, {valid, dirty,})));
+                    dispatch(setValue(Object.assign({}, cdt, {valid, dirty:false,})));
                 }}
                 onEnter={() => dispatch(focusInput({name, focus: 2}))}
             />

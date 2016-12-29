@@ -12,6 +12,7 @@ const Answer = ({answer}) => {
         <Button style={{
             borderBottom: '1px solid #ccc',
             padding: '.5rem 1rem',
+            cursor:'normal',
         }} success={done} danger={!done}>
             {`${name} ：${done ? value : msg}`}
         </Button>
