@@ -3,26 +3,19 @@
  */
 
 const cbs = [];
+const answers = [];
+const util = require('util');
 let res = {
     send(msg){
-        console.log({
-            conditions: {
-                a: {
-                    type: 'inverse-number',
-                    arrangement: 'b',
-                },
-                b: {
-                    type: 'arrangement',
-                    value: '41532'
-                }
-            },
-            questions: ['a']
-        });
+        answers.push(msg[0]);
     }
 };
 
 module.exports = {
-    use(cb){
+    get(cb){
+        
+    },
+    post(cb){
         cbs.push(cb);
     },
     send(msg){
@@ -31,6 +24,15 @@ module.exports = {
         while (next) {
             next = false;
             cbs[i++](msg, res, () => next = true);
+        }
+    },
+    static(){
+        
+    },
+    display(arr){
+        console.log('答案');
+        for (let i = 0; i < answers.length; i++) {
+            console.log(`${answers[i].type} : ${util.inspect(answers[i].value)}`);
         }
     }
 };

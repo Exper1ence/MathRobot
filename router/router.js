@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 
 module.exports = {
     get(cb){
-        router.get('/', (req, res, next) => {
+        router.get('*', (req, res, next) => {
             cb(res, next);
         })
     },

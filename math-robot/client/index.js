@@ -1,30 +1,71 @@
 /**
- * Created by Exper1ence on 2016/12/26.
+ * Created by Exper1ence on 2016/12/30.
  */
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import {Add, Conditions, Curtain} from './components';
-import {Provider} from 'react-redux';
-import store from './components/store';
-import Questions from './components/Questions';
+import React from 'react';
+import {render} from 'react-dom';
+import {
+    Container, Component,
+    Wrapper, Padding, Text, Responsive,
+    Button, Navigator, View, Footer,
+    Link,
+} from './newCom';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 class MathRobot extends Component {
-    render() {
+    constructor(props) {
+        super(props);
+    }
+    
+    componentDidMount() {
+    }
+    
+    run({children,}) {
+        let routes = [
+            {name: 'Bootstrap', path: '/test',},
+            {name: 'Documentation', path: '/doc',},
+            {name: 'Examples', path: '/exa'}
+        ];
         return (
-            <Provider store={store}>
-                <div style={{width: '100%'}}>
-                    <Curtain/>
-                    <div style={{
-                        width: '1024px',
-                        margin: 'auto',
-                    }}>
-                        <Conditions></Conditions>
-                        <Questions></Questions>
-                    </div>
-                </div>
-            </Provider>
+            <Wrapper>
+                <Navigator routes={routes}/>
+                {children}
+            </Wrapper>
+        )
+    }
+}
+class Content extends Component {
+    run() {
+        return (
+            <Container style={{
+                backgroundColor: '#563D7C',
+                height: '400px',
+            }}>
+                asdasdas
+            </Container>
+        )
+    }
+}
+class Test extends Component {
+    run() {
+        return (
+            <div>test</div>
+        )
+    }
+}
+class Doc extends Component {
+    run() {
+        return (
+            <div>doc</div>
         )
     }
 }
 
-ReactDOM.render(<MathRobot/>, document.getElementById('math-robot'));
+render((
+    <Router history={browserHistory}>
+        <Route path="/" component={MathRobot}>
+            <IndexRoute component={Content}/>
+            <Route path="/test" component={Test}/>
+            <Route path="/doc" component={Doc}/>
+        </Route>
+    </Router>
+), document.getElementById('math-robot'));

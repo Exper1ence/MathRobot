@@ -32,6 +32,6 @@ module.exports = {
                 }
             }
         }
-        return {name, done: true, value,}
+        return {name, done: true, value,type:'逆序数'}
     }
 };

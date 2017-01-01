@@ -1,4 +1,7 @@
 /**
  * Created by Exper1ence on 2016/12/26.
  */
-module.exports = require('dynamic-object-generator')(__dirname);
+module.exports = {
+    InverseNumber: require('./InverseNumber'),
+    Matrix: require('./Matrix'),
+};
