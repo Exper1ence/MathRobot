@@ -8,6 +8,6 @@ module.exports = function mathRobot(router) {
     router.get((res, next) => {
         res.sendFile(Path.resolve(__dirname, './public/index.html'));
     });
-    router.post(require('./analyzer'));
-    router.post(require('./cant-resolve'));
+    // router.post(require('./analyzer'));
+    // router.post(require('./cant-resolve'));
 };
