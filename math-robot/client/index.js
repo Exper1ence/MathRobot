@@ -26,9 +26,9 @@ class MathRobot extends Component {
             {name: 'Examples', path: '/exa'}
         ];
         return (
-            <Wrapper>
+            <Wrapper style={{flexDirection: 'column'}}>
                 <Navigator routes={routes}/>
-                {children}
+                <Container style={{flexGrow: 1}}>{children}</Container>
             </Wrapper>
         )
     }
@@ -38,7 +38,7 @@ class Content extends Component {
         return (
             <Container style={{
                 backgroundColor: '#563D7C',
-                height: '400px',
+                flexGrow: 1,
             }}>
                 asdasdas
             </Container>

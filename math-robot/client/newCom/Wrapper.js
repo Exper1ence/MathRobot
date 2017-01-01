@@ -16,7 +16,6 @@ class Wrapper extends Component {
                 <View style={{
                     width: '100%',
                     color: '#373a3c',
-                    justifyContent: 'center',
                     ...style,
                 }}>
                     <MediaQuery/>

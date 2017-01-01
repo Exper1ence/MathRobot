@@ -53,13 +53,27 @@ class Container extends Component {
                     xl={all.xl}
                     render={({col, offset, push, pull, display,}) => {
                         return (
-                            <View style={{
-                                width: COL_PERCENTAGE * col + '%',
-                                marginRight: COL_PERCENTAGE * (pull - push) + '%',
-                                marginLeft: COL_PERCENTAGE * (offset + push - pull) + '%',
-                                display,
-                                ...style,
-                            }}>
+                            <View
+                                style={{
+                                    width: COL_PERCENTAGE * col + '%',
+                                    marginRight: COL_PERCENTAGE * (pull - push) + '%',
+                                    marginLeft: COL_PERCENTAGE * (offset + push - pull) + '%',
+                                    display,
+                                    ...style,
+                                }}
+                                onTouchCancel={() => {
+                                    alert('cancel');
+                                }}
+                                onTouchEnd={() => {
+                                    alert('end');
+                                }}
+                                onTouchMove={() => {
+                                    alert('move');
+                                }}
+                                onTouchStart={() => {
+                                    alert('start');
+                                }}
+                            >
                                 {children}
                             </View>
                         )

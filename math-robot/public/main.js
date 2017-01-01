@@ -89,9 +89,13 @@
 	            var routes = [{ name: 'Bootstrap', path: '/test' }, { name: 'Documentation', path: '/doc' }, { name: 'Examples', path: '/exa' }];
 	            return _react2.default.createElement(
 	                _newCom.Wrapper,
-	                null,
+	                { style: { flexDirection: 'column' } },
 	                _react2.default.createElement(_newCom.Navigator, { routes: routes }),
-	                children
+	                _react2.default.createElement(
+	                    _newCom.Container,
+	                    { style: { flexGrow: 1 } },
+	                    children
+	                )
 	            );
 	        }
 	    }]);
@@ -115,7 +119,7 @@
 	                _newCom.Container,
 	                { style: {
 	                        backgroundColor: '#563D7C',
-	                        height: '400px'
+	                        flexGrow: 1
 	                    } },
 	                'asdasdas'
 	            );
@@ -21643,11 +21647,11 @@
 
 	var _View2 = _interopRequireDefault(_View);
 
-	var _Footer = __webpack_require__(235);
+	var _Footer = __webpack_require__(289);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
-	var _Link = __webpack_require__(289);
+	var _Link = __webpack_require__(235);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -21830,12 +21834,26 @@
 
 	                                return _react2.default.createElement(
 	                                    _View2.default,
-	                                    { style: _extends({
+	                                    {
+	                                        style: _extends({
 	                                            width: COL_PERCENTAGE * col + '%',
 	                                            marginRight: COL_PERCENTAGE * (pull - push) + '%',
 	                                            marginLeft: COL_PERCENTAGE * (offset + push - pull) + '%',
 	                                            display: display
-	                                        }, style) },
+	                                        }, style),
+	                                        onTouchCancel: function onTouchCancel() {
+	                                            alert('cancel');
+	                                        },
+	                                        onTouchEnd: function onTouchEnd() {
+	                                            alert('end');
+	                                        },
+	                                        onTouchMove: function onTouchMove() {
+	                                            alert('move');
+	                                        },
+	                                        onTouchStart: function onTouchStart() {
+	                                            alert('start');
+	                                        }
+	                                    },
 	                                    children
 	                                );
 	                            }
@@ -41568,8 +41586,7 @@
 	                    _View2.default,
 	                    { style: _extends({
 	                            width: '100%',
-	                            color: '#373a3c',
-	                            justifyContent: 'center'
+	                            color: '#373a3c'
 	                        }, style) },
 	                    _react2.default.createElement(_MediaQuery2.default, null),
 	                    children
@@ -42142,7 +42159,7 @@
 
 	var _View2 = _interopRequireDefault(_View);
 
-	var _Link = __webpack_require__(289);
+	var _Link = __webpack_require__(235);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -42240,39 +42257,62 @@
 
 	var _types = __webpack_require__(233);
 
+	var _reactRouter = __webpack_require__(236);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Exper1ence on 2017/1/1.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-	var Footer = function (_Component) {
-	    _inherits(Footer, _Component);
 
-	    function Footer(props) {
-	        _classCallCheck(this, Footer);
+	var Link = function (_Component) {
+	    _inherits(Link, _Component);
 
-	        return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+	    function Link() {
+	        _classCallCheck(this, Link);
+
+	        return _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).apply(this, arguments));
 	    }
 
-	    _createClass(Footer, [{
-	        key: 'run',
-	        value: function run(_ref) {
-	            var children = _ref.children,
-	                style = _ref.style;
+	    _createClass(Link, [{
+	        key: 'init',
+	        value: function init(_ref) {
+	            var active = _ref.active;
 
-	            return _react2.default.createElement(_Container2.default, { style: _extends({}, style) });
+	            return { active: active };
+	        }
+	    }, {
+	        key: 'run',
+	        value: function run(_ref2, _ref3) {
+	            var children = _ref2.children,
+	                style = _ref2.style,
+	                color = _ref2.color;
+	            var active = _ref3.active;
+
+	            return _react2.default.createElement(_reactRouter.Link, _extends({}, this.props, { style: _extends({}, style, {
+	                    textDecoration: 'none',
+	                    color: color,
+	                    filter: 'brightness(' + (active ? 200 : 100) + '%)'
+	                }) }));
 	        }
 	    }]);
 
-	    return Footer;
+	    return Link;
 	}(_Component3.default);
 
-	Footer.propTypes = {};
-	Footer.defaultProps = {};
-	exports.default = Footer;
+	Link.propTypes = {
+	    color: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]),
+	    active: _react.PropTypes.bool
+	};
+	Link.defaultProps = {
+	    color: '#373a3c'
+	};
+	exports.default = Link;
 
 /***/ },
 /* 236 */
@@ -47099,62 +47139,39 @@
 
 	var _types = __webpack_require__(233);
 
-	var _reactRouter = __webpack_require__(236);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Exper1ence on 2017/1/1.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var Footer = function (_Component) {
+	    _inherits(Footer, _Component);
 
-	var Link = function (_Component) {
-	    _inherits(Link, _Component);
+	    function Footer(props) {
+	        _classCallCheck(this, Footer);
 
-	    function Link() {
-	        _classCallCheck(this, Link);
-
-	        return _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
 	    }
 
-	    _createClass(Link, [{
-	        key: 'init',
-	        value: function init(_ref) {
-	            var active = _ref.active;
-
-	            return { active: active };
-	        }
-	    }, {
+	    _createClass(Footer, [{
 	        key: 'run',
-	        value: function run(_ref2, _ref3) {
-	            var children = _ref2.children,
-	                style = _ref2.style,
-	                color = _ref2.color;
-	            var active = _ref3.active;
+	        value: function run(_ref) {
+	            var children = _ref.children,
+	                style = _ref.style;
 
-	            return _react2.default.createElement(_reactRouter.Link, _extends({}, this.props, { style: _extends({}, style, {
-	                    textDecoration: 'none',
-	                    color: color,
-	                    filter: 'brightness(' + (active ? 200 : 100) + '%)'
-	                }) }));
+	            return _react2.default.createElement(_Container2.default, { style: _extends({}, style) });
 	        }
 	    }]);
 
-	    return Link;
+	    return Footer;
 	}(_Component3.default);
 
-	Link.propTypes = {
-	    color: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.object]),
-	    active: _react.PropTypes.bool
-	};
-	Link.defaultProps = {
-	    color: '#373a3c'
-	};
-	exports.default = Link;
+	Footer.propTypes = {};
+	Footer.defaultProps = {};
+	exports.default = Footer;
 
 /***/ }
 /******/ ]);

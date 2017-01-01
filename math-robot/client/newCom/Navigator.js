@@ -21,7 +21,7 @@ class Navigator extends Component {
                     margin: '1rem',
                     marginLeft: '0',
                 }}>{route.name}</Link>
-            )
+            );
         });
         return (
             <Container style={{
